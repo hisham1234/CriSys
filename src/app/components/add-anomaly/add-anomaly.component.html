@@ -1,0 +1,24 @@
+<div fxLayout="row wrap" fxLayout.lt-sm="column" fxFlex="100" fxLayoutAlign="space-around stretch">
+     <div fxFlex.gt-xs="100">
+      <form [formGroup]="anomalyForm" class="example-form" >
+                <div class="mb20" style="text-align: center"> <h3> {{title}} </h3></div>
+
+              <mat-form-field class="example-full-width">
+                  <input matInput placeholder="名前" formControlName="title">
+              </mat-form-field>
+              <mat-form-field class="example-full-width">
+                  <input matInput placeholder="異常タイプ" formControlName="anomalyType">
+              </mat-form-field>
+          <div>
+              <div style="text-align: center; color: darkred" *ngIf="hasFormErrors" class="example-full-width">
+                  <h5>{{errorMessage}}</h5>
+              </div>
+              <button  class="example-full-width"  mat-raised-button style="background-color: #62B648; color:white" (click)="saveAnomaly()">
+                  <mat-icon>save</mat-icon>
+                  保存する
+              </button>
+          </div>
+
+      </form>
+         </div>
+</div>

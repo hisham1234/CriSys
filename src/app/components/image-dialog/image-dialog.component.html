@@ -1,0 +1,22 @@
+<div>
+    <div>
+    <span style="float: right; cursor:pointer"> <mat-icon (click)="closeDialog()" > close </mat-icon> </span>
+    <div class="row" style="z-index:1000">
+    <mat-progress-bar *ngIf="loading" mode="buffer" class="mb20"></mat-progress-bar>
+        <div class="col-md-12 " style="text-align:center" >
+            <div >
+            <span>画像を選択</span>
+        </div>
+        </div>
+    </div>
+    </div>
+
+    <div class="row">
+        <div class="row" fxFlex="auto" >
+            <div class="col-md-3" *ngFor="let image of images">
+                <img [ngClass]="selectedImageCSS(image) == true? 'selectedImage' : ''" (click)="selectImage(image)" class="img-thumbnail  mt10 mb10 ml5 mr5" src="{{image.url}}" alt="">
+            </div>
+        </div>
+</div>
+</div>
+
