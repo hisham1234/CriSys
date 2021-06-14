@@ -84,33 +84,19 @@
             <ng-container matColumnDef="edit">
                 <th mat-header-cell *matHeaderCellDef> 編集 </th>
                 <td mat-cell *matCellDef="let row" >
-<!--                    <button (click)="editEvent(row)" mat-mini-fab color="primary">-->
                         <mat-icon style="cursor:pointer" (click)="editReport(row.id)" color="primary">edit</mat-icon>
-<!--                    </button>-->
                 </td>
             </ng-container>
-<!--            <ng-container matColumnDef="listReviewers">-->
-<!--                <th mat-header-cell *matHeaderCellDef> Reviewers </th>-->
-<!--                <td mat-cell *matCellDef="let row" >-->
-<!--                    <button (click)="listReviewers(row)" mat-mini-fab>-->
-<!--                        <mat-icon>list</mat-icon>-->
-<!--                    </button>-->
-<!--                </td>-->
-<!--            </ng-container>-->
             <ng-container matColumnDef="delete">
                 <th mat-header-cell *matHeaderCellDef> 削除 </th>
                 <td mat-cell *matCellDef="let row" >
-<!--                    <button mat-mini-fab color="warn" (click)="deleteEvent(row)">-->
                         <mat-icon style="cursor:pointer" color="warn" (click)="deleteReport(row)">delete</mat-icon>
-<!--                    </button>-->
                 </td>
             </ng-container>
             <ng-container matColumnDef="gis">
                 <th mat-header-cell *matHeaderCellDef> GISに追加 </th>
                 <td mat-cell *matCellDef="let row" >
-<!--                    <button mat-mini-fab color="warn" (click)="deleteEvent(row)">-->
                         <mat-icon style="cursor:pointer" color="primary" (click)="addToGIS(row)">addchart</mat-icon>
-<!--                    </button>-->
                 </td>
             </ng-container>
 
