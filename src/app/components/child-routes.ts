@@ -1,6 +1,7 @@
 import { AnomalyComponent } from './anomaly/anomaly.component';
 import { ReportListComponent } from './report-list/report-list.component';
 import { AddReportComponent } from './add-report/add-report.component';
+import { MapComponent } from './map/map.component';
 
 export const childRoutes = [
   { path: '',
@@ -21,6 +22,15 @@ export const childRoutes = [
         showInSidebar: true
     },
       },
+      {
+        path: 'map',
+        component: MapComponent,
+        data: {
+            icon: 'dashboard',
+            text: '異常',
+            showInSidebar: true
+        },
+          },
   {
     path: 'anomaly/:aid/report',
     component: ReportListComponent,
