@@ -18,7 +18,7 @@ import { AddAnomalyComponent } from '../add-anomaly/add-anomaly.component'
 })
 export class AnomalyComponent implements OnInit {
 
-    displayedColumns = ['id', 'title', 'anomalyType', 'createdAt', 'map', 'reports', 'edit', 'delete'];
+    displayedColumns = ['id', 'title', 'anomalyType', 'createdAt', 'map', 'reports', 'view', 'edit', 'delete'];
     dataSource = []
     searchText = ''
     pageSize = 100;
@@ -113,7 +113,7 @@ export class AnomalyComponent implements OnInit {
     }
 
     editAnomaly(row) {
-        const dialogRef = this.dialog.open(AddAnomalyComponent, { data: row, width: '440px' });
+        const dialogRef = this.dialog.open(AddAnomalyComponent, { data: {anomaly:row, type: 'edit'},  width: '440px' });
         dialogRef.afterClosed().subscribe(res => {
             if (res) {
                 this.getAllAnomalys();
@@ -123,7 +123,19 @@ export class AnomalyComponent implements OnInit {
                 });
             }
         });
+    }
 
+    viewAnomaly(row) {
+        const dialogRef = this.dialog.open(AddAnomalyComponent, { data: {anomaly:row, type: 'view'}, width: '440px' });
+        dialogRef.afterClosed().subscribe(res => {
+            if (res) {
+                this.getAllAnomalys();
+                let message = "編集されたタイムライン";
+                this._snackBar.open(message, 'OK', {
+                    duration: 2000
+                });
+            }
+        });
     }
 
     addAnomaly() {

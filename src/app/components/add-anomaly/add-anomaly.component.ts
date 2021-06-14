@@ -17,6 +17,7 @@ export class AddAnomalyComponent implements OnInit {
   errorMessage: any='フォームに記入してください'; //Please fill up the form
   anomaly: AnomalyModel;
   hasFormErrors: boolean;
+  viewOrEdit = "";
 
   constructor(
       private formBuilder: FormBuilder,
@@ -26,9 +27,14 @@ export class AddAnomalyComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.anomaly = this.data
+    this.anomaly = this.data['anomaly'];
+    this.viewOrEdit = this.data['type'];
     if (this.anomaly){
-      this.title = '異常の編集' //Edit anomaly
+      if(this.viewOrEdit == 'edit'){
+        this.title = '異常の編集' //Edit anomaly
+      } else if(this.viewOrEdit == 'view') {
+        this.title = '異常を見る' //View anomaly
+      }
     } else {
       this.anomaly = new AnomalyModel()
     }
@@ -37,8 +43,8 @@ export class AddAnomalyComponent implements OnInit {
 
   createForm(){
     this.anomalyForm = this.formBuilder.group({
-      title: [this.anomaly.title, Validators.required],
-      anomalyType: [this.anomaly.anomalyType, Validators.required]
+      title: [{value: this.anomaly.title, disabled: this.viewOrEdit == 'view' ? true : false}, Validators.required],
+      anomalyType: [{value: this.anomaly.anomalyType, disabled: this.viewOrEdit == 'view' ? true : false}, Validators.required]
     });
   }
 
