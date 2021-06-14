@@ -45,7 +45,8 @@ import { ImageDialogComponent } from './image-dialog/image-dialog.component';
 import { PerfectScrollbarModule, PerfectScrollbarConfigInterface,
   PERFECT_SCROLLBAR_CONFIG } from 'ngx-perfect-scrollbar';
 import { ImageCarouselComponent } from './image-carousel/image-carousel.component';
-
+import { MapComponent } from './map/map.component';
+import { MarkerService } from '../services/marker.service';
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   wheelPropagation: true
@@ -97,6 +98,7 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
         ReportService,
         ImageService,
         RouterExtService,
+        MarkerService,
         {
           provide: PERFECT_SCROLLBAR_CONFIG,
           useValue: DEFAULT_PERFECT_SCROLLBAR_CONFIG
@@ -129,7 +131,8 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
           ReportListComponent,
           AddReportComponent,
           ImageDialogComponent,
-          ImageCarouselComponent
+          ImageCarouselComponent,
+          MapComponent
   ],
   entryComponents: [
     AddAnomalyComponent,
