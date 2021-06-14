@@ -28,7 +28,7 @@ export const childRoutes = [
         data: {
             icon: 'dashboard',
             text: '異常',
-            showInSidebar: true
+            showInSidebar: false
         },
           },
   {
