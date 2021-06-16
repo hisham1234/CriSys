@@ -48,6 +48,7 @@ import { ImageCarouselComponent } from './image-carousel/image-carousel.componen
 import { MapComponent } from './map/map.component';
 import { MarkerService } from '../services/marker.service';
 
+
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   wheelPropagation: true
 };
@@ -132,7 +133,8 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
           AddReportComponent,
           ImageDialogComponent,
           ImageCarouselComponent,
-          MapComponent
+          MapComponent,
+         
   ],
   entryComponents: [
     AddAnomalyComponent,

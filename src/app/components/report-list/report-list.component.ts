@@ -10,7 +10,22 @@ import Swal from 'sweetalert2';
 import { Routes, RouterModule, ActivatedRoute, Router } from '@angular/router';
 import { AddReportComponent } from '../add-report/add-report.component';
 import { ImageCarouselComponent } from '../image-carousel/image-carousel.component';
-
+import * as L from 'leaflet';
+import { MarkerService } from '../../services/marker.service';
+const iconRetinaUrl = 'assets/marker-icon-2x.png';
+const iconUrl = 'assets/marker-icon.png';
+const shadowUrl = 'assets/marker-shadow.png';
+const iconDefault = L.icon({
+  iconRetinaUrl,
+  iconUrl,
+  shadowUrl,
+  iconSize: [25, 41],
+  iconAnchor: [12, 41],
+  popupAnchor: [1, -34],
+  tooltipAnchor: [16, -28],
+  shadowSize: [41, 41]
+});
+L.Marker.prototype.options.icon = iconDefault;
 
 @Component({
   selector: 'app-report-list',
@@ -40,7 +55,8 @@ displayedColumns = [ 'id', 'image', 'title', 'road', 'createdAt','kp','latitude'
         public dialog: MatDialog,
         private _snackBar: MatSnackBar,
         private router: Router,
-        private route: ActivatedRoute
+        private route: ActivatedRoute,
+        private markerService: MarkerService
     ) {}
 
     ngOnInit() {
@@ -51,12 +67,33 @@ displayedColumns = [ 'id', 'image', 'title', 'road', 'createdAt','kp','latitude'
         });
 
     }
+    private map;
+  
+
+    private initMap(): void {
+      this.map = L.map('map', {
+        center: [ 35.7083, 139.6948 ],
+       //center: [ 39.8282, -98.5795 ],
+        zoom: 3
+      });
+  
+      const tiles = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        maxZoom: 18,
+        minZoom: 5,
+        attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+      });
+  
+      tiles.addTo(this.map);
+    }
 
     ngOnDestroy() {
     this.sub.unsubscribe();
   }
 
     ngAfterViewInit() {
+        debugger;
+        this.initMap();
+       
     }
 
     applyFilter(filterValue: string) {
@@ -72,14 +109,18 @@ displayedColumns = [ 'id', 'image', 'title', 'road', 'createdAt','kp','latitude'
     // }
     
     getAnomalyReport(){
+        debugger;
         this.reportService.getAnomalyReport(this.anomalyId).subscribe(res => {
             this.dataSource = res['response'];
             this.totalSize = res['totalCount'];
-            this.loading = false;            
+            this.loading = false;
+            this.markerService.makeCapitalMarkers(this.map,this.dataSource)
+                 
         })
     }
 
     getAllReports(){
+        
     this.loading = true;
         const queryParams = new QueryParamsModel(
             this.filterConfiguration(),

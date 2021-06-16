@@ -23,6 +23,7 @@ L.Marker.prototype.options.icon = iconDefault;
 export class MapComponent implements OnInit {
 
   private map;
+  
 
   private initMap(): void {
     this.map = L.map('map', {
@@ -47,7 +48,9 @@ export class MapComponent implements OnInit {
 
   ngAfterViewInit() {
     this.initMap();
-    this.markerService.makeCapitalMarkers(this.map);
+    debugger;
+    //this.markerService.makeCapitalMarkers(this.map)
+  
   }
 
 }

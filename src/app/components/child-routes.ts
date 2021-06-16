@@ -44,5 +44,6 @@ export const childRoutes = [
     data: {
         showInSidebar: false
     }
-  }
+  },
+
 ];
