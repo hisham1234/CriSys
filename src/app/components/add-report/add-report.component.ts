@@ -146,9 +146,7 @@ export class AddReportComponent implements OnInit {
 			editedReport.kp = formControls['kp'].value;
 			editedReport.road = formControls['road'].value;
 
-			console.log(this.selectedLibraryImages);
 			let selectedLibraryImageIds = this.selectedLibraryImages.map( image => image.id);
-			console.log(selectedLibraryImageIds);
 
 			let anomalyReportImageDatas = {
 				anomalyReportId : this.report.id,
@@ -159,36 +157,27 @@ export class AddReportComponent implements OnInit {
 			this.loading = true;
 			this.reportService.editReport(editedReport.id, editedReport).subscribe((res) => {
 				if (res) {
-					// this.imageService.createOrUpdateAnomalyReportImageWithImageIds(anomalyReportImageDatas)
-					// 	.subscribe((r) => {
-					// 		console.log(r);
+					this.imageService.createOrUpdateAnomalyReportImageWithImageIds(anomalyReportImageDatas)
+						.subscribe((r) => {
+							console.log(r);
 							
-					// 	});
-					if(res["statusCode"] ==200){
-
-
-						for (const droppedFile of this.files) {
-
-							// Is it a file?
-							if (droppedFile.fileEntry.isFile) {
+						});
+					// if(res["statusCode"] ==200){
+					// 	for (const droppedFile of this.files) {
+					// 		// Is it a file?
+					// 		if (droppedFile.fileEntry.isFile) {
 					
-							  const fileEntry = droppedFile.fileEntry as FileSystemFileEntry;
-							  fileEntry.file((file: File) => {
+					// 		  const fileEntry = droppedFile.fileEntry as FileSystemFileEntry;
+					// 		  fileEntry.file((file: File) => {
 									
-									let formData = new FormData();
-									formData.append(`imageFile`, file, file.name);
-									formData.append('fileName', file.name);
-
-									console.log(formData);
-									
-
-									this.imageService.createAnomalyReportImage(formData, res["response"]["id"]);
-
-								  });									
-								  }
-								} 
-					}
-					
+					// 				let formData = new FormData();
+					// 				formData.append(`imageFile`, file, file.name);
+					// 				formData.append('fileName', file.name);
+					// 				this.imageService.createAnomalyReportImage(formData, res["response"]["id"]);
+					// 			  });									
+					// 			  }
+					// 			} 
+					// }
 					this.loading = false;
 					let message = "新しいイベントが追加されました";
 					this._snackBar.open(message, 'OK', {
