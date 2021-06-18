@@ -12,6 +12,8 @@ import { AddReportComponent } from '../add-report/add-report.component';
 import { ImageCarouselComponent } from '../image-carousel/image-carousel.component';
 import * as L from 'leaflet';
 import { MarkerService } from '../../services/marker.service';
+import { $ } from 'protractor';
+
 const iconRetinaUrl = 'assets/marker-icon-2x.png';
 const iconUrl = 'assets/marker-icon.png';
 const shadowUrl = 'assets/marker-shadow.png';
@@ -60,10 +62,14 @@ displayedColumns = [ 'id', 'image', 'title', 'road', 'createdAt','kp','latitude'
     ) {}
 
     ngOnInit() {
+       // L.map('map').off();
+       debugger;
+        
         this.sub = this.route.params.subscribe(params => {
            this.anomalyId = +params['aid']; // (+) converts string 'id' to a number
            this.getAnomalyReport();
             //   this.getAllReports();
+            //$('.collapsible').collapsible();
         });
 
     }
@@ -71,7 +77,10 @@ displayedColumns = [ 'id', 'image', 'title', 'road', 'createdAt','kp','latitude'
   
 
     private initMap(): void {
-      this.map = L.map('map', {
+        debugger;
+       // L.map('map').innerhtml="<div class='map-frame'><div id='map'></div></div>";
+      
+      this.map = L.map('maps', {
         center: [ 35.7083, 139.6948 ],
        //center: [ 39.8282, -98.5795 ],
         zoom: 3
@@ -79,7 +88,7 @@ displayedColumns = [ 'id', 'image', 'title', 'road', 'createdAt','kp','latitude'
   
       const tiles = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         maxZoom: 18,
-        minZoom: 5,
+        minZoom: 7,
         attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
       });
   
@@ -91,7 +100,8 @@ displayedColumns = [ 'id', 'image', 'title', 'road', 'createdAt','kp','latitude'
   }
 
     ngAfterViewInit() {
-        debugger;
+       // debugger;
+        
         this.initMap();
        
     }

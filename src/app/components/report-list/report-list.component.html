@@ -1,15 +1,28 @@
+<mat-accordion class="example-headers-align" multi>
+    <mat-expansion-panel >
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+              <i class="material-icons ">place</i> 
+          </mat-panel-title>
+          <mat-panel-description>
+            Map Of Reports
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+        <div class="col-md-12 ">
+                  
+          <div class="map-frame">
+              <div id="maps"></div>
+            </div>
+      
+      
+      </div>
+      </mat-expansion-panel>
+</mat-accordion>
 
-  <div class="row">    
-        <div class="map-container">
-            <div class="map-frame">
-             <div id="map"></div>
-           </div>
-           </div>
-         
-    </div>    
-     <div class="row">           
-      <div class="col-md-12">
-        <section id="sample-table" class="mat-elevation-z8 bg-white">
+
+
+
+<section id="sample-table" class="mat-elevation-z8 bg-white">
             <mat-progress-bar *ngIf="loading" mode="buffer"></mat-progress-bar>
             <div class="pt-2"></div>
             <div class="row">
@@ -127,9 +140,7 @@
                 </div>
             </div>
 </section>
-      </div>
-        
-    </div>
+  
     
 
        

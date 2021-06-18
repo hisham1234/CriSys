@@ -22,19 +22,21 @@ L.Marker.prototype.options.icon = iconDefault;
 })
 export class MapComponent implements OnInit {
 
-  private map;
+  private map=null;
   
 
   private initMap(): void {
+    this.map=null;
     this.map = L.map('map', {
       center: [ 35.7083, 139.6948 ],
      //center: [ 39.8282, -98.5795 ],
       zoom: 3
     });
+    
 
     const tiles = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
       maxZoom: 18,
-      minZoom: 5,
+      minZoom: 7,
       attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
     });
 
@@ -44,12 +46,14 @@ export class MapComponent implements OnInit {
   constructor(private markerService: MarkerService) { }
 
   ngOnInit(): void {
+   
   }
 
   ngAfterViewInit() {
+   // L.map();
     this.initMap();
     debugger;
-    //this.markerService.makeCapitalMarkers(this.map)
+    this.markerService.makeAnomalyMarkers(this.map)
   
   }
 

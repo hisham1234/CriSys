@@ -48,6 +48,7 @@ import { ImageCarouselComponent } from './image-carousel/image-carousel.componen
 import { MapComponent } from './map/map.component';
 import { MarkerService } from '../services/marker.service';
 
+import {MatExpansionModule} from '@angular/material/expansion';
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   wheelPropagation: true
@@ -74,7 +75,8 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
         MatProgressBarModule,
         PerfectScrollbarModule,
         CarouselModule,
-        NgxFileDropModule
+        NgxFileDropModule,
+        MatExpansionModule
   ],
    providers:[
         MatSnackBar,
@@ -100,6 +102,7 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
         ImageService,
         RouterExtService,
         MarkerService,
+        MatExpansionModule,
         {
           provide: PERFECT_SCROLLBAR_CONFIG,
           useValue: DEFAULT_PERFECT_SCROLLBAR_CONFIG
@@ -120,7 +123,8 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
         MatTableModule,
         MatDialogModule,
         FormsModule,
-        ReactiveFormsModule
+        ReactiveFormsModule,
+        MatExpansionModule
 
     ],
   declarations: [
