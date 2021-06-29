@@ -14,7 +14,6 @@
     "serve:ssr": "node dist/server/main.js",
     "build:ssr": "ng build --prod && ng run angular.io-example:server:production",
     "prerender": "ng run angular.io-example:prerender"
-   
   },
   "private": true,
   "dependencies": {
