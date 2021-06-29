@@ -1,0 +1,49 @@
+.row {
+  display: flex;
+  margin: 5px 5px 5px 5px;
+  padding: 5px 5px 5px 5px;
+}
+
+.column {
+  flex: 50%;
+}
+
+.flex-box-2 {
+  display:flex;
+  justify-content: flex-end;
+  outline: 2px deeppink dashed;
+}
+
+
+
+// tr.mat-header-row, tr.mat-row {
+//         height: 45px !important;
+// }
+//
+// tr.mat-row {
+//         height: 40px !important;
+// }}
+
+@media only screen and (max-width: 768px) {
+  /* For mobile phones: */
+  .btn-mobile {
+    width: 100%;
+  }
+  mat-form-field {
+  width: 100%;
+}
+}
+
+
+.ngx-file-drop__drop-zone {
+      text-align: center;
+      margin: 20px;
+      color: #fff;
+      border: 2px dashed rgb(235, 79, 79);
+      border-radius: 1px;
+    }
+
+
+
+
+

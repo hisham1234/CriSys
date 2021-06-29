@@ -1,0 +1,25 @@
+div.sticky {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  padding: 5px;
+}
+
+.img-thumbnail{
+    height: 150px;
+    width: 220px
+}
+
+img{
+    transition: 0.1s all ease-in-out;
+}
+
+img:hover {
+        transform: scale(1.1);
+        cursor: pointer;
+        border: 2px green;
+    }
+
+.selectedImage{
+    background-color: green;
+}

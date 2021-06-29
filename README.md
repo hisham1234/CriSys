@@ -1,20 +1,26 @@
-# Introduction 
-TODO: Give a short introduction of your project. Let this section explain the objectives or the motivation behind this project. 
+# CriSys-UI
+## CriSys UI Development Environment Setup
 
-# Getting Started
-TODO: Guide users through getting your code up and running on their own system. In this section you can talk about:
-1.	Installation process
-2.	Software dependencies
-3.	Latest releases
-4.	API references
 
-# Build and Test
-TODO: Describe and show how to build your code and run the tests. 
 
-# Contribute
-TODO: Explain how other users and developers can contribute to make your code better. 
+Angular is a front-end framework which is used to create web applications. It uses typescript by default for creating logics and methods for a class but the browser doesn’t know typescript. Here webpack comes in picture, webpack is used to compile these typescript files to JavaScript. In addition, there are so many configuration files you will need to run an angular project on your computer.
+Angular CLI is a tool that does all these things for you in some simple commands. Angular CLI uses webpack behind to do all this process.
 
-If you want to learn more about creating good readme files then refer the following [guidelines](https://docs.microsoft.com/en-us/azure/devops/repos/git/create-a-readme?view=azure-devops). You can also seek inspiration from the below readme files:
-- [ASP.NET Core](https://github.com/aspnet/Home)
-- [Visual Studio Code](https://github.com/Microsoft/vscode)
-- [Chakra Core](https://github.com/Microsoft/ChakraCore)
+###### Note: 
+Please make sure you have installed node and npm in your system. You can check your node version and npm version by using the following command
+
+
+```sh
+$ node --version
+$ npm --version
+```
+
+#### Follow the follwing steps to run the project
+
+```sh
+$ cd ~(project_folder)
+$ npm install
+$ ng serve
+```
+
+After successful installation of npm packages the project should start running by ng serve command on ```PORT 4200```. Go to the browser and hit ```www.localhost:4200```. 

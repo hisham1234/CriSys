@@ -1,0 +1,35 @@
+/*
+.row {
+  display: flex;
+  margin: 5px 5px 5px 5px;
+  padding: 5px 5px 5px 5px;
+}
+
+.column {
+  flex: 50%;
+}
+
+.flex-box-2 {
+  display:flex;
+  justify-content: flex-end;
+  outline: 2px deeppink dashed;
+}
+*/
+
+.example-loading-shade {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 56px;
+  right: 0;
+  background: rgba(0, 0, 0, 0.15);
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+
+
+

@@ -1,0 +1,14 @@
+<mat-toolbar  style="background-color:#1E6316; color: white" class="fix-nav">
+  <button type="button" mat-icon-button class="visible-md" (click)="toggleSidebar()">
+    <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+  </button>
+  <div class="nav-brand" (click)="goToHomePage()" style="cursor: pointer">
+    <span>
+      <img height="32" width="50" src="assets/images/enexco.png">
+      CriSys WEB</span>
+  </div>
+  <span class="nav-spacer"></span>
+  <button mat-icon-button (click)="onLoggedout()">
+<!--    <mat-icon>exit_to_app</mat-icon>-->
+  </button>
+</mat-toolbar>

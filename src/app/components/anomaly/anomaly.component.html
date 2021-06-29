@@ -1,0 +1,147 @@
+
+<mat-accordion class="example-headers-align" multi>
+    <mat-expansion-panel >
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+              <i class="material-icons ">place</i> 
+          </mat-panel-title>
+          <mat-panel-description>
+            Map Of Anomaly
+          </mat-panel-description>
+        </mat-expansion-panel-header> 
+      <div class="col-md-12 ">
+                  
+          
+              <app-map></app-map> 
+      
+      
+      </div>  
+    </mat-expansion-panel>
+</mat-accordion>
+
+
+
+
+
+<section id="sample-table" class="mat-elevation-z8 bg-white">
+    <mat-progress-bar *ngIf="loading" mode="buffer"></mat-progress-bar>
+    <div class="pt-2"></div>
+    <div class="row">
+        <div class="col-md-12">
+            <span><a href="javascript:void(0)">異常</a> > </span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <h5> {{title}} </h5>
+            <hr>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6 col-sm col-xs">
+            <mat-form-field>
+                <input matInput (keyup)="applyFilter($event.target.value)" placeholder="フィルタ">
+            </mat-form-field>
+        </div>
+        <div class="col-md-6 col-sm col-xs">
+            <button (click)="addAnomaly()"  class="btn-mobile"  style="float: right; background-color: #62B648; color:white" mat-raised-button color="accent" >
+                <mat-icon >add</mat-icon>
+                異常を追加
+            </button>
+        </div>
+    </div>
+<!--    <div class="example-loading-shade"-->
+<!--       *ngIf="loading ">-->
+<!--    <mat-progress-spinner *ngIf="loading"></mat-progress-spinner>-->
+<!--  </div>-->
+    <div class="row">
+        <div class="col-md-12">
+            <table mat-table [dataSource]="dataSource" matSort class="w-100">
+                <!--                <ng-container matColumnDef="select">-->
+                <!--                  <th mat-header-cell *matHeaderCellDef>-->
+                <!--                    <mat-checkbox (change)="$event ? masterToggle() : null" [checked]="selection.hasValue() && isAllSelected()" [indeterminate]="selection.hasValue() && !isAllSelected()">-->
+                <!--                    </mat-checkbox>-->
+                <!--                  </th>-->
+                <!--                  <td mat-cell *matCellDef="let row">-->
+                <!--                    <mat-checkbox (click)="$event.stopPropagation()" (change)="$event ? selection.toggle(row) : null" [checked]="selection.isSelected(row)">-->
+                <!--                    </mat-checkbox>-->
+                <!--                  </td>-->
+                <!--                </ng-container>-->
+                <ng-container matColumnDef="id">
+                    <th mat-header-cell *matHeaderCellDef> ID </th>
+                    <td mat-cell *matCellDef="let row"> {{row.id}} </td>
+                </ng-container>
+                <ng-container matColumnDef="anomalyType">
+                    <th mat-header-cell *matHeaderCellDef> Anomalyタイプ </th>
+                    <td mat-cell *matCellDef="let row"> {{row.anomalyType}} </td>
+                </ng-container>
+                <ng-container matColumnDef="title">
+                    <th mat-header-cell *matHeaderCellDef> 名前 </th>
+                    <td mat-cell *matCellDef="let row"> {{row.title}} </td>
+                </ng-container>
+                <ng-container matColumnDef="map">
+                    <th mat-header-cell *matHeaderCellDef> 作成時間 </th>
+                    <td mat-cell *matCellDef="let row"> 
+                        <mat-icon style="cursor:pointer" (click)="showMap(row)" color="primary">location_on</mat-icon>    
+                    </td>
+                </ng-container>
+                <ng-container matColumnDef="createdAt">
+                    <th mat-header-cell *matHeaderCellDef> 作成時間 </th>
+                    <td mat-cell *matCellDef="let row"> {{row.createdAt}} </td>
+                </ng-container>
+                <ng-container matColumnDef="reports">
+                    <th mat-header-cell *matHeaderCellDef> レポート </th>
+                    <td mat-cell *matCellDef="let row" >
+                        <!--                    <button (click)="editTimeline(row)" mat-mini-fab color="primary">-->
+                        <mat-icon style="cursor:pointer"  (click)="goToReport(row)"  color="accent">article</mat-icon>
+                        <!--                    </button>-->
+                    </td>
+                </ng-container>
+                <ng-container matColumnDef="view">
+                    <th mat-header-cell *matHeaderCellDef> 見る </th>
+                    <td mat-cell *matCellDef="let row" >
+                        <!--                    <button (click)="editTimeline(row)" mat-mini-fab color="primary">-->
+                        <mat-icon style="cursor:pointer" (click)="viewAnomaly(row)" color="primary">visibility</mat-icon>
+                        <!--                    </button>-->
+                    </td>
+                </ng-container>
+                <ng-container matColumnDef="edit">
+                    <th mat-header-cell *matHeaderCellDef> 編集 </th>
+                    <td mat-cell *matCellDef="let row" >
+                        <!--                    <button (click)="editTimeline(row)" mat-mini-fab color="primary">-->
+                        <mat-icon style="cursor:pointer" (click)="editAnomaly(row)" color="primary">edit</mat-icon>
+                        <!--                    </button>-->
+                    </td>
+                </ng-container>
+                <!--            <ng-container matColumnDef="listReviewers">-->
+                <!--                <th mat-header-cell *matHeaderCellDef> Reviewers </th>-->
+                <!--                <td mat-cell *matCellDef="let row" >-->
+                <!--                    <button (click)="listReviewers(row)" mat-mini-fab>-->
+                <!--                        <mat-icon>list</mat-icon>-->
+                <!--                    </button>-->
+                <!--                </td>-->
+                <!--            </ng-container>-->
+                <ng-container matColumnDef="delete">
+                    <th mat-header-cell *matHeaderCellDef> 削除 </th>
+                    <td mat-cell *matCellDef="let row" >
+                        <!--                    <button mat-mini-fab color="warn" (click)="deleteTimeline(row)">-->
+                        <mat-icon style="cursor:pointer" color="warn" (click)="deleteAnomaly(row)">delete</mat-icon>
+                        <!--                    </button>-->
+                    </td>
+                </ng-container>
+                <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;" ></tr>
+            </table>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md 12">
+            <div class="pb20 pt20 text-center" *ngIf="dataSource.length <= 0">データなし</div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md 12">
+            <mat-paginator #paginator *ngIf="dataSource.length > 0" [pageSize]="pageSize" [showFirstLastButtons]="false" [length]="totalSize" [pageIndex]="currentPage" (page)="handlePage($event)"></mat-paginator>
+        </div>
+    </div>
+</section>

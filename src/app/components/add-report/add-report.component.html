@@ -1,0 +1,203 @@
+<section id="sample-table" class="mat-elevation-z8 bg-white">
+    <mat-progress-bar *ngIf="loading" mode="buffer"></mat-progress-bar>
+    <div class="pt-2"></div>
+    <div class="row">
+        <div class="col-md-12">
+            <span><a [routerLink]="['/anomaly']">異常リスト</a> > <a [routerLink]="[goToPrevRoute()]">レポート一覧</a></span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <h5> {{title}} </h5>
+            <hr>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <form [formGroup]="reportForm" class="example-form" >
+                <mat-form-field class="example-full-width">
+                    <input matInput placeholder="名前" formControlName="title">
+                </mat-form-field>
+                <mat-form-field class="example-full-width">
+                    <input matInput placeholder="緯度" formControlName="latitude">
+                </mat-form-field>
+                <mat-form-field class="example-full-width">
+                    <input matInput placeholder="経度" formControlName="longitude">
+                </mat-form-field>
+                <mat-form-field class="example-full-width">
+                    <input matInput  placeholder="KP" formControlName="kp">
+                </mat-form-field>
+                <mat-form-field class="example-full-width">
+                    <input matInput  placeholder="道路" formControlName="road">
+                </mat-form-field>
+
+                <div class="row-without-m-p mt10 mb10">
+                    <div class="column" >
+                        <button  mat-stroked-button  (click)="openImageDialog()">
+                            <mat-icon>cloud_circle</mat-icon>
+                            選択（Azure）
+                        </button>
+                    </div>
+                    <div class="column"> <span style="font-size: 13px"> AzureStorageからイメージを選択します </span></div>
+                </div>
+                <div class="row mt20 mb10" style="text-align:center; font-size: 13px; margin-top:20px">
+                    <div class="col" >
+                        <p *ngFor="let selectedLibraryImage of selectedLibraryImages">
+                            <mat-icon class="preview-icon" (click)="showImage(selectedLibraryImage)">preview</mat-icon>
+                            {{selectedLibraryImage?.name}}
+                            <mat-icon class="delete-icon" (click)="deleteSelectedImage(selectedLibraryImage)">delete</mat-icon>
+                        </p>
+                    </div>
+                </div>
+               
+               <!-- <div class="row">
+                   <div class="col-md-12" >
+                       <ngx-file-drop  dropZoneLabel="Drop files here" (onFileDrop)="dropped($event)"
+                       (onFileOver)="fileOver($event)" (onFileLeave)="fileLeave($event)">
+                           <ng-template  dropZoneClassName="ngx-file-drop-zone-custom-css" ngx-file-drop-content-tmp let-openFileSelector="openFileSelector">
+                             <div class="row" style="display:grid;">
+                               <div class="col m-2">
+                                PCからの画像を選択してください
+                               </div>
+                               <div class="col m-2">
+                                <button  mat-stroked-button  (click)="openFileSelector()">
+                                   <mat-icon>publish</mat-icon>
+                                   選択
+                                 </button>
+                               </div>
+
+                             </div>
+                           </ng-template>
+                       </ngx-file-drop>
+                     <div class="row" style="text-align:center; font-size: 13px; margin-top:20px">
+                           <div class="col" >
+                                 <div *ngIf="files?.length > 0">
+                                <div *ngFor="let item of files; let i=index">
+                                  <mat-icon class="preview-icon" (click)="showImageUploadedFromPC(item)">preview</mat-icon>
+                                   {{item.fileEntry.name}}
+                                   <mat-icon class="delete-icon" (click)="removeFile(item.fileEntry.name)">delete</mat-icon>
+                                </div>
+                             </div>
+                             </div>
+                         </div>
+                   </div>
+               </div> -->
+            </form>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md 12">
+            <div style="text-align: center; color: darkred" *ngIf="hasFormErrors" class="example-full-width">
+                <h5>{{errorMessage}}</h5>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md 12  mb-3">
+            <button  mat-raised-button style="background-color: #62B648; color:white; margin-top:30px" (click)="saveReport()">
+                <mat-icon>save</mat-icon>
+                保存する
+            </button>
+        </div>
+    </div>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--<section  class="mat-elevation-z8 bg-white">-->
+<!--      <mat-progress-bar *ngIf="loading" mode="buffer" class="mb20"></mat-progress-bar>-->
+
+<!--    <div class="ml20 mr20">-->
+<!--    <div class="row">-->
+<!--            <div class="column" style="padding-top: 10px">-->
+<!--                <span><a [routerLink]="['/timeline']">タイムラインリスト</a> > <a [routerLink]="[goToPrevRoute()]">イベントリスト</a></span>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--      <div fxLayout="row wrap" fxLayout.lt-sm="column" fxFlex="100" fxLayoutAlign="space-around stretch">-->
+
+<!--            <div class="mt20 ml5 mb20" > <h5> {{title}} </h5>-->
+<!--                <hr>-->
+<!--                </div>-->
+<!--        </div>-->
+<!--<div class="ml5 mr20 pt20 pb20">-->
+<!--&lt;!&ndash;    <div fxLayout="row wrap" fxLayout.lt-sm="column" fxFlex="100" fxLayoutAlign="space-around stretch">&ndash;&gt;-->
+
+<!--&lt;!&ndash;    <div class="mb20" > <h5> {{title}} </h5></div>&ndash;&gt;-->
+<!--&lt;!&ndash;                <hr>&ndash;&gt;-->
+<!--&lt;!&ndash;    </div>&ndash;&gt;-->
+<!--<div fxLayout="row wrap" fxLayout.lt-sm="column" fxFlex="100" fxLayoutAlign="space-around stretch">-->
+<!--     <div fxFlex.gt-xs="100">-->
+<!--      <form [formGroup]="eventForm" class="example-form" >-->
+
+<!--              <mat-form-field class="example-full-width">-->
+<!--                  <input matInput placeholder="緯度" formControlName="ido">-->
+<!--              </mat-form-field>-->
+<!--              <mat-form-field class="example-full-width">-->
+<!--                  <input matInput placeholder="経度" formControlName="keido">-->
+<!--              </mat-form-field>-->
+<!--              <mat-form-field class="example-full-width">-->
+<!--                  <input matInput  placeholder="KP" formControlName="kp">-->
+<!--              </mat-form-field>-->
+<!--              <mat-form-field class="example-full-width">-->
+<!--                  <input matInput  placeholder="道路" formControlName="road">-->
+<!--              </mat-form-field>-->
+<!--          <div class="row-without-m-p mt10 mb10">-->
+<!--              <div class="column" >-->
+<!--                  <button  mat-stroked-button  (click)="openImageDialog()">-->
+<!--                  <mat-icon>cloud_circle</mat-icon>-->
+<!--                  選択（Azure）-->
+<!--              </button>-->
+<!--              </div>-->
+<!--              <div class="column"> <span style="font-size: 13px"> AzureStorageからイメージを選択します </span></div>-->
+
+<!--          </div>-->
+<!--          <div class="row mt20 mb10" style="text-align:center; font-size: 13px; margin-top:20px">-->
+<!--              <div class="column" >-->
+<!--                  <p *ngFor="let selectedLibraryImage of selectedLibraryImages">-->
+<!--                      <mat-icon class="preview-icon" (click)="showImage(selectedLibraryImage)">preview</mat-icon>-->
+<!--                      {{selectedLibraryImage?.name}}-->
+<!--                      <mat-icon class="delete-icon" (click)="deleteSelectedImage(selectedLibraryImage)">delete</mat-icon>-->
+<!--                  </p>-->
+<!--              </div>-->
+
+<!--          </div>-->
+<!--          <div class="mt20">-->
+<!--              <div style="text-align: center; color: darkred" *ngIf="hasFormErrors" class="example-full-width">-->
+<!--                  <h5>{{errorMessage}}</h5>-->
+<!--              </div>-->
+<!--              <button  mat-raised-button style="background-color: #62B648; color:white; margin-top:30px" (click)="saveEvent()">-->
+<!--                  <mat-icon>save</mat-icon>-->
+<!--                  保存する-->
+<!--              </button>-->
+<!--          </div>-->
+
+<!--      </form>-->
+<!--         </div>-->
+<!--</div>-->
+<!--</div>-->
+<!--                </div>-->
+
+<!--</section>-->

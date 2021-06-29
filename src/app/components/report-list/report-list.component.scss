@@ -1,0 +1,35 @@
+.row {
+  display: flex;
+  margin: 5px 5px 5px 5px;
+  padding: 5px 5px 5px 5px;
+}
+
+.column {
+  flex: 50%;
+}
+
+.flex-box-2 {
+  display:flex;
+  justify-content: flex-end;
+  outline: 2px deeppink dashed;
+}
+
+.map-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: 30px;
+}
+
+.map-frame {
+  border: 2px solid black;
+  height: 400px;
+  width: 1185px;
+}
+
+#maps {
+  height: 100%;
+}
+

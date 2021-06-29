@@ -1,0 +1,17 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import "./scss/_material";
+@import './scss/utils';
+@import './scss/responsive';
+@import './scss/variables';
+@import './scss/theme';
+@import './scss/custom';
+@import "~bootstrap/dist/css/bootstrap.css";
+@import '~perfect-scrollbar/css/perfect-scrollbar.css';
+@import '~ngx-owl-carousel-o/lib/styles/scss/owl.carousel';
+@import '~ngx-owl-carousel-o/lib/styles/scss/owl.theme.default';
+
+
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
