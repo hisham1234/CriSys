@@ -4,14 +4,14 @@ import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {HttpUtilsService} from "./http-utils.service";
 import { environment } from 'src/environments/environment';
 
-const REPORT_URL = `${environment.pathToAPI}/api/v1/AnomalyReport`;
+const ANOMALY_URL = `${environment.pathToAPI}/api/v1/Anomaly`;
 
 @Injectable({
   providedIn: 'root'
 })
 export class MarkerService {
     
-   allReportData:any;
+   allAnomalyData:any;
    
    constructor( private http: HttpClient,
     private httpUtils: HttpUtilsService) { }
@@ -30,67 +30,23 @@ export class MarkerService {
  }
   makeAnomalyMarkers(map: L.map) {
     const headers = this.httpUtils.getHTTPHeaders();
-    this.http.get(REPORT_URL, { headers: headers }).subscribe(res => {
-        this.allReportData=  res['response'];
-       console.log(this.allReportData);
-       let idCount=0;
-       let anomalyId=0;
-       let counter=0;
-       let sumOfLat=0;
-       let sumOfLon=0;
-       debugger;
-       for(const c of this.allReportData)
+    this.http.get(ANOMALY_URL, { headers: headers }).subscribe(res => {
+        this.allAnomalyData=  res['response'];
+       console.log(this.allAnomalyData);
+       for(const c of this.allAnomalyData)
        {
-         counter++;
-        
-        
-
-         if(anomalyId==0)
+         if(c.latitude !=null && c.longitude!=null)
          {
-             idCount=idCount+1;
-             anomalyId=c.anomalyId;
-             sumOfLat=sumOfLat+parseFloat(c.latitude);
-             sumOfLon=sumOfLon+parseFloat(c.longitude);
+          let lat=c.latitude;
+          let lon=c.longitude;
+          const marker = L.marker([lat, lon]);
             
+             marker.addTo(map);
          }
-         else if(anomalyId==c.anomalyId)
-         {
-          idCount=idCount+1;
-          anomalyId=c.anomalyId;
-          
-          if(counter==this.allReportData.length)
-          {
-           
-            sumOfLat=sumOfLat+parseFloat(c.latitude);
-            sumOfLon=sumOfLon+parseFloat(c.longitude);
-            let lat=sumOfLat/idCount;
-            let lon=sumOfLon/idCount;
-            const marker = L.marker([lat, lon]);
-            console.log("aid :"+anomalyId +" lat:"+lat +" lon: "+lon);
-            marker.addTo(map);
-           
-            continue;
-          }
-          sumOfLat=sumOfLat+parseFloat(c.latitude);
-          sumOfLon=sumOfLon+parseFloat(c.longitude);
-        
-         }
-         else
-         {
-          
-           let lat=sumOfLat/idCount;
-           let lon=sumOfLon/idCount;
-           const marker = L.marker([lat, lon]);
-           console.log("aid :"+anomalyId +" lat:"+lat +" lon: "+lon);
-           marker.addTo(map);
-           idCount=1;
-           anomalyId=c.anomalyId;
-           sumOfLon=parseFloat(c.longitude);
-           sumOfLat=parseFloat(c.latitude);
-         }
-         
-             
+       
+
        }
+
            
   })
  
