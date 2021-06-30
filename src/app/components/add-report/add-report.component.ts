@@ -100,9 +100,9 @@ export class AddReportComponent implements OnInit {
 		this.loading = true;
 		this.reportService.getReport(this.reportId).subscribe(res => {
 			this.report = res["response"];
-           debugger;
+           
 			if (this.report.anomelyReportImage) {
-				debugger;
+				
 				this.selectedLibraryImages = this.report.anomelyReportImage.map(i => i.image);
 			}
 			this.fillUpForm();
@@ -116,22 +116,18 @@ export class AddReportComponent implements OnInit {
 		  
 	  }
 	  handleFileInput(files: any) {  
-		  debugger;
+		  
 		let formData: FormData = new FormData();  
 		formData.append("imageFile", files[0],files[0].name);  
-		//formData.append('fileName', files[0].name)
+		
 		this.fileToUpload = formData;  
 		this.onUploadFiles();  
-		console.log(formData);
-		console.log(formData.getAll('imageFile'));
+	
 	  }
 	  
 	  onUploadFiles() { 
-		  debugger; 
-		/* if (this.fileUpoadInitiated) {  
-		  return true;  
-		}  
-		this.fileUpoadInitiated = true; */  
+		   
+		 
 		if (this.fileToUpload == undefined) {  
 		  this.fileUpoadInitiated = false;  
 		  return false;  
@@ -142,10 +138,9 @@ export class AddReportComponent implements OnInit {
 			.subscribe((response: any) => {  
 			  this.fileUpoadInitiated = false;  
 			  this.fileUpload = ''; 
-			  debugger; 
+			   
 			  if (response) {  
-				//this.showBlobs();  
-			//	alert("true");
+				
 			console.log(response.response);
 			   this.selectedLibraryImages.push(response.response);
 			  }  
@@ -163,7 +158,7 @@ export class AddReportComponent implements OnInit {
 	openImageDialog() {
 		let width = this.scrWidth - (this.scrWidth * .2);
 		let height = this.scrHeight - (this.scrHeight * .2);
-        debugger;
+        
 		const dialogRef = this.dialog.open(ImageDialogComponent,
 			{
 				width: width.toString() + 'px',
@@ -173,7 +168,7 @@ export class AddReportComponent implements OnInit {
 			}
 		);
 		dialogRef.afterClosed().subscribe(res => {
-			if (res) { debugger;
+			if (res) { 
 				this.selectedLibraryImages = res['data'];
 				// 				this.getReport();
 				let message = "新しいイベントが追加されました";
@@ -192,6 +187,7 @@ export class AddReportComponent implements OnInit {
 	}
 
 	saveReport() {
+		
 		if (this.reportId !== 'add') {
 			let editedReport = new ReportModel();
 			Object.assign(editedReport, this.report);
@@ -218,22 +214,7 @@ export class AddReportComponent implements OnInit {
 							console.log(r);
 							
 						});
-					// if(res["statusCode"] ==200){
-					// 	for (const droppedFile of this.files) {
-					// 		// Is it a file?
-					// 		if (droppedFile.fileEntry.isFile) {
-					
-					// 		  const fileEntry = droppedFile.fileEntry as FileSystemFileEntry;
-					// 		  fileEntry.file((file: File) => {
-									
-					// 				let formData = new FormData();
-					// 				formData.append(`imageFile`, file, file.name);
-					// 				formData.append('fileName', file.name);
-					// 				this.imageService.createAnomalyReportImage(formData, res["response"]["id"]);
-					// 			  });									
-					// 			  }
-					// 			} 
-					// }
+				
 					this.loading = false;
 					let message = "新しいイベントが追加されました";
 					this._snackBar.open(message, 'OK', {
@@ -252,12 +233,25 @@ export class AddReportComponent implements OnInit {
 			newReport.kp = formControls['kp'].value;
 			newReport.road = formControls['road'].value;
 
-			newReport.anomelyReportImage = this.selectedLibraryImages.map(image => image.id);
+			//newReport.anomelyReportImage = this.selectedLibraryImages;
+			let selectedLibraryImageIds = this.selectedLibraryImages.map( image => image.id);
 
+			
 			this.loading = true;
 
-			this.reportService.createReport(newReport).subscribe((res) => {
+			this.reportService.createReport(newReport).subscribe((res:any) => {
 				if (res) {
+                   let anomalyReportImageDatas = {
+				anomalyReportId : res.response.id,
+				imageIds : selectedLibraryImageIds
+			}
+
+					this.imageService.createOrUpdateAnomalyReportImageWithImageIds(anomalyReportImageDatas)
+						.subscribe((r) => {
+							console.log(r);
+							
+						});
+					
 					this.loading = false;
 					let message = "新しいイベントが追加されました";
 					this._snackBar.open(message, 'OK', {
