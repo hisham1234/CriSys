@@ -66,7 +66,7 @@ export class MarkerService {
             let lat=sumOfLat/idCount;
             let lon=sumOfLon/idCount;
             const marker = L.marker([lat, lon]);
-   
+            console.log("aid :"+anomalyId +" lat:"+lat +" lon: "+lon);
             marker.addTo(map);
            
             continue;
@@ -81,7 +81,7 @@ export class MarkerService {
            let lat=sumOfLat/idCount;
            let lon=sumOfLon/idCount;
            const marker = L.marker([lat, lon]);
-  
+           console.log("aid :"+anomalyId +" lat:"+lat +" lon: "+lon);
            marker.addTo(map);
            idCount=1;
            anomalyId=c.anomalyId;
