@@ -33,14 +33,24 @@
 
                 <div class="row-without-m-p mt10 mb10">
                     <div class="column" >
-                        <button  mat-stroked-button  (click)="openImageDialog()">
+                        <button  mat-raised-button  (click)="openImageDialog()">
                             <mat-icon>cloud_circle</mat-icon>
-                            選択（Azure）
+                            選択 (Azure)
                         </button>
                     </div>
                     <div class="column"> <span style="font-size: 13px"> AzureStorageからイメージを選択します </span></div>
                 </div>
-                <div class="row mt20 mb10" style="text-align:center; font-size: 13px; margin-top:20px">
+                <div class="row-without-m-p mt10 mb10">
+                    <div class="column" >
+                        <button  mat-raised-button  (click)="addFile()">
+                            <mat-icon>publish</mat-icon>
+                             Local Device  
+                        </button>
+                    </div>
+                    <input style="display: none;" type="file" id="fileUpload" name="imageFile" #selectedFile [(ngModel)]="fileUpload" [ngModelOptions]="{standalone: true}" (click)="selectedFile.value = null" value="" (change)="handleFileInput($event.target.files)" />
+                    <div class="column"> <span style="font-size: 13px"> PCからの画像を選択してください </span></div>
+                </div>
+                <div class="row mt20 mb10" style="text-align:left; font-size: 13px; margin-top:20px">
                     <div class="col" >
                         <p *ngFor="let selectedLibraryImage of selectedLibraryImages">
                             <mat-icon class="preview-icon" (click)="showImage(selectedLibraryImage)">preview</mat-icon>

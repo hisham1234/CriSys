@@ -50,9 +50,10 @@ export class ImageService {
 
     createImage(imageFormData:FormData) {
     	console.log('ImageService.createImage!');
+        debugger;
         const headers = this.httpUtils.getHTTPHeadersFormData();
-        return this.http.post(IMAGE_URL, FormData,{headers: headers});
-        // return this.http.post(IMAGE_URL, FormData);
+       //return this.http.post(IMAGE_URL, imageFormData,{headers: headers});
+         return this.http.post(IMAGE_URL, imageFormData);
 
     }
 

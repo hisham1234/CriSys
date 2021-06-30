@@ -41,6 +41,10 @@ export class AddReportComponent implements OnInit {
 	reportId: any;
 	report: ReportModel;
 	loading = false;
+	//files: string[] = [];  
+    fileToUpload: FormData;  
+    fileUpload: any;  
+    fileUpoadInitiated: boolean; 
 
 	public files: NgxFileDropEntry[] = [];
 
@@ -96,8 +100,9 @@ export class AddReportComponent implements OnInit {
 		this.loading = true;
 		this.reportService.getReport(this.reportId).subscribe(res => {
 			this.report = res["response"];
-
+           debugger;
 			if (this.report.anomelyReportImage) {
+				debugger;
 				this.selectedLibraryImages = this.report.anomelyReportImage.map(i => i.image);
 			}
 			this.fillUpForm();
@@ -105,19 +110,70 @@ export class AddReportComponent implements OnInit {
 		})
 	}
 
+	addFile() {  
+		//if (!this.fileUpoadInitiated) {  
+		  document.getElementById('fileUpload').click();  
+		  
+	  }
+	  handleFileInput(files: any) {  
+		  debugger;
+		let formData: FormData = new FormData();  
+		formData.append("imageFile", files[0],files[0].name);  
+		//formData.append('fileName', files[0].name)
+		this.fileToUpload = formData;  
+		this.onUploadFiles();  
+		console.log(formData);
+		console.log(formData.getAll('imageFile'));
+	  }
+	  
+	  onUploadFiles() { 
+		  debugger; 
+		/* if (this.fileUpoadInitiated) {  
+		  return true;  
+		}  
+		this.fileUpoadInitiated = true; */  
+		if (this.fileToUpload == undefined) {  
+		  this.fileUpoadInitiated = false;  
+		  return false;  
+		}  
+		else {  
+			
+		  return this.imageService.createImage(this.fileToUpload)  
+			.subscribe((response: any) => {  
+			  this.fileUpoadInitiated = false;  
+			  this.fileUpload = ''; 
+			  debugger; 
+			  if (response) {  
+				//this.showBlobs();  
+			//	alert("true");
+			console.log(response.response);
+			   this.selectedLibraryImages.push(response.response);
+			  }  
+			  else {  
+				alert('Error occured!');  
+				this.fileUpoadInitiated = false;  
+			  }  
+			},  
+			  err => console.log(err),  
+			);  
+	  
+		}  
+	  } 
+
 	openImageDialog() {
 		let width = this.scrWidth - (this.scrWidth * .2);
 		let height = this.scrHeight - (this.scrHeight * .2);
-
+        debugger;
 		const dialogRef = this.dialog.open(ImageDialogComponent,
 			{
 				width: width.toString() + 'px',
 				height: height.toString() + 'px',
 				data: this.selectedLibraryImages
+			
 			}
 		);
 		dialogRef.afterClosed().subscribe(res => {
-			if (res) {
+			if (res) { debugger;
 				this.selectedLibraryImages = res['data'];
 				// 				this.getReport();
 				let message = "新しいイベントが追加されました";
