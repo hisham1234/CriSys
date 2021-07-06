@@ -9,6 +9,12 @@ import { Router } from '@angular/router';
 export class TopNavComponent implements OnInit {
   @Output() sideNavToggled = new EventEmitter<void>();
 
+  languageList = [  
+    { code: 'en', label: 'English' },  
+    { code: 'jp', label: '日本語' },  
+  
+  ];  
+  
   constructor(private readonly router: Router) {}
 
   ngOnInit() {}
