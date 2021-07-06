@@ -26,6 +26,7 @@
             "assets": [
               "src/favicon.ico",
               "src/assets",
+              "src/web.config",
               {
                 "glob": "**/*",
                 "input": "node_modules/leaflet/dist/images/",
@@ -68,11 +69,36 @@
               ] 
               
             },
+            "staging": {
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.staging.ts"
+                }
+              ]
+            },
+            "test": {
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.test.ts"
+                }
+              ]
+               
+              
+            },
             "jp": {    
               "aot": true,    
               "i18nFile": "src/translate/messages.jp.xlf",    
               "i18nFormat": "xlf",    
               "i18nLocale": "jp",    
+              "i18nMissingTranslation": "error"    
+            },
+            "en": {    
+              "aot": true,    
+              "i18nFile": "src/translate/messages.en.xlf",    
+              "i18nFormat": "xlf",    
+              "i18nLocale": "en",    
               "i18nMissingTranslation": "error"    
             }
           }
@@ -88,6 +114,9 @@
             },
             "jp": {    
               "browserTarget": "angular.io-example:build:jp"    
+            },
+            "en": {    
+              "browserTarget": "angular.io-example:build:en"    
             }
           }
         },

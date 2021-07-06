@@ -14,6 +14,7 @@
     "serve:ssr": "node dist/server/main.js",
     "build:ssr": "ng build --prod && ng run angular.io-example:server:production",
     "prerender": "ng run angular.io-example:prerender",
+    
     "build-locale:en": "ng build --prod --i18n-locale en --i18n-format xlf --i18n-file src/translate/messages.en.xlf --output-path=dist/en --baseHref /en/",
     "build-locale:jp": "ng build --prod --i18n-locale jp --i18n-format xlf --i18n-file src/translate/messages.jp.xlf --output-path=dist/jp --baseHref /jp/",
     
