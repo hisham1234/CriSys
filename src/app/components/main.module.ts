@@ -51,6 +51,7 @@ import { MarkerService } from '../services/marker.service';
 
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { AuthService } from '../services/auth.service';
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   wheelPropagation: true,
@@ -99,6 +100,7 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     MatDialogModule,
     FormsModule,
     ReactiveFormsModule,
+    AuthService,
     UserService,
     AnomalyService,
     HttpUtilsService,
