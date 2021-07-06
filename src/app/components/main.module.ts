@@ -9,8 +9,6 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { CarouselModule } from 'ngx-owl-carousel-o';
 import { NgxFileDropModule } from 'ngx-file-drop';
 
-
-
 import { MainRoutingModule } from './main-routing.module';
 import { AnomalyComponent } from './anomaly/anomaly.component';
 import { MatInputModule } from '@angular/material/input';
@@ -18,18 +16,18 @@ import { MatListModule } from '@angular/material/list';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
-import {MatProgressBarModule} from '@angular/material/progress-bar';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
 // import { CoreModule } from '../core/core.module';
 // import { SharedModule } from '../shared/shared.module';
 
 import { LayoutComponent } from '../admin/layout/layout.component';
 import { TopNavComponent } from '../admin/layout/top-nav/top-nav.component';
 import { SideNavComponent } from '../admin/layout/side-nav/side-nav.component';
-import {MatPaginatorModule} from "@angular/material/paginator";
-import {MatButtonToggleModule} from "@angular/material/button-toggle";
-import {MatDialog, MatDialogModule} from "@angular/material/dialog";
-import {FormsModule, ReactiveFormsModule} from "@angular/forms";
-import {MatSnackBar} from "@angular/material/snack-bar";
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatButtonToggleModule } from '@angular/material/button-toggle';
+import { MatDialog, MatDialogModule } from '@angular/material/dialog';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { UserService } from '../services/user.service';
 import { AnomalyService } from '../services/anomaly.service';
 import { HttpUtilsService } from '../services/http-utils.service';
@@ -42,109 +40,113 @@ import { ReportListComponent } from './report-list/report-list.component';
 import { AddReportComponent } from './add-report/add-report.component';
 import { ImageDialogComponent } from './image-dialog/image-dialog.component';
 
-import { PerfectScrollbarModule, PerfectScrollbarConfigInterface,
-  PERFECT_SCROLLBAR_CONFIG } from 'ngx-perfect-scrollbar';
+import {
+  PerfectScrollbarModule,
+  PerfectScrollbarConfigInterface,
+  PERFECT_SCROLLBAR_CONFIG,
+} from 'ngx-perfect-scrollbar';
 import { ImageCarouselComponent } from './image-carousel/image-carousel.component';
 import { MapComponent } from './map/map.component';
 import { MarkerService } from '../services/marker.service';
 
-import {MatExpansionModule} from '@angular/material/expansion';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { MatFormFieldModule } from '@angular/material/form-field';
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
-  wheelPropagation: true
+  wheelPropagation: true,
 };
 @NgModule({
   imports: [
-//   CoreModule,
-//     SharedModule,
+    //   CoreModule,
+    //     SharedModule,
     CommonModule,
-        MainRoutingModule,
-        MatToolbarModule,
-        MatButtonModule,
-        MatButtonToggleModule,
-        MatSidenavModule,
-        MatIconModule,
-        MatInputModule,
-        MatMenuModule,
-        MatListModule,
-        MatPaginatorModule,
-        MatTableModule,
-        MatDialogModule,
-        FormsModule,
-        ReactiveFormsModule,
-        MatProgressBarModule,
-        PerfectScrollbarModule,
-        CarouselModule,
-        NgxFileDropModule,
-        MatExpansionModule
+    MainRoutingModule,
+    MatToolbarModule,
+    MatButtonModule,
+    MatButtonToggleModule,
+    MatFormFieldModule,
+    MatSidenavModule,
+    MatIconModule,
+    MatInputModule,
+    MatMenuModule,
+    MatListModule,
+    MatPaginatorModule,
+    MatTableModule,
+    MatDialogModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MatProgressBarModule,
+    PerfectScrollbarModule,
+    CarouselModule,
+    NgxFileDropModule,
+    MatExpansionModule,
   ],
-   providers:[
-        MatSnackBar,
-        CommonModule,
-        MainRoutingModule,
-        MatToolbarModule,
-        MatButtonModule,
-        MatButtonToggleModule,
-        MatSidenavModule,
-        MatIconModule,
-        MatInputModule,
-        MatMenuModule,
-        MatListModule,
-        MatPaginatorModule,
-        MatTableModule,
-        MatDialogModule,
-        FormsModule,
-        ReactiveFormsModule,
-        UserService,
-        AnomalyService,
-        HttpUtilsService,
-        ReportService,
-        ImageService,
-        RouterExtService,
-        MarkerService,
-        MatExpansionModule,
-        {
-          provide: PERFECT_SCROLLBAR_CONFIG,
-          useValue: DEFAULT_PERFECT_SCROLLBAR_CONFIG
-        }
-    ],
-    exports: [
-        CommonModule,
-        MainRoutingModule,
-        MatToolbarModule,
-        MatButtonModule,
-        MatButtonToggleModule,
-        MatSidenavModule,
-        MatIconModule,
-        MatInputModule,
-        MatMenuModule,
-        MatListModule,
-        MatPaginatorModule,
-        MatTableModule,
-        MatDialogModule,
-        FormsModule,
-        ReactiveFormsModule,
-        MatExpansionModule
-
-    ],
+  providers: [
+    MatSnackBar,
+    CommonModule,
+    MainRoutingModule,
+    MatToolbarModule,
+    MatButtonModule,
+    MatButtonToggleModule,
+    MatFormFieldModule,
+    MatSidenavModule,
+    MatIconModule,
+    MatInputModule,
+    MatMenuModule,
+    MatListModule,
+    MatPaginatorModule,
+    MatTableModule,
+    MatDialogModule,
+    FormsModule,
+    ReactiveFormsModule,
+    UserService,
+    AnomalyService,
+    HttpUtilsService,
+    ReportService,
+    ImageService,
+    RouterExtService,
+    MarkerService,
+    MatExpansionModule,
+    {
+      provide: PERFECT_SCROLLBAR_CONFIG,
+      useValue: DEFAULT_PERFECT_SCROLLBAR_CONFIG,
+    },
+  ],
+  exports: [
+    CommonModule,
+    MainRoutingModule,
+    MatToolbarModule,
+    MatButtonModule,
+    MatButtonToggleModule,
+    MatFormFieldModule,
+    MatSidenavModule,
+    MatIconModule,
+    MatInputModule,
+    MatMenuModule,
+    MatListModule,
+    MatPaginatorModule,
+    MatTableModule,
+    MatDialogModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MatExpansionModule,
+  ],
   declarations: [
-          LayoutComponent,
-          TopNavComponent,
-          SideNavComponent,
-          AnomalyComponent,
-          AddAnomalyComponent,
-          ReportListComponent,
-          AddReportComponent,
-          ImageDialogComponent,
-          ImageCarouselComponent,
-          MapComponent,
-         
-         
+    LayoutComponent,
+    TopNavComponent,
+    SideNavComponent,
+    AnomalyComponent,
+    AddAnomalyComponent,
+    ReportListComponent,
+    AddReportComponent,
+    ImageDialogComponent,
+    ImageCarouselComponent,
+    MapComponent,
   ],
   entryComponents: [
     AddAnomalyComponent,
     ImageDialogComponent,
-    ImageCarouselComponent
+    ImageCarouselComponent,
   ],
 })
 export class MainModule {}
