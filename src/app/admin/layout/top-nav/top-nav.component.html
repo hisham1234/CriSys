@@ -8,6 +8,14 @@
       CriSys WEB</span>
   </div>
   <span class="nav-spacer"></span>
+ 
+    <ng-container *ngFor="let language of languageList" >  
+      <a button mat-button  href="/{{language.code}}/">{{language.label}}</a> 
+    </ng-container> 
+
+   
+
+   
   <button mat-icon-button (click)="onLoggedout()">
 <!--    <mat-icon>exit_to_app</mat-icon>-->
   </button>

@@ -18,7 +18,7 @@ import { AddAnomalyComponent } from '../add-anomaly/add-anomaly.component'
 })
 export class AnomalyComponent implements OnInit {
 
-    displayedColumns = ['id', 'title', 'anomalyType', 'createdAt', 'map', 'reports', 'view', 'edit', 'delete'];
+    displayedColumns = ['id', 'title', 'anomalyType', 'createdAt',  'reports', 'view', 'edit', 'delete'];
     dataSource = []
     searchText = ''
     pageSize = 100;
@@ -152,9 +152,9 @@ export class AnomalyComponent implements OnInit {
 
     }
 
-    showMap(row){
+   /*  showMap(row){
         console.log(row);        
-    }
+    } */
 
     goToReport(row) {
         this.router.navigate([row.id + "/report"], { relativeTo: this.route });
