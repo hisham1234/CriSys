@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatButtonModule } from '@angular/material/button';
@@ -52,6 +52,7 @@ import { MarkerService } from '../services/marker.service';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { AuthService } from '../services/auth.service';
+import { LoginComponent } from '../login/login/login.component';
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   wheelPropagation: true,
@@ -114,6 +115,7 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
       useValue: DEFAULT_PERFECT_SCROLLBAR_CONFIG,
     },
   ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
   exports: [
     CommonModule,
     MainRoutingModule,
@@ -144,6 +146,7 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     ImageDialogComponent,
     ImageCarouselComponent,
     MapComponent,
+    LoginComponent,
   ],
   entryComponents: [
     AddAnomalyComponent,
