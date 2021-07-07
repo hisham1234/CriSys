@@ -1,7 +1,9 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Router } from '@angular/router';
+import { first } from 'rxjs/operators';
 import { User } from 'src/app/models/user';
 import { AuthenticationService } from 'src/app/services/authentication.service';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-top-nav',
@@ -10,16 +12,25 @@ import { AuthenticationService } from 'src/app/services/authentication.service';
 })
 export class TopNavComponent implements OnInit {
   user: User;
+  loggedUser: User;
   @Output() sideNavToggled = new EventEmitter<void>();
 
   constructor(
+    private userService: UserService,
     private authenticationService: AuthenticationService,
     private readonly router: Router
   ) {
     this.authenticationService.user.subscribe((x) => (this.user = x));
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.userService
+      .getById(this.user.id)
+      .pipe(first())
+      .subscribe((user) => {
+        this.loggedUser = user;
+      });
+  }
 
   toggleSidebar() {
     this.sideNavToggled.emit();
