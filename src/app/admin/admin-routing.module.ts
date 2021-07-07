@@ -9,18 +9,18 @@ const routes: Routes = [
     path: '',
     component: LayoutComponent,
     children: [
-      {
-        path: '',
-        component: EmployßßßeeTableComponent
-      },
-      {
-        path: 'employee',
-        component: EmployeeTableComponent
-      },
-      {
-        path: 'performance-phrase',
-        component: PerformancePhraseTableComponent
-      },
+      // {
+      //   path: '',
+      //   component: EmployeeTableComponent
+      // },
+      // {
+      //   path: 'employee',
+      //   component: EmployeeTableComponent
+      // },
+      // {
+      //   path: 'performance-phrase',
+      //   component: PerformancePhraseTableComponent
+      // },
 
       ...childRoutes
     ]
