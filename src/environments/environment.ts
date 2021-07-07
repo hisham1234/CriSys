@@ -4,9 +4,9 @@
 
 export const environment = {
   production: false,
-//   pathToAPI :'http://13.78.69.173:5000'
-  pathToAPI :'http://localhost:5001'
-
+  //   pathToAPI :'http://13.78.69.173:5000'
+  pathToAPI: 'http://localhost:5001',
+  apiUrl: 'http://localhost:4200',
 };
 
 /*
