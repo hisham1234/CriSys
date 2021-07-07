@@ -20,6 +20,8 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
 // import { CoreModule } from '../core/core.module';
 // import { SharedModule } from '../shared/shared.module';
 
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+
 import { LayoutComponent } from '../admin/layout/layout.component';
 import { TopNavComponent } from '../admin/layout/top-nav/top-nav.component';
 import { SideNavComponent } from '../admin/layout/side-nav/side-nav.component';
@@ -28,9 +30,10 @@ import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { UserService } from '../services/user.service';
+import { UserService } from '../services/user2.service';
 import { AnomalyService } from '../services/anomaly.service';
 import { HttpUtilsService } from '../services/http-utils.service';
+
 import { ReportService } from '../services/report.service';
 import { ImageService } from '../services/image.service';
 import { RouterExtService } from '../services/router-ext.service';
@@ -53,6 +56,9 @@ import { MatExpansionModule } from '@angular/material/expansion';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { AuthService } from '../services/auth.service';
 import { LoginComponent } from '../login/login/login.component';
+import { testBackendProvider } from '../services/test-backend';
+import { JwtInterceptor } from '../services/jwt.interceptor';
+import { ErrorInterceptor } from '../services/error.interceptor';
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   wheelPropagation: true,
@@ -114,6 +120,11 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
       provide: PERFECT_SCROLLBAR_CONFIG,
       useValue: DEFAULT_PERFECT_SCROLLBAR_CONFIG,
     },
+    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
+
+    // provider used to create test backend
+    testBackendProvider,
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   exports: [
