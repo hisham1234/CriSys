@@ -35,7 +35,7 @@ $ ng serve
 
 After successful installation of npm packages the project should start running by ng serve command on ```PORT 4200```. Go to the browser and hit ```www.localhost:4200```. 
 
-#### env variable in the environement.ts
+#### env variables in the environment.ts
 
 ```sh
 production: false,
