@@ -15,7 +15,7 @@ export const childRoutes = [
       text: 'タイムライ',
       showInSidebar: false,
     },
-    //canActivate: [AuthGuard],   //un comment here
+    canActivate: [AuthGuard],
   },
   {
     path: 'anomaly',
@@ -25,7 +25,7 @@ export const childRoutes = [
       text: '異常',
       showInSidebar: true,
     },
-    //canActivate: [AuthGuard],   // <<<  un comment here
+    canActivate: [AuthGuard],
   },
   {
     path: 'map',
@@ -34,9 +34,9 @@ export const childRoutes = [
       icon: 'dashboard',
       text: '異常',
       showInSidebar: false,
-       //roles: [Role.User1, Role.Admin],   // <<<  un comment here
+      roles: [Role.User1, Role.Admin],
     },
-    //canActivate: [AuthGuard],   // <<<  un comment here
+    canActivate: [AuthGuard],
   },
   {
     path: 'anomaly/:aid/report',
@@ -44,7 +44,7 @@ export const childRoutes = [
     data: {
       showInSidebar: false,
     },
-    // canActivate: [AuthGuard],   // <<<  un comment here
+    canActivate: [AuthGuard],
   },
   {
     path: 'anomaly/:aid/report/:rid',
@@ -52,6 +52,6 @@ export const childRoutes = [
     data: {
       showInSidebar: false,
     },
-    //canActivate: [AuthGuard],   // <<<  un comment here
+    canActivate: [AuthGuard],
   },
 ];
