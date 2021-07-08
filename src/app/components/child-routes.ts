@@ -34,7 +34,7 @@ export const childRoutes = [
       icon: 'dashboard',
       text: '異常',
       showInSidebar: false,
-      roles: [Role.User1, Role.Admin],
+      //roles: [Role.User1, Role.Admin],
     },
     canActivate: [AuthGuard],
   },
