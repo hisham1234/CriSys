@@ -9,12 +9,14 @@ import { MatInputModule } from '@angular/material/input';
 
 import { LoginRoutingModule } from './login-routing.module';
 import { LoginComponent } from './login/login.component';
+import { MatFormFieldModule } from '@angular/material/form-field';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     FlexLayoutModule,
+    MatFormFieldModule,
     MatInputModule,
     MatCheckboxModule,
     MatButtonModule,
