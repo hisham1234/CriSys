@@ -1,11 +1,50 @@
-<mat-toolbar  style="background-color:#1E6316; color: white" class="fix-nav">
-  <button type="button" mat-icon-button class="visible-md" (click)="toggleSidebar()">
+<p>
+  <mat-toolbar style="background-color: #1e6316; color: white" class="fix-nav">
+    <button
+      mat-icon-button
+      class="visible-md"
+      (click)="toggleSidebar()"
+      aria-label="Side nav toggle icon"
+    >
+      <mat-icon>menu</mat-icon>
+    </button>
+    <span>
+      <div class="nav-brand" (click)="goToHomePage()" style="cursor: pointer">
+        <span>
+          <img height="32" width="50" src="assets/images/enexco.png" />
+          CriSys WEB</span
+        >
+      </div>
+    </span>
+
+    <span class="top-nav-spacer"></span>
+    <ng-container *ngFor="let language of languageList" >  
+      <a button mat-button  href="/{{language.code}}/">{{language.label}}</a> 
+    </ng-container> 
+    <mat-icon>account_circle</mat-icon>
+    <span *ngIf="loggedUser">
+      <span class="user-name">{{ loggedUser.firstName }} </span>
+    </span>
+
+    <button mat-button class="sign-out" (click)="logout()">Sign out</button>
+  </mat-toolbar>
+</p>
+
+
+<!-- <mat-toolbar style="background-color: #1e6316; color: white" class="fix-nav">
+  <button
+    type="button"
+    mat-icon-button
+    class="visible-md"
+    (click)="toggleSidebar()"
+  >
     <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
   </button>
   <div class="nav-brand" (click)="goToHomePage()" style="cursor: pointer">
     <span>
-      <img height="32" width="50" src="assets/images/enexco.png">
-      CriSys WEB</span>
+      <img height="32" width="50" src="assets/images/enexco.png" />
+      CriSys WEB</span
+    >
   </div>
   <span class="nav-spacer"></span>
  
@@ -17,6 +56,33 @@
 
    
   <button mat-icon-button (click)="onLoggedout()">
-<!--    <mat-icon>exit_to_app</mat-icon>-->
+ 
   </button>
-</mat-toolbar>
+</mat-toolbar> -->
+
+<!-- //*************************************** -->
+
+<!-- <mat-toolbar style="background-color: #1e6316; color: white" class="fix-nav">
+  <button
+    type="button"
+    mat-icon-button
+    class="visible-md"
+    (click)="toggleSidebar()"
+  >
+    <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+  </button>
+
+  <span>
+    <div class="nav-brand" (click)="goToHomePage()" style="cursor: pointer">
+      <span>
+        <img height="32" width="50" src="assets/images/enexco.png" />
+        CriSys WEB</span
+      >
+    </div>
+  </span>
+
+  <span class="example-spacer"></span>
+  <button mat-icon-button (click)="logout()"></button>
+</mat-toolbar> -->
+
+<!-- //*************************************** -->

@@ -2,48 +2,56 @@ import { AnomalyComponent } from './anomaly/anomaly.component';
 import { ReportListComponent } from './report-list/report-list.component';
 import { AddReportComponent } from './add-report/add-report.component';
 import { MapComponent } from './map/map.component';
+import { AuthGuard } from '../core/auth.guard';
+import { Role } from '../models/role';
 
 export const childRoutes = [
-  { path: '',
-      redirectTo: '/anomaly',
-      pathMatch: 'full',
-         data: {
-            icon: 'dashboard',
-            text: 'タイムライ',
-            showInSidebar: false
-        }
-     },
+  {
+    path: '',
+    redirectTo: '/anomaly',
+    pathMatch: 'full',
+    data: {
+      icon: 'dashboard',
+      text: 'タイムライ',
+      showInSidebar: false,
+    },
+    canActivate: [AuthGuard],
+  },
   {
     path: 'anomaly',
     component: AnomalyComponent,
     data: {
-        icon: 'dashboard',
-        text: $localize`Anomaly`,
-        showInSidebar: true
+      icon: 'dashboard',
+      text: $localize`Anomaly`,
+      showInSidebar: true,
     },
-      },
-      {
-        path: 'map',
-        component: MapComponent,
-        data: {
-            icon: 'dashboard',
-            text: $localize`Anomaly`,
-            showInSidebar: false
-        },
-          },
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'map',
+    component: MapComponent,
+    data: {
+      icon: 'dashboard',
+      text: $localize`Anomaly`,
+      showInSidebar: false,
+      //roles: [Role.User1, Role.Admin],
+    },
+    canActivate: [AuthGuard],
+  },
   {
     path: 'anomaly/:aid/report',
     component: ReportListComponent,
     data: {
-        showInSidebar: false
-    }
+      showInSidebar: false,
+    },
+    canActivate: [AuthGuard],
   },
   {
     path: 'anomaly/:aid/report/:rid',
     component: AddReportComponent,
     data: {
-        showInSidebar: false
-    }
+      showInSidebar: false,
+    },
+    canActivate: [AuthGuard],
   },
-
 ];
