@@ -11,7 +11,6 @@ import { Routes, RouterModule, ActivatedRoute, Router } from '@angular/router';
 
 
 import { AddAnomalyComponent } from '../add-anomaly/add-anomaly.component'
-import { TRANSLOCO_CONFIG, TRANSLOCO_LOADER ,translocoConfig, TRANSLOCO_SCOPE} from '@ngneat/transloco';
 
 @Component({
     selector: 'app-anomaly',
