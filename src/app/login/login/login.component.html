@@ -1,25 +1,52 @@
 <div class="login-page">
   <div class="content px20">
-    <form class="login-form" [formGroup]="loginForm">
+    <form class="login-form" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
       <div class="text-center">
-        <h2 class="app-name">Login</h2>
+        <span>
+          <img class="img-logo" src="assets/images/enexco_3.png" />
+        </span>
       </div>
-      <div fxLayout="row">
-        <div fxFlexFill>
-          <mat-form-field class="w-100">
-            <input matInput placeholder="Email" formControlName="email">
-          </mat-form-field>
-          <mat-form-field class="w-100">
-            <input matInput type="password" placeholder="Password" formControlName="password">
-          </mat-form-field>
-        </div>
-      </div>
-      <div fxLayout="row">
-        <div fxFlexFill>
-          <button type="submit" mat-raised-button color="primary" (click)="onLogin()" class="w-100">Login</button>
-        </div>
-      </div>
+      <div class="form-border-outer">
+        <div class="form-border-inner">
+          <div fxLayout="row">
+            <div fxFlexFill>
+              <mat-form-field class="w-100">
+                <input matInput placeholder="User Name" formControlName="username" />
+                <!-- <mat-error>
+                  <span class="email-error-msg">
+                    Please provide a valid email address
+                  </span>
+                </mat-error> -->
+              </mat-form-field>
 
+              <mat-form-field class="w-100">
+                <input
+                  matInput
+                  type="password"
+                  placeholder="Passssword"
+                  formControlName="password"
+                />
+                <!-- <mat-error>
+                  <span class="password-error-msg">
+                    Please provide a valid password
+                  </span>
+                </mat-error> -->
+              </mat-form-field>
+            </div>
+
+            <div *ngIf="isLoginError" class="login-error">
+              Id unknown or password incorrect
+            </div>
+          </div>
+          <div fxLayout="row">
+            <div fxFlexFill class="text-center">
+              <button type="submit" mat-raised-button class="w-100 btn-login">
+                Login
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
     </form>
   </div>
 </div>
