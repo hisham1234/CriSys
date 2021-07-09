@@ -2,6 +2,70 @@
 <xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
   <file source-language="en-US" datatype="plaintext" original="ng2.template">
     <body>
+    <trans-unit id="4242617914252994088" datatype="html">
+        <source>List Of Anomaly</source>
+        <target>List Of Anomaly</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/anomaly/anomaly.component.ts</context>
+          <context context-type="linenumber">33</context>
+        </context-group>
+      </trans-unit>
+    <trans-unit id="6890505548560811605" datatype="html">
+        <source>Do You want to delete it?</source>
+        <target>Do You want to delete it?</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/anomaly/anomaly.component.ts</context>
+          <context context-type="linenumber">96</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2807800733729323332" datatype="html">
+        <source>Yes</source>
+        <target>Yes</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/anomaly/anomaly.component.ts</context>
+          <context context-type="linenumber">99</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3542042671420335679" datatype="html">
+        <source>No</source>
+        <target>No</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/anomaly/anomaly.component.ts</context>
+          <context context-type="linenumber">100</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8548858103540693302" datatype="html">
+        <source>Deleted!</source>
+        <target>Deleted!</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/anomaly/anomaly.component.ts</context>
+          <context context-type="linenumber">107</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6346411877267982720" datatype="html">
+        <source>Anomaly Successfully Deleted</source>
+        <target>Anomaly Successfully Deleted</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/anomaly/anomaly.component.ts</context>
+          <context context-type="linenumber">108</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1771349513832887583" datatype="html">
+        <source>Anomaly Information Updated</source>
+        <target>Anomaly Information Updated</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/anomaly/anomaly.component.ts</context>
+          <context context-type="linenumber">123</context>
+        </context-group>
+      </trans-unit>
+       <trans-unit id="6443116607013908281" datatype="html">
+        <source>New Anomaly Successfully Added</source>
+        <target>New Anomaly Successfully Added</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/anomaly/anomaly.component.ts</context>
+          <context context-type="linenumber">149</context>
+        </context-group>
+      </trans-unit>
       <trans-unit id="9db330759933db56a656e4a35431b42e0f63cb7d" datatype="html">
         <source> Map Of Anomaly </source>
         <target> Map Of Anomaly </target>
@@ -53,6 +117,236 @@
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/anomaly/anomaly.component.html</context>
           <context context-type="linenumber">127</context>
+        </context-group>
+      </trans-unit>
+       <trans-unit id="1744268896602987285" datatype="html">
+        <source>Please Fill Up the details</source>
+        <target>Please Fill Up the details</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/add-anomaly/add-anomaly.component.ts</context>
+          <context context-type="linenumber">17</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3318329789943652142" datatype="html">
+        <source>Please Fill up the form</source>
+        <target>Please Fill up the form</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/add-anomaly/add-anomaly.component.ts</context>
+          <context context-type="linenumber">63</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="cff1428d10d59d14e45edec3c735a27b5482db59" datatype="html">
+        <source>Name</source>
+        <target>Name</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/add-anomaly/add-anomaly.component.html</context>
+          <context context-type="linenumber">19</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8cfd8971c1075b70b717cdd479152e1cda1eb544" datatype="html">
+        <source>Anomaly Type</source>
+        <target>Anomaly Type</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/add-anomaly/add-anomaly.component.html</context>
+          <context context-type="linenumber">22</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8a891fbb185ad68f3093b80a66a2ce22b84a6b39" datatype="html">
+        <source>Edit Anomaly</source>
+        <target>Edit Anomaly</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/add-anomaly/add-anomaly.component.html</context>
+          <context context-type="linenumber">6</context>
+        </context-group>
+        <note priority="1" from="description">AnomalyEdit</note>
+      </trans-unit>
+      <trans-unit id="83c2f65a9bd725f51bc7ac13ad518ff2b8987ecd" datatype="html">
+        <source>View Anomaly</source>
+        <target>View Anomaly</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/add-anomaly/add-anomaly.component.html</context>
+          <context context-type="linenumber">7</context>
+        </context-group>
+        <note priority="1" from="description">AnomalyView</note>
+      </trans-unit>
+      <trans-unit id="39f08efbd781046fd20218421355883df4e9283f" datatype="html">
+        <source>Add Anomaly</source>
+        <target>Add Anomaly</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/add-anomaly/add-anomaly.component.html</context>
+          <context context-type="linenumber">8</context>
+        </context-group>
+        <note priority="1" from="description">AnomalyAdd</note>
+      </trans-unit>
+      
+       <trans-unit id="8676885572354932865" datatype="html">
+        <source>List Of Reports</source>
+        <target>List Of Reports</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/report-list/report-list.component.ts</context>
+          <context context-type="linenumber">49</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6864016537810263548" datatype="html">
+        <source>Add Report</source>
+        <target>Add Report</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/report-list/report-list.component.ts</context>
+          <context context-type="linenumber">50</context>
+        </context-group>
+      </trans-unit>
+       <trans-unit id="655936072733033892" datatype="html">
+        <source>Do You Want To Delete It?</source>
+        <target>Do You Want To Delete It?</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/report-list/report-list.component.ts</context>
+          <context context-type="linenumber">161</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6706736088069915696" datatype="html">
+        <source>Report Successfully Deleted.</source>
+        <target>Report Successfully Deleted.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/report-list/report-list.component.ts</context>
+          <context context-type="linenumber">173</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="f7d83b746be4b9f41db4b5ea84112e9363c2da57" datatype="html">
+        <source> Map Of Reports </source>
+        <target>Map Of Reports</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/report-list/report-list.component.html</context>
+          <context context-type="linenumber">8,9</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7ef2257a82d31f097246c1426fed34988c67f372" datatype="html">
+        <source>List Of Anomaly</source>
+        <target>List Of Anomaly</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/report-list/report-list.component.html</context>
+          <context context-type="linenumber">30</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="c5082d30757d0b680a9218c6c92c5b6d07f5ef67" datatype="html">
+        <source>List Of Reports </source>
+        <target>List Of Reports</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/report-list/report-list.component.html</context>
+          <context context-type="linenumber">30,31</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5ca707824ab93066c7d9b44e1b8bf216725c2c22" datatype="html">
+        <source>Filter</source>
+        <target>Filter</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/report-list/report-list.component.html</context>
+          <context context-type="linenumber">43</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="383fb13dff3d1e4a0d47ef965f18cedf547a0418" datatype="html">
+        <source> Image </source>
+        <target>Image</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/report-list/report-list.component.html</context>
+          <context context-type="linenumber">71</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="92814b602e3bce5373fc867441aacb03f29a387c" datatype="html">
+        <source> Road </source>
+        <target>Road</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/report-list/report-list.component.html</context>
+          <context context-type="linenumber">79</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="20371277706eedf7fd8a3f51633ca5d801cd4fc2" datatype="html">
+        <source> Name </source>
+        <target>Name</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/report-list/report-list.component.html</context>
+          <context context-type="linenumber">84</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="f4cf6ad9a8804547c36ba49133eb7a68ff42cace" datatype="html">
+        <source> Created Time </source>
+        <target>Created Time </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/report-list/report-list.component.html</context>
+          <context context-type="linenumber">89</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="07277f34d6f913565f34a8917829ed2ea6147516" datatype="html">
+        <source> Latitude </source>
+        <target>Latitude</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/report-list/report-list.component.html</context>
+          <context context-type="linenumber">99</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="39c20af68c00c1009f59b30fe750683b20ba46cd" datatype="html">
+        <source> Longtitude </source>
+        <target>Longtitude</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/report-list/report-list.component.html</context>
+          <context context-type="linenumber">104</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7159867e1593a49f81cc5e192ea9588c1235d8bf" datatype="html">
+        <source>No Data</source>
+        <target>No Data</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/report-list/report-list.component.html</context>
+          <context context-type="linenumber">134</context>
+        </context-group>
+      </trans-unit>
+     <trans-unit id="5030479970605929493" datatype="html">
+        <source>Select From Azure</source>
+         <target>Select From Azure</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/add-report/add-report.component.ts</context>
+          <context context-type="linenumber">48</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5575743992457228713" datatype="html">
+        <source>Edit Report</source>
+        <target>Edit Report</target>
+        <context-group purpose="location">
+        
+          <context context-type="sourcefile">src/app/components/add-report/add-report.component.ts</context>
+          <context context-type="linenumber">74</context>
+        </context-group>
+      </trans-unit>
+       
+ <trans-unit id="3768927257183755959" datatype="html">
+        <source>Save</source>
+         <target>保存</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/add-anomaly/add-anomaly.component.ts</context>
+          <context context-type="linenumber">21</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/add-report/add-report.component.ts</context>
+          <context context-type="linenumber">49</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="bf6f8dcc4f48a79b3be98d580f707aebcec791bf" datatype="html">
+        <source>Select An Image</source>
+        <target>Select An Image</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/image-dialog/image-dialog.component.html</context>
+          <context context-type="linenumber">8</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1818356357146539806" datatype="html">
+        <source>Anomaly</source>
+        <target>Anomaly</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/child-routes.ts</context>
+          <context context-type="linenumber">21</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/child-routes.ts</context>
+          <context context-type="linenumber">30</context>
         </context-group>
       </trans-unit>
     </body>

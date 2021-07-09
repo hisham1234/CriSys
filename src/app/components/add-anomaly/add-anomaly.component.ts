@@ -14,11 +14,11 @@ export class AddAnomalyComponent implements OnInit {
 
   anomalyForm: FormGroup;
   title: any='異常を追加'; //Add anomaly
-  errorMessage: any='フォームに記入してください'; //Please fill up the form
+  errorMessage=$localize `Please Fill Up the details`; //Please fill up the form
   anomaly: AnomalyModel;
   hasFormErrors: boolean;
   viewOrEdit = "";
-
+  btnText=$localize `Save`
   constructor(
       private formBuilder: FormBuilder,
       private anomalyService: AnomalyService,
@@ -60,7 +60,7 @@ export class AddAnomalyComponent implements OnInit {
       );
 
       this.hasFormErrors = true;
-      this.errorMessage = 'フォームに記入してください'; //Please fill up the form
+      this.errorMessage = $localize `Please Fill up the form`; //Please fill up the form
       return;
     }
     let newAnomaly = new AnomalyModel();

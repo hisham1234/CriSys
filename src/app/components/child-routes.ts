@@ -18,7 +18,7 @@ export const childRoutes = [
     component: AnomalyComponent,
     data: {
         icon: 'dashboard',
-        text: '異常',
+        text: $localize`Anomaly`,
         showInSidebar: true
     },
       },
@@ -27,7 +27,7 @@ export const childRoutes = [
         component: MapComponent,
         data: {
             icon: 'dashboard',
-            text: '異常',
+            text: $localize`Anomaly`,
             showInSidebar: false
         },
           },

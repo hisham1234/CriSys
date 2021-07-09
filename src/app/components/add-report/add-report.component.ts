@@ -34,7 +34,7 @@ export class AddReportComponent implements OnInit {
 
 	reportForm: FormGroup;
 	title: any = 'イベントを追加';
-	errorMessage: any = 'フォームに記入してください';
+	errorMessage = $localize `Please Fill up the form`;
 	hasFormErrors: boolean;
 	private sub: any;
 	anomalyId: number;
@@ -45,7 +45,10 @@ export class AddReportComponent implements OnInit {
     fileToUpload: FormData;  
     fileUpload: any;  
     fileUpoadInitiated: boolean; 
-
+    btnAzure=$localize `Select From Azure`
+	btnSave=$localize`Save`
+	titleAnomaly=$localize`List Of Anomaly`
+	titleReport=$localize`List Of Reports`
 	public files: NgxFileDropEntry[] = [];
 
 
@@ -68,7 +71,7 @@ export class AddReportComponent implements OnInit {
 			this.anomalyId = params['aid']; // (+) converts string 'id' to a number
 			this.reportId = params['rid']; // (+) converts string 'id' to a number
 			if (this.reportId !== 'add') {
-				this.title = 'イベントの編集';
+				this.title = $localize`Edit Report`;
 				this.getReport();
 			}
 		});

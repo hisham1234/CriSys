@@ -11,10 +11,13 @@ import { Routes, RouterModule, ActivatedRoute, Router } from '@angular/router';
 
 
 import { AddAnomalyComponent } from '../add-anomaly/add-anomaly.component'
+import { TRANSLOCO_CONFIG, TRANSLOCO_LOADER ,translocoConfig, TRANSLOCO_SCOPE} from '@ngneat/transloco';
+
 @Component({
     selector: 'app-anomaly',
     templateUrl: './anomaly.component.html',
-    styleUrls: ['./anomaly.component.scss']
+    styleUrls: ['./anomaly.component.scss'],
+    
 })
 export class AnomalyComponent implements OnInit {
 
@@ -27,7 +30,7 @@ export class AnomalyComponent implements OnInit {
 
     totalSize = 100;
 
-    title = "異常";
+    title = $localize `List Of Anomaly`;
 
 
     loading = true;
@@ -90,19 +93,19 @@ export class AnomalyComponent implements OnInit {
 
     deleteAnomaly(row) {
         Swal.fire({
-            title: '削除しますか？',
+            title: $localize `Do You want to delete it?`,
             icon: 'warning',
             showCancelButton: true,
-            confirmButtonText: 'はい',
-            cancelButtonText: 'いいえ'
+            confirmButtonText: $localize `Yes`,
+            cancelButtonText: $localize `No`
         }).then((result) => {
             if (result.value) {
                 this.loading = true;
                 this.anomalyService.deleteAnomaly(row.id).subscribe((res) => {
                     if (res) {
                         Swal.fire(
-                            '削除!',
-                            'タイムラインが削除されました。.',
+                            $localize `Deleted!`,
+                            $localize `Anomaly Successfully Deleted`,
                             'success'
                         )
                         this.getAllAnomalys();
@@ -117,7 +120,7 @@ export class AnomalyComponent implements OnInit {
         dialogRef.afterClosed().subscribe(res => {
             if (res) {
                 this.getAllAnomalys();
-                let message = "編集されたタイムライン";
+                let message = $localize `Anomaly Information Updated`;
                 this._snackBar.open(message, 'OK', {
                     duration: 2000
                 });
@@ -127,15 +130,7 @@ export class AnomalyComponent implements OnInit {
 
     viewAnomaly(row) {
         const dialogRef = this.dialog.open(AddAnomalyComponent, { data: {anomaly:row, type: 'view'}, width: '440px' });
-        dialogRef.afterClosed().subscribe(res => {
-            if (res) {
-                this.getAllAnomalys();
-                let message = "編集されたタイムライン";
-                this._snackBar.open(message, 'OK', {
-                    duration: 2000
-                });
-            }
-        });
+       
     }
 
     addAnomaly() {
@@ -143,7 +138,7 @@ export class AnomalyComponent implements OnInit {
         dialogRef.afterClosed().subscribe(res => {
             if (res) {
                 this.getAllAnomalys();
-                let message = "新しいタイムラインが追加されました";
+                let message = $localize `New Anomaly Successfully Added`;
                 this._snackBar.open(message, 'OK', {
                     duration: 2000
                 });

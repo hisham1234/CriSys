@@ -12,6 +12,7 @@ import { PLATFORM_ID, APP_ID, Inject } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
 
 
+
 @NgModule({
   imports: [
     BrowserModule.withServerTransition({ appId: 'crisys-web' }),
@@ -19,6 +20,7 @@ import { isPlatformBrowser } from '@angular/common';
     FormsModule,
     AppRoutingModule,
     HttpClientModule,
+    
 
     // The HttpClientInMemoryWebApiModule module intercepts HTTP requests
     // and returns simulated server responses.
