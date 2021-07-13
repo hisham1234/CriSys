@@ -19,6 +19,7 @@ export const childRoutes = [
   },
   {
     path: 'anomaly',
+    pathMatch: 'full',
     component: AnomalyComponent,
     data: {
       icon: 'dashboard',
