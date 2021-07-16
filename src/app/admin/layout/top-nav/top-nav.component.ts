@@ -24,8 +24,8 @@ export class TopNavComponent implements OnInit {
   }
 
   languageList = [  
-    { code: 'en', label: 'English' },  
-    { code: 'jp', label: '日本語' },  
+    // { code: 'en', label: 'English' },  
+   /*  { code: 'jp', label: '日本語' },   */
   
   ];  
 
