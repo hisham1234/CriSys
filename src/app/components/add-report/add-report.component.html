@@ -3,7 +3,7 @@
     <div class="pt-2"></div>
     <div class="row">
         <div class="col-md-12">
-            <span><a [routerLink]="['/anomaly']">異常リスト</a> > <a [routerLink]="[goToPrevRoute()]">レポート一覧</a></span>
+            <span><a [routerLink]="['/anomaly']" >{{titleAnomaly}}</a> > <a [routerLink]="[goToPrevRoute()]" >{{titleReport}}</a></span>
         </div>
     </div>
     <div class="row">
@@ -16,29 +16,29 @@
         <div class="col-md-12">
             <form [formGroup]="reportForm" class="example-form" >
                 <mat-form-field class="example-full-width">
-                    <input matInput placeholder="名前" formControlName="title">
+                    <input i18n-placeholder matInput placeholder="Name" formControlName="title">
                 </mat-form-field>
                 <mat-form-field class="example-full-width">
-                    <input matInput placeholder="緯度" formControlName="latitude">
+                    <input i18n-placeholder matInput placeholder=" Latitude " formControlName="latitude">
                 </mat-form-field>
                 <mat-form-field class="example-full-width">
-                    <input matInput placeholder="経度" formControlName="longitude">
+                    <input i18n-placeholder matInput placeholder=" Longtitude " formControlName="longitude">
                 </mat-form-field>
                 <mat-form-field class="example-full-width">
                     <input matInput  placeholder="KP" formControlName="kp">
                 </mat-form-field>
                 <mat-form-field class="example-full-width">
-                    <input matInput  placeholder="道路" formControlName="road">
+                    <input i18n-placeholder matInput  placeholder=" Road " formControlName="road">
                 </mat-form-field>
 
                 <div class="row-without-m-p mt10 mb10">
                     <div class="column" >
                         <button  mat-raised-button  (click)="openImageDialog()">
                             <mat-icon>cloud_circle</mat-icon>
-                            選択 (Azure)
+                           {{btnAzure}}
                         </button>
                     </div>
-                    <div class="column"> <span style="font-size: 13px"> AzureStorageからイメージを選択します </span></div>
+                    <!-- <div class="column"> <span style="font-size: 13px"> AzureStorageからイメージを選択します </span></div> -->
                 </div>
                 <div class="row-without-m-p mt10 mb10">
                     <div class="column" >
@@ -48,7 +48,7 @@
                         </button>
                     </div>
                     <input style="display: none;" type="file" id="fileUpload" name="imageFile" #selectedFile [(ngModel)]="fileUpload" [ngModelOptions]="{standalone: true}" (click)="selectedFile.value = null" value="" (change)="handleFileInput($event.target.files)" />
-                    <div class="column"> <span style="font-size: 13px"> PCからの画像を選択してください </span></div>
+                    <!-- <div class="column"> <span style="font-size: 13px"> PCからの画像を選択してください </span></div> -->
                 </div>
                 <div class="row mt20 mb10" style="text-align:left; font-size: 13px; margin-top:20px">
                     <div class="col" >
@@ -106,7 +106,7 @@
         <div class="col-md 12  mb-3">
             <button  mat-raised-button style="background-color: #62B648; color:white; margin-top:30px" (click)="saveReport()">
                 <mat-icon>save</mat-icon>
-                保存する
+                {{btnSave}}
             </button>
         </div>
     </div>

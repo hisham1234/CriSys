@@ -19,10 +19,11 @@ export const childRoutes = [
   },
   {
     path: 'anomaly',
+    pathMatch: 'full',
     component: AnomalyComponent,
     data: {
       icon: 'dashboard',
-      text: '異常',
+      text: $localize`Anomaly`,
       showInSidebar: true,
     },
     canActivate: [AuthGuard],
@@ -32,7 +33,7 @@ export const childRoutes = [
     component: MapComponent,
     data: {
       icon: 'dashboard',
-      text: '異常',
+      text: $localize`Anomaly`,
       showInSidebar: false,
       //roles: [Role.User1, Role.Admin],
     },

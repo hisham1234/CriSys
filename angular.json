@@ -58,15 +58,16 @@
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "500kb",
-                  "maximumError": "1mb"
+                  "maximumWarning": "2mb",
+                  "maximumError": "2mb"
                 },
                 {
                   "type": "anyComponentStyle",
                   "maximumWarning": "2kb",
                   "maximumError": "4kb"
                 }
-              ]
+              ] 
+              
             },
             "staging": {
               "fileReplacements": [
@@ -83,6 +84,22 @@
                   "with": "src/environments/environment.test.ts"
                 }
               ]
+               
+              
+            },
+            "jp": {    
+              "aot": true,    
+              "i18nFile": "src/translate/messages.jp.xlf",    
+              "i18nFormat": "xlf",    
+              "i18nLocale": "jp",    
+              "i18nMissingTranslation": "error"    
+            },
+            "en": {    
+              "aot": true,    
+              "i18nFile": "src/translate/messages.en.xlf",    
+              "i18nFormat": "xlf",    
+              "i18nLocale": "en",    
+              "i18nMissingTranslation": "error"    
             }
           }
         },
@@ -94,6 +111,12 @@
           "configurations": {
             "production": {
               "browserTarget": "angular.io-example:build:production"
+            },
+            "jp": {    
+              "browserTarget": "angular.io-example:build:jp"    
+            },
+            "en": {    
+              "browserTarget": "angular.io-example:build:en"    
             }
           }
         },

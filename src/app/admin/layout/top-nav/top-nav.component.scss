@@ -16,6 +16,17 @@
   display: flex;
   color: $white;
 }
+.example-label {
+  display: table-cell;
+  font-size: 14px;
+  margin-left: 8px;
+  min-width: 120px;
+}
+
+.example-button-row {
+  display: table-cell;
+  width: 490px;
+}
 
 // .nav-spacer {
 //   flex: 1 1 auto;

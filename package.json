@@ -12,8 +12,11 @@
     "e2e": "ng e2e",
     "dev:ssr": "ng run angular.io-example:serve-ssr",
     "serve:ssr": "node dist/server/main.js",
-    "build:ssr": "ng build --prod && ng run angular.io-example:server:production",
-    "prerender": "ng run angular.io-example:prerender"
+    "build:ssr": "ng build && ng run angular.io-example:server:production",
+    "prerender": "ng run angular.io-example:prerender",
+    "build-locale:en": "ng build --i18n-locale en --i18n-format xlf --i18n-file src/translate/messages.en.xlf --output-path=dist/en --baseHref /en/",
+    "build-locale:jp": "ng build --i18n-locale jp --i18n-format xlf --i18n-file src/translate/messages.jp.xlf --output-path=dist/jp ",
+    "build-locale": "npm run build-locale:en && npm run build-locale:jp"
   },
   "private": true,
   "dependencies": {
@@ -49,6 +52,7 @@
     "@angular-devkit/build-angular": "~0.1100.2",
     "@angular/cli": "~11.0.2",
     "@angular/compiler-cli": "~11.0.1",
+    "@angular/localize": "^11.0.5",
     "@nguniversal/builders": "^11.0.0",
     "@types/express": "^4.17.8",
     "@types/jasmine": "~3.6.0",

@@ -46,8 +46,9 @@ displayedColumns = [ 'id', 'image', 'title', 'road', 'createdAt','kp','latitude'
     private sub: any;
     anomalyId: number;
 
-    title = "レポート一覧";
-
+    title = $localize `List Of Reports`;
+    titleAnomaly=$localize`List Of Anomaly`
+    btnAdd=$localize`Add Report`;
     loading = true;
 
     @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
@@ -158,19 +159,19 @@ displayedColumns = [ 'id', 'image', 'title', 'road', 'createdAt','kp','latitude'
 
     deleteReport(row){
         Swal.fire({
-            title: '削除しますか？',
+            title: $localize`Do You Want To Delete It?`,
             icon: 'warning',
             showCancelButton: true,
-            confirmButtonText: 'はい',
-            cancelButtonText: 'いいえ'
+            confirmButtonText: $localize`Yes`,
+            cancelButtonText: $localize`No`
         }).then((result) => {
         this.loading = true;
             if (result.value) {
                 this.reportService.deleteReport(row.id).subscribe((res)=>{
                     if (res){
                         Swal.fire(
-                            '削除!',
-                            'イベントが削除されました.',
+                            $localize`Deleted!`,
+                            $localize`Report Successfully Deleted.`,
                             'success'
                         )
                         this.getAllReports();

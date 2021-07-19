@@ -23,6 +23,12 @@ export class TopNavComponent implements OnInit {
     this.authenticationService.user.subscribe((x) => (this.user = x));
   }
 
+  languageList = [  
+    // { code: 'en', label: 'English' },  
+   /*  { code: 'jp', label: '日本語' },   */
+  
+  ];  
+
   ngOnInit() {
     this.userService
       .getById(this.user.id)
