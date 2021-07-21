@@ -5,7 +5,7 @@
 export const environment = {
   production: true,
   //   pathToAPI :'http://13.78.69.173:5000'
-  pathToAPI: 'https://anomaly-service.azurewebsites.net',
+  pathToAPI: 'http://localhost:5001',
   apiUrl: 'http://localhost:4200',
 };
 

@@ -59,7 +59,6 @@ import { LoginComponent } from '../login/login/login.component';
 import { testBackendProvider } from '../services/test-backend';
 import { JwtInterceptor } from '../services/jwt.interceptor';
 import { ErrorInterceptor } from '../services/error.interceptor';
-import { EventEmitterService } from '../services/event-emitter.service';
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   wheelPropagation: true,
@@ -91,7 +90,6 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     MatExpansionModule,
   ],
   providers: [
-    EventEmitterService,
     MatSnackBar,
     CommonModule,
     MainRoutingModule,
