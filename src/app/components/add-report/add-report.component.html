@@ -1,66 +1,119 @@
 <section id="sample-table" class="mat-elevation-z8 bg-white">
-    <mat-progress-bar *ngIf="loading" mode="buffer"></mat-progress-bar>
-    <div class="pt-2"></div>
-    <div class="row">
-        <div class="col-md-12">
-            <span><a [routerLink]="['/anomaly']" >{{titleAnomaly}}</a> > <a [routerLink]="[goToPrevRoute()]" >{{titleReport}}</a></span>
-        </div>
+  <mat-progress-bar *ngIf="loading" mode="buffer"></mat-progress-bar>
+  <div class="pt-2"></div>
+  <div class="row">
+    <div class="col-md-12">
+      <span
+        ><a [routerLink]="['/anomaly']">{{ titleAnomaly }}</a> >
+        <a [routerLink]="[goToPrevRoute()]">{{ titleReport }}</a></span
+      >
     </div>
-    <div class="row">
-        <div class="col-md-12">
-            <h5> {{title}} </h5>
-            <hr>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-12">
-            <form [formGroup]="reportForm" class="example-form" >
-                <mat-form-field class="example-full-width">
-                    <input i18n-placeholder matInput placeholder="Name" formControlName="title">
-                </mat-form-field>
-                <mat-form-field class="example-full-width">
-                    <input i18n-placeholder matInput placeholder=" Latitude " formControlName="latitude">
-                </mat-form-field>
-                <mat-form-field class="example-full-width">
-                    <input i18n-placeholder matInput placeholder=" Longtitude " formControlName="longitude">
-                </mat-form-field>
-                <mat-form-field class="example-full-width">
-                    <input matInput  placeholder="KP" formControlName="kp">
-                </mat-form-field>
-                <mat-form-field class="example-full-width">
-                    <input i18n-placeholder matInput  placeholder=" Road " formControlName="road">
-                </mat-form-field>
+  </div>
 
-                <div class="row-without-m-p mt10 mb10">
-                    <div class="column" >
-                        <button  mat-raised-button  (click)="openImageDialog()">
-                            <mat-icon>cloud_circle</mat-icon>
-                           {{btnAzure}}
-                        </button>
-                    </div>
-                    <!-- <div class="column"> <span style="font-size: 13px"> AzureStorageからイメージを選択します </span></div> -->
-                </div>
-                <div class="row-without-m-p mt10 mb10">
-                    <div class="column" >
-                        <button  mat-raised-button  (click)="addFile()">
-                            <mat-icon>publish</mat-icon>
-                             Local Device  
-                        </button>
-                    </div>
-                    <input style="display: none;" type="file" id="fileUpload" name="imageFile" #selectedFile [(ngModel)]="fileUpload" [ngModelOptions]="{standalone: true}" (click)="selectedFile.value = null" value="" (change)="handleFileInput($event.target.files)" />
-                    <!-- <div class="column"> <span style="font-size: 13px"> PCからの画像を選択してください </span></div> -->
-                </div>
-                <div class="row mt20 mb10" style="text-align:left; font-size: 13px; margin-top:20px">
-                    <div class="col" >
-                        <p *ngFor="let selectedLibraryImage of selectedLibraryImages">
-                            <mat-icon class="preview-icon" (click)="showImage(selectedLibraryImage)">preview</mat-icon>
-                            {{selectedLibraryImage?.name}}
-                            <mat-icon class="delete-icon" (click)="deleteSelectedImage(selectedLibraryImage)">delete</mat-icon>
-                        </p>
-                    </div>
-                </div>
-               
-               <!-- <div class="row">
+  <button mat-raised-button (click)="clickMe()">
+    <mat-icon>publish</mat-icon>
+    Click Me
+  </button>
+
+
+
+  <div class="row">
+    <div class="col-md-12">
+      <h5>{{ title }}</h5>
+      <hr />
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <form [formGroup]="reportForm" class="example-form">
+        <mat-form-field class="example-full-width">
+          <input
+            i18n-placeholder
+            matInput
+            placeholder="Name"
+            formControlName="title"
+          />
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+          <input
+            i18n-placeholder
+            matInput
+            placeholder=" Latitude "
+            formControlName="latitude"
+          />
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+          <input
+            i18n-placeholder
+            matInput
+            placeholder=" Longtitude "
+            formControlName="longitude"
+          />
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+          <input matInput placeholder="KP" formControlName="kp" />
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+          <input
+            i18n-placeholder
+            matInput
+            placeholder=" Road "
+            formControlName="road"
+          />
+        </mat-form-field>
+
+        <div class="row-without-m-p mt10 mb10">
+          <div class="column">
+            <button mat-raised-button (click)="openImageDialog()">
+              <mat-icon>cloud_circle</mat-icon>
+              {{ btnAzure }}
+            </button>
+          </div>
+          <!-- <div class="column"> <span style="font-size: 13px"> AzureStorageからイメージを選択します </span></div> -->
+        </div>
+        <div class="row-without-m-p mt10 mb10">
+          <div class="column">
+            <button mat-raised-button (click)="addFile()">
+              <mat-icon>publish</mat-icon>
+              Local Device
+            </button>
+          </div>
+          <input
+            style="display: none"
+            type="file"
+            id="fileUpload"
+            name="imageFile"
+            #selectedFile
+            [(ngModel)]="fileUpload"
+            [ngModelOptions]="{ standalone: true }"
+            (click)="selectedFile.value = null"
+            value=""
+            (change)="handleFileInput($event.target.files)"
+          />
+          <!-- <div class="column"> <span style="font-size: 13px"> PCからの画像を選択してください </span></div> -->
+        </div>
+        <div
+          class="row mt20 mb10"
+          style="text-align: left; font-size: 13px; margin-top: 20px"
+        >
+          <div class="col">
+            <p *ngFor="let selectedLibraryImage of selectedLibraryImages">
+              <mat-icon
+                class="preview-icon"
+                (click)="showImage(selectedLibraryImage)"
+                >preview</mat-icon
+              >
+              {{ selectedLibraryImage?.name }}
+              <mat-icon
+                class="delete-icon"
+                (click)="deleteSelectedImage(selectedLibraryImage)"
+                >delete</mat-icon
+              >
+            </p>
+          </div>
+        </div>
+
+        <!-- <div class="row">
                    <div class="col-md-12" >
                        <ngx-file-drop  dropZoneLabel="Drop files here" (onFileDrop)="dropped($event)"
                        (onFileOver)="fileOver($event)" (onFileLeave)="fileLeave($event)">
@@ -92,50 +145,46 @@
                          </div>
                    </div>
                </div> -->
-            </form>
-        </div>
+      </form>
     </div>
-    <div class="row">
-        <div class="col-md 12">
-            <div style="text-align: center; color: darkred" *ngIf="hasFormErrors" class="example-full-width">
-                <h5>{{errorMessage}}</h5>
-            </div>
-        </div>
+  </div>
+  <div class="row">
+    <div class="col-md 12">
+      <div
+        style="text-align: center; color: darkred"
+        *ngIf="hasFormErrors"
+        class="example-full-width"
+      >
+        <h5>{{ errorMessage }}</h5>
+      </div>
     </div>
-    <div class="row">
-        <div class="col-md 12  mb-3">
-            <button  mat-raised-button style="background-color: #62B648; color:white; margin-top:30px" (click)="saveReport()">
-                <mat-icon>save</mat-icon>
-                {{btnSave}}
-            </button>
+  </div>
+  <div class="row">
+    <div class="col-md 12 mb-3">
+      <!-- <span *ngIf="!isButtonDisabled"> -->
+      <button
+        [disabled]="isButtonDisabled"
+        mat-raised-button
+        style="background-color: #62b648; color: white; margin-top: 30px"
+        (click)="saveReport()"
+      >
+        <mat-icon>save</mat-icon>
+        {{ btnSave }}
+      </button>
+
+     
+      <!-- </span> -->
+      <!-- <span *ngIf="isButtonDisabled">
+        <div
+          style="text-align: left; color: rgb(62, 134, 2)"
+          class="example-full-width"
+        >
+          <h3>{{ txtSaving }}</h3>
         </div>
+      </span> -->
     </div>
+  </div>
 </section>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 <!--<section  class="mat-elevation-z8 bg-white">-->
 <!--      <mat-progress-bar *ngIf="loading" mode="buffer" class="mb20"></mat-progress-bar>-->
