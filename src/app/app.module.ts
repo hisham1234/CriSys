@@ -13,7 +13,7 @@ import { isPlatformBrowser } from '@angular/common';
 import { testBackendProvider } from './services/test-backend';
 import { JwtInterceptor } from './services/jwt.interceptor';
 import { ErrorInterceptor } from './services/error.interceptor';
-import { EventEmitterService } from './services/event-emitter.service';
+
 
 @NgModule({
   imports: [
@@ -22,6 +22,7 @@ import { EventEmitterService } from './services/event-emitter.service';
     FormsModule,
     AppRoutingModule,
     HttpClientModule,
+    
 
     // The HttpClientInMemoryWebApiModule module intercepts HTTP requests
     // and returns simulated server responses.
@@ -30,7 +31,7 @@ import { EventEmitterService } from './services/event-emitter.service';
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
-    EventEmitterService,
+
     // provider used to create test backend
     testBackendProvider,
   ],
