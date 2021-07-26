@@ -22,10 +22,10 @@
                     <input i18n-placeholder matInput placeholder="Name" formControlName="title">
                 </mat-form-field>
                 <mat-form-field class="example-full-width">
-                    <input i18n-placeholder matInput placeholder=" Latitude " formControlName="latitude">
+                    <input i18n-placeholder matInput placeholder=" Latitude " formControlName="latitude" pattern="^[-+]?([1-8]?\d(\.\d+)?|90(\.0+)?)$" >
                 </mat-form-field>
                 <mat-form-field class="example-full-width">
-                    <input i18n-placeholder matInput placeholder=" Longtitude " formControlName="longitude">
+                    <input i18n-placeholder matInput placeholder=" Longtitude " formControlName="longitude" pattern="\s*[-+]?(180(\.0+)?|((1[0-7]\d)|([1-9]?\d))(\.\d+)?)$">
                 </mat-form-field>
                 <mat-form-field class="example-full-width">
                     <input matInput  placeholder="KP" formControlName="kp">
