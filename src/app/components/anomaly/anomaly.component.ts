@@ -9,7 +9,7 @@ import { MatSnackBar } from "@angular/material/snack-bar";
 import Swal from 'sweetalert2';
 import { Routes, RouterModule, ActivatedRoute, Router } from '@angular/router';
 
-
+import { environment } from 'src/environments/environment';
 import { AddAnomalyComponent } from '../add-anomaly/add-anomaly.component'
 
 @Component({
@@ -20,7 +20,7 @@ import { AddAnomalyComponent } from '../add-anomaly/add-anomaly.component'
 })
 export class AnomalyComponent implements OnInit {
 
-    displayedColumns = ['id', 'title', 'anomalyType', 'createdAt',  'reports', 'view', 'edit', 'delete'];
+    displayedColumns = ['id', 'title', 'anomalyType', 'createdAt',  'reports','map', 'view', 'edit', 'delete'];
     dataSource = []
     searchText = ''
     pageSize = 100;
@@ -31,7 +31,7 @@ export class AnomalyComponent implements OnInit {
 
     title = $localize `List Of Anomaly`;
 
-
+    gisUrl=environment.arcGisUrl;
     loading = true;
 
     @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
@@ -146,9 +146,11 @@ export class AnomalyComponent implements OnInit {
 
     }
 
-   /*  showMap(row){
-        console.log(row);        
-    } */
+    showMap(row){
+        console.log(row.id)
+        console.log(this.gisUrl+""+row.id);   
+        window.open(this.gisUrl+""+row.id,"_blank")     
+    }
 
     goToReport(row) {
         this.router.navigate([row.id + "/report"], { relativeTo: this.route });

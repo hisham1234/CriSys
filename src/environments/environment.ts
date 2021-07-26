@@ -7,6 +7,7 @@ export const environment = {
   //   pathToAPI :'http://13.78.69.173:5000'
   pathToAPI: 'http://localhost:5001',
   apiUrl: 'http://localhost:4200',
+  arcGisUrl:'https://nee-bousai1.maps.arcgis.com/apps/dashboards/c90637c801b64db2b49dc08eec84f84e#AnomalyId='
 };
 
 /*

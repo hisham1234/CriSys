@@ -349,6 +349,14 @@
           <context context-type="linenumber">30</context>
         </context-group>
       </trans-unit>
+       <trans-unit id="4f5e4536c9366e092252d2a337fc5c2896652482" datatype="html">
+        <source> ArcGIS </source>
+        <target>ArcGIS</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/anomaly/anomaly.component.html</context>
+          <context context-type="linenumber">86</context>
+        </context-group>
+      </trans-unit>
     </body>
   </file>
 </xliff>
