@@ -19,6 +19,8 @@ export class AddAnomalyComponent implements OnInit {
   hasFormErrors: boolean;
   viewOrEdit = "";
   btnText=$localize `Save`
+  isButtonDisabled = false;
+  txtSaving = '';
   constructor(
       private formBuilder: FormBuilder,
       private anomalyService: AnomalyService,
@@ -52,6 +54,7 @@ export class AddAnomalyComponent implements OnInit {
   }
 
   saveAnomaly(){
+    this.isButtonDisabled = true;
     this.hasFormErrors = false;
     const controls = this.anomalyForm.controls;
     if (this.anomalyForm.invalid) {
@@ -61,6 +64,11 @@ export class AddAnomalyComponent implements OnInit {
 
       this.hasFormErrors = true;
       this.errorMessage = $localize `Please Fill up the form`; //Please fill up the form
+      setTimeout(() => {
+        this.hasFormErrors = false;
+      }, 2000)
+      
+      this.isButtonDisabled = false;     
       return;
     }
     let newAnomaly = new AnomalyModel();
@@ -70,18 +78,21 @@ export class AddAnomalyComponent implements OnInit {
     
 
     if (this.anomaly.id){
+      this.txtSaving = $localize`Updating...`;
       newAnomaly.id = this.anomaly.id;
       newAnomaly.updatedAt = new Date();      
       this.anomalyService.editAnomaly(this.anomaly.id, newAnomaly).subscribe((anomaly)=>{
         this.dialogRef.close(123);
       })
     } else {
+      this.txtSaving = $localize`Saving...`;
       newAnomaly.createdAt = new Date();
       newAnomaly.updatedAt = new Date();
       this.anomalyService.createAnomaly(newAnomaly).subscribe((anomaly)=>{
         this.dialogRef.close(123);
       })
     }
+   
   }
 
 }
