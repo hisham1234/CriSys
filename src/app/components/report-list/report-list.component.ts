@@ -45,7 +45,7 @@ displayedColumns = [ 'id', 'image', 'title', 'road', 'createdAt','kp','latitude'
     totalSize = 100;
     private sub: any;
     anomalyId: number;
-
+    anomalyName: string;
     title = $localize `List Of Reports`;
     titleAnomaly=$localize`List Of Anomaly`
     btnAdd=$localize`Add Report`;
@@ -68,6 +68,7 @@ displayedColumns = [ 'id', 'image', 'title', 'road', 'createdAt','kp','latitude'
         
         this.sub = this.route.params.subscribe(params => {
            this.anomalyId = +params['aid']; // (+) converts string 'id' to a number
+           this.anomalyName = params['aname']
            this.getAnomalyReport();
             //   this.getAllReports();
             //$('.collapsible').collapsible();
