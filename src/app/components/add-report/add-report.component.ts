@@ -18,6 +18,7 @@ import { HostListener } from "@angular/core";
 import { ImageCarouselComponent } from '../image-carousel/image-carousel.component';
 import { NgxFileDropEntry, FileSystemFileEntry, FileSystemDirectoryEntry } from 'ngx-file-drop';
 import { ImageService } from 'src/app/services/image.service';
+import { EventEmitterService } from 'src/app/services/event-emitter.service';
 
 
 
@@ -34,10 +35,11 @@ export class AddReportComponent implements OnInit {
 
 	reportForm: FormGroup;
 	title: any = 'イベントを追加';
-	errorMessage = $localize `Please Fill up the form`;
+	errorMessage = $localize `Please fill up the form correctly`;
 	hasFormErrors: boolean;
 	private sub: any;
 	anomalyId: number;
+  anomalyName: string;
 	reportId: any;
 	report: ReportModel;
 	loading = false;
@@ -49,6 +51,10 @@ export class AddReportComponent implements OnInit {
 	btnSave=$localize`Save`
 	titleAnomaly=$localize`List Of Anomaly`
 	titleReport=$localize`List Of Reports`
+
+  isButtonDisabled = false;
+  formActionText = '';
+
 	public files: NgxFileDropEntry[] = [];
 
 
@@ -61,6 +67,7 @@ export class AddReportComponent implements OnInit {
 		private route: ActivatedRoute,
 		public dialog: MatDialog,
 		private _snackBar: MatSnackBar,
+    private eventEmitterService: EventEmitterService
 	) {
 		this.getScreenSize();
 	}
@@ -70,7 +77,8 @@ export class AddReportComponent implements OnInit {
 		this.sub = this.route.params.subscribe(params => {
 			this.anomalyId = params['aid']; // (+) converts string 'id' to a number
 			this.reportId = params['rid']; // (+) converts string 'id' to a number
-			if (this.reportId !== 'add') {
+			this.anomalyName = params['aname']
+      if (this.reportId !== 'add') {
 				this.title = $localize`Edit Report`;
 				this.getReport();
 			}
@@ -189,13 +197,33 @@ export class AddReportComponent implements OnInit {
 
 	}
 
+  checkFormHasErrors(formControls: any): boolean {
+    if (
+      formControls['title'].value === '' ||
+      formControls['latitude'].value === '' ||
+      formControls['longitude'].value === ''
+    ) {
+      this.hasFormErrors = true;
+      this.isButtonDisabled = false;
+      return true;
+    } else {
+      return false;
+    }
+  }
+
 	saveReport() {
 		
 		if (this.reportId !== 'add') {
+      this.formActionText = $localize`Updating...`;
 			let editedReport = new ReportModel();
 			Object.assign(editedReport, this.report);
 			let formControls = this.reportForm.controls;
-			editedReport.title = formControls['title'].value;
+		
+      if (this.checkFormHasErrors(formControls)) {
+        return;
+      }
+    
+      editedReport.title = formControls['title'].value;
 			editedReport.latitude = formControls['latitude'].value;
 			editedReport.longitude = formControls['longitude'].value;
 			editedReport.kp = formControls['kp'].value;
@@ -224,10 +252,23 @@ export class AddReportComponent implements OnInit {
 						duration: 2000
 					});
 				}
+        this.hasFormErrors = false;
+        this.eventEmitterService.sendClickEvent();
+        this.redirectTo(`anomaly/${this.anomalyId}/${this.anomalyName}/report`);
 			})
+      
 		}
 		else {
+      this.isButtonDisabled = true;
+      this.formActionText = $localize`Saving...`;
+
 			let formControls = this.reportForm.controls;
+      if (this.checkFormHasErrors(formControls)) {
+        setTimeout(() => {
+          this.hasFormErrors = false;
+        }, 2000)
+        return;
+      }
 			let newReport = new ReportModel();
 			newReport.anomalyId = this.anomalyId;
 			newReport.title = formControls['title'].value;
@@ -260,13 +301,17 @@ export class AddReportComponent implements OnInit {
 					this._snackBar.open(message, 'OK', {
 						duration: 2000
 					});
+          this.eventEmitterService.sendClickEvent();
+          this.redirectTo(`anomaly/${this.anomalyId}/${this.anomalyName}/report`);
 				}
 			})
 		}
 	}
-
-	goToPrevRoute() {
-		let preRoute = this.routerExtService.getPreviousUrl();
+  redirectTo(uri: string) {
+     this.router.navigate([uri]); //.then(() => this.router.navigate([uri]));
+  }
+	goToPrevRoute() {  
+		let preRoute = this.routerExtService.getPreviousUrl();   
 		return preRoute;
 	}
 

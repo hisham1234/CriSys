@@ -13,6 +13,8 @@ import { ImageCarouselComponent } from '../image-carousel/image-carousel.compone
 import * as L from 'leaflet';
 import { MarkerService } from '../../services/marker.service';
 import { $ } from 'protractor';
+import { Subscription } from 'rxjs';
+import { EventEmitterService } from 'src/app/services/event-emitter.service';
 
 const iconRetinaUrl = 'assets/marker-icon-2x.png';
 const iconUrl = 'assets/marker-icon.png';
@@ -50,7 +52,8 @@ displayedColumns = [ 'id', 'image', 'title', 'road', 'createdAt','kp','latitude'
     titleAnomaly=$localize`List Of Anomaly`
     btnAdd=$localize`Add Report`;
     loading = true;
-
+    subscription: Subscription;
+    clickEventsubscription: Subscription;
     @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
     @ViewChild(MatSort, { static: true }) sort: MatSort;
     constructor(
@@ -59,22 +62,32 @@ displayedColumns = [ 'id', 'image', 'title', 'road', 'createdAt','kp','latitude'
         private _snackBar: MatSnackBar,
         private router: Router,
         private route: ActivatedRoute,
-        private markerService: MarkerService
-    ) {}
+        private markerService: MarkerService,
+        private eventEmitterService: EventEmitterService
+    ) {
+      this.clickEventsubscription = this.eventEmitterService
+      .getClickEvent()
+      .subscribe(() => {
+        this.getAnomalyReportData();
+      });
+    }
 
     ngOnInit() {
        // L.map('map').off();
        debugger;
-        
-        this.sub = this.route.params.subscribe(params => {
-           this.anomalyId = +params['aid']; // (+) converts string 'id' to a number
-           this.anomalyName = params['aname']
-           this.getAnomalyReport();
-            //   this.getAllReports();
-            //$('.collapsible').collapsible();
-        });
-
+       this.getAnomalyReportData();     
     }
+    getAnomalyReportData() {
+      console.log("clciked broo")
+      this.sub = this.route.params.subscribe((params) => {
+        this.anomalyId = +params['aid']; // (+) converts string 'id' to a number
+        this.anomalyName = params['aname']  
+        this.getAnomalyReport();
+        //   this.getAllReports();
+        //$('.collapsible').collapsible();
+      });
+    }
+
     private map;
   
 
@@ -102,7 +115,7 @@ displayedColumns = [ 'id', 'image', 'title', 'road', 'createdAt','kp','latitude'
   }
 
     ngAfterViewInit() {
-       // debugger;
+       debugger;
         
         this.initMap();
        
@@ -121,7 +134,7 @@ displayedColumns = [ 'id', 'image', 'title', 'road', 'createdAt','kp','latitude'
     // }
     
     getAnomalyReport(){
-        debugger;
+       debugger;
         this.reportService.getAnomalyReport(this.anomalyId).subscribe(res => {
             this.dataSource = res['response'];
             this.totalSize = res['totalCount'];
@@ -160,7 +173,7 @@ displayedColumns = [ 'id', 'image', 'title', 'road', 'createdAt','kp','latitude'
 
     deleteReport(row){
         Swal.fire({
-            title: $localize`Do You Want To Delete It?`,
+            title: $localize`Do You Want To Delete This?`,
             icon: 'warning',
             showCancelButton: true,
             confirmButtonText: $localize`Yes`,
@@ -170,19 +183,18 @@ displayedColumns = [ 'id', 'image', 'title', 'road', 'createdAt','kp','latitude'
             if (result.value) {
                 this.reportService.deleteReport(row.id).subscribe((res)=>{
                     if (res){
+                      this.getAnomalyReportData();
                         Swal.fire(
                             $localize`Deleted!`,
                             $localize`Report Successfully Deleted.`,
                             'success'
                         )
-                        this.getAllReports();
+                      
                     }
                 })
             }
         })
     }
-
-
 
     addReport(){
 

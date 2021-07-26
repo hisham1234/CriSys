@@ -1,3 +1,6 @@
+<mat-panel-description>
+    <p class="anomaly-title">ID {{ anomalyId }} : {{ anomalyName }}</p>
+</mat-panel-description>
 <section id="sample-table" class="mat-elevation-z8 bg-white">
     <mat-progress-bar *ngIf="loading" mode="buffer"></mat-progress-bar>
     <div class="pt-2"></div>
@@ -97,18 +100,28 @@
     </div>
     <div class="row">
         <div class="col-md 12">
-            <div style="text-align: center; color: darkred" *ngIf="hasFormErrors" class="example-full-width">
+            <div style="text-align: left; color: darkred" *ngIf="hasFormErrors" class="example-full-width">
                 <h5>{{errorMessage}}</h5>
             </div>
         </div>
     </div>
     <div class="row">
         <div class="col-md 12  mb-3">
-            <button  mat-raised-button style="background-color: #62B648; color:white; margin-top:30px" (click)="saveReport()">
+            <span *ngIf="!isButtonDisabled">
+            <button [disabled]="isButtonDisabled" mat-raised-button style="background-color: #62B648; color:white; margin-top:30px" (click)="saveReport()">
                 <mat-icon>save</mat-icon>
                 {{btnSave}}
             </button>
+            </span>
+
+            <span *ngIf="isButtonDisabled && !hasFormErrors">
+                <div style="text-align: left; color: rgb(62, 134, 2)"
+                class="example-full-width" >
+                 <h3>{{formActionText }}</h3>
+               </div>
+            </span>
         </div>
+     
     </div>
 </section>
 
