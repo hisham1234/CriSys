@@ -77,8 +77,7 @@ displayedColumns = [ 'id', 'image', 'title', 'road', 'createdAt','kp','latitude'
        debugger;
        this.getAnomalyReportData();     
     }
-    getAnomalyReportData() {
-      console.log("clciked broo")
+    getAnomalyReportData() {    
       this.sub = this.route.params.subscribe((params) => {
         this.anomalyId = +params['aid']; // (+) converts string 'id' to a number
         this.anomalyName = params['aname']  

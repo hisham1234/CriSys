@@ -150,9 +150,7 @@ export class AddReportComponent implements OnInit {
 			  this.fileUpoadInitiated = false;  
 			  this.fileUpload = ''; 
 			   
-			  if (response) {  
-				
-			console.log(response.response);
+			  if (response) {  							
 			   this.selectedLibraryImages.push(response.response);
 			  }  
 			  else {  
