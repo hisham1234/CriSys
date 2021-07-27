@@ -172,7 +172,7 @@ displayedColumns = [ 'id', 'image', 'title', 'road', 'createdAt','kp','latitude'
 
     deleteReport(row){
         Swal.fire({
-            title: $localize`Do You Want To Delete This?`,
+            title: $localize`Do You Want To Delete It?`,
             icon: 'warning',
             showCancelButton: true,
             confirmButtonText: $localize`Yes`,

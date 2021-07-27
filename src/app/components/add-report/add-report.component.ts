@@ -35,11 +35,11 @@ export class AddReportComponent implements OnInit {
 
 	reportForm: FormGroup;
 	title: any = 'イベントを追加';
-	errorMessage = $localize `Please fill up the form correctly`;
+	errorMessage = $localize `Please Fill up the form`;
 	hasFormErrors: boolean;
 	private sub: any;
 	anomalyId: number;
-  anomalyName: string;
+    anomalyName: string;
 	reportId: any;
 	report: ReportModel;
 	loading = false;
@@ -52,8 +52,8 @@ export class AddReportComponent implements OnInit {
 	titleAnomaly=$localize`List Of Anomaly`
 	titleReport=$localize`List Of Reports`
 
-  isButtonDisabled = false;
-  formActionText = '';
+  	isButtonDisabled = false;
+  	formActionText = '';
 
 	public files: NgxFileDropEntry[] = [];
 
@@ -212,7 +212,7 @@ export class AddReportComponent implements OnInit {
 	saveReport() {
 		
 		if (this.reportId !== 'add') {
-      this.formActionText = $localize`Updating...`;
+        this.formActionText = $localize`Updating...`;
 			let editedReport = new ReportModel();
 			Object.assign(editedReport, this.report);
 			let formControls = this.reportForm.controls;
