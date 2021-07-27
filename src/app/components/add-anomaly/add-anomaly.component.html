@@ -25,10 +25,23 @@
               <div style="text-align: center; color: darkred" *ngIf="hasFormErrors" class="example-full-width">
                   <h5>{{errorMessage}}</h5>
               </div>
+              
+              <span *ngIf="!isButtonDisabled">
               <button  class="example-full-width"  mat-raised-button style="background-color: #62B648; color:white" (click)="saveAnomaly()">
                   <mat-icon>save</mat-icon>
                  {{btnText}}
               </button>
+              </span>
+              <span *ngIf="isButtonDisabled">
+                <div
+                  style="text-align: center; color: rgb(62, 134, 2)"
+                  class="example-full-width"
+                >
+                  <h3>{{ txtSaving }}</h3>
+                </div>
+              </span>
+
+              
           </div>
 
       </form>

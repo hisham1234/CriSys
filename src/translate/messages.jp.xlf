@@ -4,14 +4,14 @@
     <body>
     <trans-unit id="4242617914252994088" datatype="html">
         <source>List Of Anomaly</source>
-        <target>List Of Anomaly</target>
+        <target>異常リスト</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/anomaly/anomaly.component.ts</context>
           <context context-type="linenumber">33</context>
         </context-group>
       </trans-unit>
        <trans-unit id="6890505548560811605" datatype="html">
-        <source>Do You want to delete it?</source>
+        <source>Do you want to delete it?</source>
          <target>削除しますか？</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/anomaly/anomaly.component.ts</context>
@@ -36,7 +36,7 @@
       </trans-unit>
       <trans-unit id="8548858103540693302" datatype="html">
         <source>Deleted!</source>
-        <target>削除しました!</target>
+        <target>削除済</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/anomaly/anomaly.component.ts</context>
           <context context-type="linenumber">107</context>
@@ -44,7 +44,7 @@
       </trans-unit>
       <trans-unit id="6346411877267982720" datatype="html">
         <source>Anomaly Successfully Deleted</source>
-         <target>Anomaly Successfully Deleted</target>
+         <target>異常は正常に削除されました。</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/anomaly/anomaly.component.ts</context>
           <context context-type="linenumber">108</context>
@@ -52,7 +52,7 @@
       </trans-unit>
       <trans-unit id="1771349513832887583" datatype="html">
         <source>Anomaly Information Updated</source>
-         <target>Anomaly Information Updated</target>
+         <target>異常情報の更新</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/anomaly/anomaly.component.ts</context>
           <context context-type="linenumber">123</context>
@@ -60,15 +60,15 @@
       </trans-unit>
      <trans-unit id="6443116607013908281" datatype="html">
         <source>New Anomaly Successfully Added</source>
-         <target>New Anomaly Successfully Added</target>
+         <target>新しい異常が正常に追加されました。</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/anomaly/anomaly.component.ts</context>
           <context context-type="linenumber">149</context>
         </context-group>
       </trans-unit>
      <trans-unit id="9db330759933db56a656e4a35431b42e0f63cb7d" datatype="html">
-        <source> Map Of Anomaly </source>
-        <target> 地図 </target>
+        <source> Anomaly Map</source>
+        <target> 異常マップ </target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/anomaly/anomaly.component.html</context>
           <context context-type="linenumber">9,10</context>
@@ -77,7 +77,7 @@
       <trans-unit id="7507d29a0e06e51a62b2e6d72d714e6f7a0b7c12" datatype="html">
         <source><x id="START_TAG_MAT_ICON" ctype="x-mat_icon" equiv-text="aised-butto"/>add<x id="CLOSE_TAG_MAT_ICON" ctype="x-mat_icon" equiv-text="olor=&quot;accent&quot; &gt;
            "/> Add Anomaly </source>
-           <target>Add Anomaly</target>
+           <target>異常の追加</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/anomaly/anomaly.component.html</context>
           <context context-type="linenumber">48,50</context>
@@ -93,7 +93,7 @@
       </trans-unit>
       <trans-unit id="f23c4d5cfb0e5ac19130786d955c2a3e863f6a68" datatype="html">
         <source> View </source>
-        <target> みる </target>
+        <target> 閲覧 </target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/anomaly/anomaly.component.html</context>
           <context context-type="linenumber">89</context>
@@ -101,7 +101,7 @@
       </trans-unit>
       <trans-unit id="ee6f41840bf84e3ec720b7b22390f08c1cbdcb81" datatype="html">
         <source> Edit </source>
-        <target> Edit </target>
+        <target> 編集 </target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/anomaly/anomaly.component.html</context>
           <context context-type="linenumber">97</context>
@@ -109,7 +109,7 @@
       </trans-unit>
       <trans-unit id="daa52b3eb35d393bd15ae121c96b502ef4011163" datatype="html">
         <source> Delete </source>
-        <target> Delete </target>
+        <target> 削除 </target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/anomaly/anomaly.component.html</context>
           <context context-type="linenumber">113</context>
@@ -117,7 +117,7 @@
       </trans-unit>
       <trans-unit id="361528bd8cd72f32116c96e85bcb2b07801b1f23" datatype="html">
         <source>No Data To Display</source>
-        <target> No Data To Display </target>
+        <target> 表示可能なデータがありません。 </target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/anomaly/anomaly.component.html</context>
           <context context-type="linenumber">127</context>
@@ -125,7 +125,7 @@
       </trans-unit>
       <trans-unit id="1744268896602987285" datatype="html">
         <source>Please Fill Up the details</source>
-        <target>Please Fill Up the details</target>
+        <target>詳細を入力して下さい。</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/add-anomaly/add-anomaly.component.ts</context>
           <context context-type="linenumber">17</context>
@@ -133,7 +133,7 @@
       </trans-unit>
       <trans-unit id="3318329789943652142" datatype="html">
         <source>Please Fill up the form</source>
-        <target>Please Fill up the form</target>
+        <target>フォームを入力して下さい。</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/add-anomaly/add-anomaly.component.ts</context>
           <context context-type="linenumber">63</context>
@@ -141,7 +141,7 @@
       </trans-unit>
       <trans-unit id="cff1428d10d59d14e45edec3c735a27b5482db59" datatype="html">
         <source>Name</source>
-        <target>Name</target>
+        <target>名前</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/add-anomaly/add-anomaly.component.html</context>
           <context context-type="linenumber">19</context>
@@ -149,7 +149,7 @@
       </trans-unit>
       <trans-unit id="8cfd8971c1075b70b717cdd479152e1cda1eb544" datatype="html">
         <source>Anomaly Type</source>
-        <target>Anomaly Type</target>
+        <target>異常の種類</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/add-anomaly/add-anomaly.component.html</context>
           <context context-type="linenumber">22</context>
@@ -166,7 +166,7 @@
       </trans-unit>
       <trans-unit id="83c2f65a9bd725f51bc7ac13ad518ff2b8987ecd" datatype="html">
         <source>View Anomaly</source>
-        <target>異常のみる</target>
+        <target>異常の閲覧</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/add-anomaly/add-anomaly.component.html</context>
           <context context-type="linenumber">7</context>
@@ -182,10 +182,10 @@
         </context-group>
         <note priority="1" from="description">AnomalyAdd</note>
       </trans-unit>
-      
+
        <trans-unit id="8676885572354932865" datatype="html">
-        <source>List Of Reports</source>
-        <target>List Of Reports</target>
+        <source>List of Reports</source>
+        <target>レポートリスト</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/report-list/report-list.component.ts</context>
           <context context-type="linenumber">49</context>
@@ -193,7 +193,7 @@
       </trans-unit>
       <trans-unit id="6864016537810263548" datatype="html">
         <source>Add Report</source>
-        <target>Add Report</target>
+        <target>レポートの追加</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/report-list/report-list.component.ts</context>
           <context context-type="linenumber">50</context>
@@ -201,7 +201,7 @@
       </trans-unit>
        <trans-unit id="655936072733033892" datatype="html">
         <source>Do You Want To Delete It?</source>
-        <target>Do You Want To Delete It?</target>
+        <target>削除しますか？</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/report-list/report-list.component.ts</context>
           <context context-type="linenumber">161</context>
@@ -209,7 +209,7 @@
       </trans-unit>
       <trans-unit id="6706736088069915696" datatype="html">
         <source>Report Successfully Deleted.</source>
-        <target>Report Successfully Deleted.</target>
+        <target>レポートは正常に削除されました。</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/report-list/report-list.component.ts</context>
           <context context-type="linenumber">173</context>
@@ -217,7 +217,7 @@
       </trans-unit>
       <trans-unit id="f7d83b746be4b9f41db4b5ea84112e9363c2da57" datatype="html">
         <source> Map Of Reports </source>
-        <target>Map Of Reports</target>
+        <target>レポートの地図</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/report-list/report-list.component.html</context>
           <context context-type="linenumber">8,9</context>
@@ -225,7 +225,7 @@
       </trans-unit>
       <trans-unit id="7ef2257a82d31f097246c1426fed34988c67f372" datatype="html">
         <source>List Of Anomaly</source>
-        <target>List Of Anomaly</target>
+        <target>異常リスト</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/report-list/report-list.component.html</context>
           <context context-type="linenumber">30</context>
@@ -233,7 +233,7 @@
       </trans-unit>
       <trans-unit id="c5082d30757d0b680a9218c6c92c5b6d07f5ef67" datatype="html">
         <source>List Of Reports </source>
-        <target>List Of Reports</target>
+        <target>レポートリスト</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/report-list/report-list.component.html</context>
           <context context-type="linenumber">30,31</context>
@@ -241,7 +241,7 @@
       </trans-unit>
       <trans-unit id="5ca707824ab93066c7d9b44e1b8bf216725c2c22" datatype="html">
         <source>Filter</source>
-        <target>Filter</target>
+        <target>フィルタ</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/report-list/report-list.component.html</context>
           <context context-type="linenumber">43</context>
@@ -249,7 +249,7 @@
       </trans-unit>
       <trans-unit id="383fb13dff3d1e4a0d47ef965f18cedf547a0418" datatype="html">
         <source> Image </source>
-        <target>Image</target>
+        <target>画像</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/report-list/report-list.component.html</context>
           <context context-type="linenumber">71</context>
@@ -257,7 +257,7 @@
       </trans-unit>
       <trans-unit id="92814b602e3bce5373fc867441aacb03f29a387c" datatype="html">
         <source> Road </source>
-        <target>Road</target>
+        <target>道</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/report-list/report-list.component.html</context>
           <context context-type="linenumber">79</context>
@@ -265,7 +265,7 @@
       </trans-unit>
       <trans-unit id="20371277706eedf7fd8a3f51633ca5d801cd4fc2" datatype="html">
         <source> Name </source>
-        <target>Name</target>
+        <target>名前</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/report-list/report-list.component.html</context>
           <context context-type="linenumber">84</context>
@@ -273,7 +273,7 @@
       </trans-unit>
       <trans-unit id="f4cf6ad9a8804547c36ba49133eb7a68ff42cace" datatype="html">
         <source> Created Time </source>
-        <target>Created Time </target>
+        <target>作成時間</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/report-list/report-list.component.html</context>
           <context context-type="linenumber">89</context>
@@ -281,7 +281,7 @@
       </trans-unit>
       <trans-unit id="07277f34d6f913565f34a8917829ed2ea6147516" datatype="html">
         <source> Latitude </source>
-        <target>Latitude</target>
+        <target>緯度</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/report-list/report-list.component.html</context>
           <context context-type="linenumber">99</context>
@@ -289,7 +289,7 @@
       </trans-unit>
       <trans-unit id="39c20af68c00c1009f59b30fe750683b20ba46cd" datatype="html">
         <source> Longtitude </source>
-        <target>Longtitude</target>
+        <target>経度</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/report-list/report-list.component.html</context>
           <context context-type="linenumber">104</context>
@@ -297,7 +297,7 @@
       </trans-unit>
       <trans-unit id="7159867e1593a49f81cc5e192ea9588c1235d8bf" datatype="html">
         <source>No Data</source>
-        <target>No Data</target>
+        <target>データが存在しません。</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/report-list/report-list.component.html</context>
           <context context-type="linenumber">134</context>
@@ -305,7 +305,7 @@
       </trans-unit>
         <trans-unit id="5030479970605929493" datatype="html">
         <source>Select From Azure</source>
-         <target>Select From Azure</target>
+         <target>Azureから選択して下さい。</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/add-report/add-report.component.ts</context>
           <context context-type="linenumber">48</context>
@@ -313,9 +313,9 @@
       </trans-unit>
       <trans-unit id="5575743992457228713" datatype="html">
         <source>Edit Report</source>
-        <target>Edit Report</target>
+        <target>レポートの編集</target>
         <context-group purpose="location">
-        
+
           <context context-type="sourcefile">src/app/components/add-report/add-report.component.ts</context>
           <context context-type="linenumber">74</context>
         </context-group>
@@ -335,7 +335,7 @@
 
        <trans-unit id="bf6f8dcc4f48a79b3be98d580f707aebcec791bf" datatype="html">
         <source>Select An Image</source>
-        <target>Select An Image</target>
+        <target>画像の選択</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/image-dialog/image-dialog.component.html</context>
           <context context-type="linenumber">8</context>
@@ -343,7 +343,7 @@
       </trans-unit>
       <trans-unit id="1818356357146539806" datatype="html">
         <source>Anomaly</source>
-        <target>Anomaly</target>
+        <target>異常</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/child-routes.ts</context>
           <context context-type="linenumber">21</context>
@@ -351,6 +351,62 @@
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/child-routes.ts</context>
           <context context-type="linenumber">30</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3155504588637566135" datatype="html">
+        <source>Updating...</source>
+        <target>更新しています...</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/add-anomaly/add-anomaly.component.ts</context>
+          <context context-type="linenumber">81</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/add-report/add-report.component.ts</context>
+          <context context-type="linenumber">215</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3407061818321766940" datatype="html">
+        <source>Saving...</source> 
+        <target>保存しています...</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/add-anomaly/add-anomaly.component.ts</context>
+          <context context-type="linenumber">88</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/add-report/add-report.component.ts</context>
+          <context context-type="linenumber">261</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2949848596707725099" datatype="html">
+        <source>Sign out</source> 
+        <target>サインアウト</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/admin/layout/top-nav/top-nav.component.ts</context>
+          <context context-type="linenumber">16</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2454050363478003966" datatype="html">
+        <source>Login</source>
+        <target>ログイン</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/login/login/login.component.ts</context>
+          <context context-type="linenumber">21</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="4fcb6dbd1b656de4f606e061af0ed606d3fdc547" datatype="html">
+        <source>User Name</source> 
+        <target>ユーザー名</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/login/login/login.component.html</context>
+          <context context-type="linenumber">14</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="c32ef07f8803a223a83ed17024b38e8d82292407" datatype="html">
+        <source>Password</source>
+        <target>パスワード</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/login/login/login.component.html</context>
+          <context context-type="linenumber">27</context>
         </context-group>
       </trans-unit>
          </body>
