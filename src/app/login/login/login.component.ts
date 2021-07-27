@@ -18,7 +18,9 @@ export class LoginComponent implements OnInit {
   submitted = false;
   error = '';
   isLoginError = false;
- 
+  btnLoginText =$localize `Login`
+  loginErrorMessage =$localize `Id unknown or password incorrect`
+  
   constructor(
     private formBuilder: FormBuilder,
     private route: ActivatedRoute,
