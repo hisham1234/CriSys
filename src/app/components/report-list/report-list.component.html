@@ -1,3 +1,17 @@
+<div class="row">
+<div class="col-md-2">
+  <h2>{{anomalyName}} </h2>  
+</div>
+
+<div class="col-md-2" (click)="redirectToArcGis()" >
+    <button mat-raised-button class="ArcGisBtn">
+        {{btnArcGis}}
+    </button>
+    
+</div>
+
+</div>
+ 
 <mat-accordion class="example-headers-align" multi>
     <mat-expansion-panel >
         <mat-expansion-panel-header>
@@ -44,7 +58,7 @@
                     </mat-form-field>
                 </div>
                 <div class="col-md-6 col-sm col-xs">
-                    <button (click)="addReport()"  class="btn-mobile"  style="float: right; background-color: #62B648; color:white" mat-raised-button color="accent" >
+                    <button (click)="addReport()"  class="btn-mobile btnStyle"  mat-raised-button color="accent" >
                         <mat-icon >add</mat-icon> {{btnAdd}}
                     </button>
                 </div>

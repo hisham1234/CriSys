@@ -13,6 +13,8 @@ import { ImageCarouselComponent } from '../image-carousel/image-carousel.compone
 import * as L from 'leaflet';
 import { MarkerService } from '../../services/marker.service';
 import { $ } from 'protractor';
+import { environment } from 'src/environments/environment';
+import { AnomalyService } from 'src/app/services/anomaly.service';
 
 const iconRetinaUrl = 'assets/marker-icon-2x.png';
 const iconUrl = 'assets/marker-icon.png';
@@ -39,13 +41,15 @@ displayedColumns = [ 'id', 'image', 'title', 'road', 'createdAt','kp','latitude'
     dataSource: ReportModel[] = []
     searchText=''
     pageSize = 100;
-
+    anomalyData:any;
+    anomalyName:any;
     currentPage = 0;
 
     totalSize = 100;
     private sub: any;
     anomalyId: number;
-
+    gisUrl=environment.arcGisUrl;
+    btnArcGis=$localize `View In ArcGis`;
     title = $localize `List Of Reports`;
     titleAnomaly=$localize`List Of Anomaly`
     btnAdd=$localize`Add Report`;
@@ -59,23 +63,32 @@ displayedColumns = [ 'id', 'image', 'title', 'road', 'createdAt','kp','latitude'
         private _snackBar: MatSnackBar,
         private router: Router,
         private route: ActivatedRoute,
-        private markerService: MarkerService
+        private markerService: MarkerService,
+        private anomalyService:AnomalyService
     ) {}
 
     ngOnInit() {
-       // L.map('map').off();
+      
        debugger;
         
         this.sub = this.route.params.subscribe(params => {
            this.anomalyId = +params['aid']; // (+) converts string 'id' to a number
            this.getAnomalyReport();
-            //   this.getAllReports();
-            //$('.collapsible').collapsible();
+           this.getAnomalyDetails();
         });
 
     }
     private map;
   
+    getAnomalyDetails(){
+      this.anomalyService.getAnomaly(this.anomalyId).subscribe(res => {
+        this.anomalyData = res['response'];
+        this.anomalyName=this.anomalyData.title;
+       
+       
+             
+    });
+    }
 
     private initMap(): void {
         debugger;
@@ -235,6 +248,12 @@ displayedColumns = [ 'id', 'image', 'title', 'road', 'createdAt','kp','latitude'
         this.currentPage = e.pageIndex;
         this.pageSize = e.pageSize;
 //         this.getAllReports();
+    }
+
+    redirectToArcGis()
+    {
+      window.open(this.gisUrl+""+this.anomalyId,"_blank")  
+     
     }
 
 }

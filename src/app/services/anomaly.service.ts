@@ -46,5 +46,12 @@ export class AnomalyService {
         return this.http.post(ANOMALY_URL, anomaly,{ headers: headers });
     }
 
+    getAnomaly(anomaly_Id:number)
+    {
+        console.log('anomalyService.findAnomaly!');
+        const headers = this.httpUtils.getHTTPHeaders();
+        return this.http.get(ANOMALY_URL+'/'+anomaly_Id, { headers: headers });
+    }
+
 
 }

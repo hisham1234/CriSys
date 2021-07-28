@@ -361,6 +361,14 @@
           <context context-type="linenumber">86</context>
         </context-group>
       </trans-unit>
+      <trans-unit id="3011496725303015869" datatype="html">
+        <source>View In ArcGis</source>
+         <target>View In ArcGis</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/report-list/report-list.component.ts</context>
+          <context context-type="linenumber">52</context>
+        </context-group>
+      </trans-unit>
          </body>
   </file>
 </xliff>
