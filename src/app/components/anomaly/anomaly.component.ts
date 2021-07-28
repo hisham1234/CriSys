@@ -153,7 +153,7 @@ export class AnomalyComponent implements OnInit {
     }
 
     goToReport(row) {
-        this.router.navigate([row.id + "/report"], { relativeTo: this.route });
+        this.router.navigate([row.id + '/' + row.title + "/report"], { relativeTo: this.route });
     }
 
     handlePage(e: any) {

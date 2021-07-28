@@ -13,6 +13,7 @@ import { UserService } from 'src/app/services/user.service';
 export class TopNavComponent implements OnInit {
   user: User;
   loggedUser: User;
+  txtSignOutText =$localize`Sign out` 
   @Output() sideNavToggled = new EventEmitter<void>();
 
   constructor(

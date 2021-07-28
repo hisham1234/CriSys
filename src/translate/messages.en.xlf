@@ -349,20 +349,84 @@
           <context context-type="linenumber">30</context>
         </context-group>
       </trans-unit>
-       <trans-unit id="4f5e4536c9366e092252d2a337fc5c2896652482" datatype="html">
+      <trans-unit id="3155504588637566135" datatype="html">
+        <source>Updating...</source>
+        <target>Updating...</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/add-anomaly/add-anomaly.component.ts</context>
+          <context context-type="linenumber">81</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/add-report/add-report.component.ts</context>
+          <context context-type="linenumber">215</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3407061818321766940" datatype="html">
+        <source>Saving...</source> 
+        <target>Saving...</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/add-anomaly/add-anomaly.component.ts</context>
+          <context context-type="linenumber">88</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/add-report/add-report.component.ts</context>
+          <context context-type="linenumber">261</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2949848596707725099" datatype="html">
+        <source>Sign out</source> 
+        <target>Sign out</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/admin/layout/top-nav/top-nav.component.ts</context>
+          <context context-type="linenumber">16</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2454050363478003966" datatype="html">
+        <source>Login</source>
+        <target>Login</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/login/login/login.component.ts</context>
+          <context context-type="linenumber">21</context>
+        </context-group>
+      </trans-unit>
+       <trans-unit id="4fcb6dbd1b656de4f606e061af0ed606d3fdc547" datatype="html">
+        <source>User Name</source> 
+        <target>User Name</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/login/login/login.component.html</context>
+          <context context-type="linenumber">14</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="c32ef07f8803a223a83ed17024b38e8d82292407" datatype="html">
+        <source>Password</source>
+        <target>Password</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/login/login/login.component.html</context>
+          <context context-type="linenumber">27</context>
+        </context-group>
+      </trans-unit>
+        <trans-unit id="5727275022314494904" datatype="html">
+        <source>View in ArcGIS</source>
+        <target>View in ArcGIS</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/report-list/report-list.component.ts</context>
+          <context context-type="linenumber">57</context>
+        </context-group>
+      </trans-unit>
+       <trans-unit id="7106442186209907050" datatype="html">
+        <source>Id unknown or password incorrect</source>
+        <target>Id unknown or password incorrect</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/login/login/login.component.ts</context>
+          <context context-type="linenumber">22</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="4f5e4536c9366e092252d2a337fc5c2896652482" datatype="html">
         <source> ArcGIS </source>
-        <target>ArcGIS</target>
+         <target> ArcGIS </target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/anomaly/anomaly.component.html</context>
           <context context-type="linenumber">86</context>
-        </context-group>
-      </trans-unit>
-        <trans-unit id="3011496725303015869" datatype="html">
-        <source>View In ArcGis</source>
-         <target>View In ArcGis</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/components/report-list/report-list.component.ts</context>
-          <context context-type="linenumber">52</context>
         </context-group>
       </trans-unit>
     </body>
