@@ -11,6 +11,7 @@ import { Routes, RouterModule, ActivatedRoute, Router } from '@angular/router';
 
 import { environment } from 'src/environments/environment';
 import { AddAnomalyComponent } from '../add-anomaly/add-anomaly.component'
+import { MarkerService } from 'src/app/services/marker.service';
 
 @Component({
     selector: 'app-anomaly',
@@ -33,7 +34,8 @@ export class AnomalyComponent implements OnInit {
 
     gisUrl=environment.arcGisUrl;
     loading = true;
-
+    mapid="map";
+    map:any
     @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
     @ViewChild(MatSort, { static: true }) sort: MatSort;
     constructor(
@@ -41,6 +43,7 @@ export class AnomalyComponent implements OnInit {
         public dialog: MatDialog,
         private _snackBar: MatSnackBar,
         private router: Router,
+        private markerService: MarkerService,
         private route: ActivatedRoute
     ) { }
 
@@ -48,7 +51,12 @@ export class AnomalyComponent implements OnInit {
 
         this.getAllAnomalys();
     }
-
+    onNotified(anomalyMap:any)
+    {
+      debugger;
+      this.map=anomalyMap;
+      this.markerService.makeAnomalyMarkers(this.map)
+    }
     ngAfterViewInit() {
     }
 

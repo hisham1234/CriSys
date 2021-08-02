@@ -23,12 +23,7 @@
           </mat-panel-description>
         </mat-expansion-panel-header>
         <div class="col-md-12 ">
-                  
-          <div class="map-frame">
-              <div id="maps"></div>
-            </div>
-      
-      
+            <app-map [id]="mapid" (notify)="onNotified($event)"></app-map>               
       </div>
       </mat-expansion-panel>
 </mat-accordion>

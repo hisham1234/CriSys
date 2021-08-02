@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit,EventEmitter, Output } from '@angular/core';
+//import { EventEmitter } from 'events';
 import * as L from 'leaflet';
 import { MarkerService } from '../../services/marker.service';
 const iconRetinaUrl = 'assets/marker-icon-2x.png';
@@ -23,11 +24,13 @@ L.Marker.prototype.options.icon = iconDefault;
 export class MapComponent implements OnInit {
 
   private map=null;
-  
+   @Input() id;
+   
+   @Output() notify:EventEmitter<string>=new EventEmitter<string>();
 
   private initMap(): void {
     this.map=null;
-    this.map = L.map('map', {
+    this.map = L.map(this.id, {
       center: [ 35.7083, 139.6948 ],
      //center: [ 39.8282, -98.5795 ],
       zoom: 3
@@ -41,6 +44,7 @@ export class MapComponent implements OnInit {
     });
 
     tiles.addTo(this.map);
+    this.notify.emit(this.map);
   }
 
   constructor(private markerService: MarkerService) { }
@@ -49,11 +53,9 @@ export class MapComponent implements OnInit {
    
   }
 
-  ngAfterViewInit() {
-   // L.map();
+  ngAfterViewInit() {  
     this.initMap();
-    debugger;
-    this.markerService.makeAnomalyMarkers(this.map)
+    
   
   }
 

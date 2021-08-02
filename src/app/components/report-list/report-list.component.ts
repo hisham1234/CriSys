@@ -44,7 +44,8 @@ displayedColumns = [ 'id', 'image', 'title', 'road', 'createdAt','kp','latitude'
     searchText=''
     pageSize = 100;
     anomalyData:any;
-   
+    mapid="maps"
+    reportCordinates:any;
     currentPage = 0;
     gisUrl=environment.arcGisUrl;
     totalSize = 100;
@@ -95,35 +96,13 @@ displayedColumns = [ 'id', 'image', 'title', 'road', 'createdAt','kp','latitude'
   
     
 
-    private initMap(): void {
-        debugger;
-       // L.map('map').innerhtml="<div class='map-frame'><div id='map'></div></div>";
-      
-      this.map = L.map('maps', {
-        center: [ 35.7083, 139.6948 ],
-       //center: [ 39.8282, -98.5795 ],
-        zoom: 3
-      });
-  
-      const tiles = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        maxZoom: 18,
-        minZoom: 7,
-        attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-      });
-  
-      tiles.addTo(this.map);
-    }
+    
 
     ngOnDestroy() {
     this.sub.unsubscribe();
   }
 
-    ngAfterViewInit() {
-       debugger;
-        
-        this.initMap();
-       
-    }
+  
 
     applyFilter(filterValue: string) {
         this.searchText = filterValue
@@ -140,12 +119,20 @@ displayedColumns = [ 'id', 'image', 'title', 'road', 'createdAt','kp','latitude'
     getAnomalyReport(){
        debugger;
         this.reportService.getAnomalyReport(this.anomalyId).subscribe(res => {
+          debugger;
             this.dataSource = res['response'];
             this.totalSize = res['totalCount'];
             this.loading = false;
+            this.reportCordinates=this.dataSource;
+          
             this.markerService.makeCapitalMarkers(this.map,this.dataSource)
                  
         })
+    }
+    onNotified(reportMap:any)
+    {
+      debugger;
+      this.map=reportMap;
     }
 
     getAllReports(){
