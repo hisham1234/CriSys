@@ -409,6 +409,30 @@
           <context context-type="linenumber">27</context>
         </context-group>
       </trans-unit>
+       <trans-unit id="5727275022314494904" datatype="html">
+        <source>View in ArcGIS</source>
+        <target>View in ArcGIS</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/report-list/report-list.component.ts</context>
+          <context context-type="linenumber">57</context>
+        </context-group>
+      </trans-unit>
+       <trans-unit id="7106442186209907050" datatype="html">
+        <source>Id unknown or password incorrect</source>
+        <target>Id unknown or password incorrect</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/login/login/login.component.ts</context>
+          <context context-type="linenumber">22</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="4f5e4536c9366e092252d2a337fc5c2896652482" datatype="html">
+        <source> ArcGIS </source>
+         <target> ArcGIS </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/anomaly/anomaly.component.html</context>
+          <context context-type="linenumber">86</context>
+        </context-group>
+      </trans-unit>
          </body>
   </file>
 </xliff>

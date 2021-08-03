@@ -9,8 +9,9 @@ import { MatSnackBar } from "@angular/material/snack-bar";
 import Swal from 'sweetalert2';
 import { Routes, RouterModule, ActivatedRoute, Router } from '@angular/router';
 
-
+import { environment } from 'src/environments/environment';
 import { AddAnomalyComponent } from '../add-anomaly/add-anomaly.component'
+import { MarkerService } from 'src/app/services/marker.service';
 
 @Component({
     selector: 'app-anomaly',
@@ -20,7 +21,7 @@ import { AddAnomalyComponent } from '../add-anomaly/add-anomaly.component'
 })
 export class AnomalyComponent implements OnInit {
 
-    displayedColumns = ['id', 'title', 'anomalyType', 'createdAt',  'reports', 'view', 'edit', 'delete'];
+    displayedColumns = ['id', 'title', 'anomalyType', 'createdAt',  'reports','map', 'view', 'edit', 'delete'];
     dataSource = []
     searchText = ''
     pageSize = 100;
@@ -31,9 +32,10 @@ export class AnomalyComponent implements OnInit {
 
     title = $localize `List Of Anomaly`;
 
-
+    gisUrl=environment.arcGisUrl;
     loading = true;
-
+    mapid="map";
+    map:any
     @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
     @ViewChild(MatSort, { static: true }) sort: MatSort;
     constructor(
@@ -41,6 +43,7 @@ export class AnomalyComponent implements OnInit {
         public dialog: MatDialog,
         private _snackBar: MatSnackBar,
         private router: Router,
+        private markerService: MarkerService,
         private route: ActivatedRoute
     ) { }
 
@@ -48,7 +51,12 @@ export class AnomalyComponent implements OnInit {
 
         this.getAllAnomalys();
     }
-
+    onNotified(anomalyMap:any)
+    {
+      debugger;
+      this.map=anomalyMap;
+      this.markerService.makeAnomalyMarkers(this.map)
+    }
     ngAfterViewInit() {
     }
 
@@ -146,9 +154,11 @@ export class AnomalyComponent implements OnInit {
 
     }
 
-   /*  showMap(row){
-        console.log(row);        
-    } */
+    showMap(row){
+        console.log(row.id)
+        console.log(this.gisUrl+""+row.id);   
+        window.open(this.gisUrl+""+row.id,"_blank")     
+    }
 
     goToReport(row) {
         this.router.navigate([row.id + '/' + row.title + "/report"], { relativeTo: this.route });

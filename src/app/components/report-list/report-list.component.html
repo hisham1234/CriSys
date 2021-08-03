@@ -1,7 +1,17 @@
-<mat-panel-description>
-    <p class="anomaly-title">ID {{ anomalyId }} : {{ anomalyName }}</p>
-</mat-panel-description>
+<div class="row">
+<div class="col-md-2">
+  <h2>{{anomalyName}} </h2>  
+</div>
 
+<div class="col-md-2" (click)="redirectToArcGis()" >
+    <button mat-raised-button class="ArcGisBtn">
+        {{btnArcGis}}
+    </button>
+    
+</div>
+
+</div>
+ 
 <mat-accordion class="example-headers-align" multi>
     <mat-expansion-panel >
         <mat-expansion-panel-header>
@@ -13,12 +23,7 @@
           </mat-panel-description>
         </mat-expansion-panel-header>
         <div class="col-md-12 ">
-                  
-          <div class="map-frame">
-              <div id="maps"></div>
-            </div>
-      
-      
+            <app-map [id]="mapid" (notify)="onNotified($event)"></app-map>               
       </div>
       </mat-expansion-panel>
 </mat-accordion>
@@ -48,7 +53,7 @@
                     </mat-form-field>
                 </div>
                 <div class="col-md-6 col-sm col-xs">
-                    <button (click)="addReport()"  class="btn-mobile"  style="float: right; background-color: #62B648; color:white" mat-raised-button color="accent" >
+                    <button (click)="addReport()"  class="btn-mobile btnStyle"  mat-raised-button color="accent" >
                         <mat-icon >add</mat-icon> {{btnAdd}}
                     </button>
                 </div>
