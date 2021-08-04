@@ -19,6 +19,7 @@ import { ImageCarouselComponent } from '../image-carousel/image-carousel.compone
 import { NgxFileDropEntry, FileSystemFileEntry, FileSystemDirectoryEntry } from 'ngx-file-drop';
 import { ImageService } from 'src/app/services/image.service';
 import { EventEmitterService } from 'src/app/services/event-emitter.service';
+import { AnomalyService } from 'src/app/services/anomaly.service';
 
 
 
@@ -67,25 +68,32 @@ export class AddReportComponent implements OnInit {
 		private route: ActivatedRoute,
 		public dialog: MatDialog,
 		private _snackBar: MatSnackBar,
+		private anomalyService:AnomalyService,
     private eventEmitterService: EventEmitterService
 	) {
 		this.getScreenSize();
 	}
 
 	ngOnInit(): void {
-
+		
 		this.sub = this.route.params.subscribe(params => {
 			this.anomalyId = params['aid']; // (+) converts string 'id' to a number
 			this.reportId = params['rid']; // (+) converts string 'id' to a number
-			this.anomalyName = params['aname']
+			//this.anomalyName = params['aname']
       if (this.reportId !== 'add') {
 				this.title = $localize`Edit Report`;
 				this.getReport();
 			}
 		});
-
+		this.getAnomalyName();
 		this.createForm();
 	}
+
+	getAnomalyName(){
+		this.anomalyService.getAnomaly(this.anomalyId).subscribe((res)=>{		
+		  this.anomalyName=res['response'].title;		 
+		})
+	  }
 
 	createForm() {
 		this.reportForm = this.formBuilder.group({

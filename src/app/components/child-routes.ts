@@ -40,7 +40,7 @@ export const childRoutes = [
     canActivate: [AuthGuard],
   },
   {
-    path: 'anomaly/:aid/:aname/report',
+    path: 'anomaly/:aid/report',
     component: ReportListComponent,
     data: {
       showInSidebar: false,
@@ -48,7 +48,7 @@ export const childRoutes = [
     canActivate: [AuthGuard],
   },
   {
-    path: 'anomaly/:aid/:aname/report/:rid',
+    path: 'anomaly/:aid/report/:rid',
     component: AddReportComponent,
     data: {
       showInSidebar: false,

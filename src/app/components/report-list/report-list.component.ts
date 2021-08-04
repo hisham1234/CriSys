@@ -63,6 +63,7 @@ displayedColumns = [ 'id', 'image', 'title', 'road', 'createdAt','kp','latitude'
     @ViewChild(MatSort, { static: true }) sort: MatSort;
     constructor(
         private  reportService: ReportService,
+        private anomalyService:AnomalyService,
         public dialog: MatDialog,
         private _snackBar: MatSnackBar,
         private router: Router,
@@ -79,17 +80,26 @@ displayedColumns = [ 'id', 'image', 'title', 'road', 'createdAt','kp','latitude'
 
     ngOnInit() {
       
-       debugger;
-       this.getAnomalyReportData();     
+       
+       this.getAnomalyReportData();    
+       this.getAnomalyName(); 
     }
     getAnomalyReportData() {    
       this.sub = this.route.params.subscribe((params) => {
         this.anomalyId = +params['aid']; // (+) converts string 'id' to a number
-        this.anomalyName = params['aname']  
+          
         this.getAnomalyReport();
-        //   this.getAllReports();
-        //$('.collapsible').collapsible();
+       
       });
+    }
+
+    getAnomalyName(){
+      this.anomalyService.getAnomaly(this.anomalyId).subscribe((res)=>{
+        debugger;
+        console.log(res);
+        this.anomalyName=res['response'].title;
+        console.log(this.anomalyName);
+      })
     }
 
     private map;
@@ -117,9 +127,9 @@ displayedColumns = [ 'id', 'image', 'title', 'road', 'createdAt','kp','latitude'
     // }
     
     getAnomalyReport(){
-       debugger;
+       
         this.reportService.getAnomalyReport(this.anomalyId).subscribe(res => {
-          debugger;
+          
             this.dataSource = res['response'];
             this.totalSize = res['totalCount'];
             this.loading = false;
@@ -131,7 +141,7 @@ displayedColumns = [ 'id', 'image', 'title', 'road', 'createdAt','kp','latitude'
     }
     onNotified(reportMap:any)
     {
-      debugger;
+      
       this.map=reportMap;
     }
 
