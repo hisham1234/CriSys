@@ -18,9 +18,18 @@
               <mat-form-field class="example-full-width">
                   <input i18n-placeholder matInput placeholder="Name" formControlName="title">
               </mat-form-field>
-              <mat-form-field class="example-full-width">
+
+              <mat-form-field appearance="fill"  class="example-full-width" >
+                <mat-label>{{selectTypeText}}</mat-label>
+                <mat-select [(ngModel)]="selectedValue" formControlName="anomalyType">
+                  <mat-option *ngFor="let distasterType of distasterTypes" [value]="distasterType.value">
+                    <mat-icon svgIcon="{{distasterType.icon}}"></mat-icon>  {{distasterType.viewValue}}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>  
+              <!-- <mat-form-field class="example-full-width">
                   <input i18n-placeholder matInput placeholder="Anomaly Type" formControlName="anomalyType">
-              </mat-form-field>
+              </mat-form-field> -->
           <div>
               <div style="text-align: center; color: darkred" *ngIf="hasFormErrors" class="example-full-width">
                   <h5>{{errorMessage}}</h5>
