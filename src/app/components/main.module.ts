@@ -59,6 +59,7 @@ import { LoginComponent } from '../login/login/login.component';
 import { testBackendProvider } from '../services/test-backend';
 import { JwtInterceptor } from '../services/jwt.interceptor';
 import { ErrorInterceptor } from '../services/error.interceptor';
+import { MatSelectModule } from '@angular/material/select';
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   wheelPropagation: true,
@@ -76,6 +77,7 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     MatSidenavModule,
     MatIconModule,
     MatInputModule,
+    MatSelectModule,
     MatMenuModule,
     MatListModule,
     MatPaginatorModule,
@@ -94,6 +96,7 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     CommonModule,
     MainRoutingModule,
     MatToolbarModule,
+    MatSelectModule,
     MatButtonModule,
     MatButtonToggleModule,
     MatFormFieldModule,
@@ -137,6 +140,7 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     MatSidenavModule,
     MatIconModule,
     MatInputModule,
+    MatSelectModule,
     MatMenuModule,
     MatListModule,
     MatPaginatorModule,
