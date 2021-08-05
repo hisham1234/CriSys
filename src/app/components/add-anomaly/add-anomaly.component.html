@@ -19,13 +19,61 @@
                   <input i18n-placeholder matInput placeholder="Name" formControlName="title">
               </mat-form-field>
 
-              <mat-form-field appearance="fill"  class="example-full-width" >
-                <mat-label>{{selectTypeText}}</mat-label>
+              <mat-form-field appearance="fill" class="example-full-width">
+                <mat-label>{{ selectTypeText }}</mat-label>
+                <mat-select
+                  matNativeControl
+                  required
+                  [(ngModel)]="selectedValue"
+                  formControlName="anomalyType"
+                >
+                  <mat-option i18n value="自然災害">
+                    <mat-icon svgIcon="disasters"></mat-icon
+                    >Natural Disasters</mat-option
+                  >
+                  <mat-option i18n value="地震">
+                    <mat-icon svgIcon="earthquake"></mat-icon
+                    >Earthquake</mat-option
+                  >
+                  <mat-option i18n value="事故等">
+                    <mat-icon svgIcon="accident"></mat-icon
+                    >Accident</mat-option
+                  >
+                  <mat-option i18n value="異常降雨">
+                    <mat-icon svgIcon="rain"></mat-icon>Abnormal Rainfall</mat-option
+                  >
+                  <mat-option i18n value="強風">
+                    <mat-icon svgIcon="wind"></mat-icon>Strong Wind</mat-option
+                  >
+                  <mat-option i18n value="豪雪">
+                    <mat-icon svgIcon="snowfall"></mat-icon>Heavy Snowfall</mat-option
+                  >
+                  <mat-option i18n value="火山災害">
+                    <mat-icon svgIcon="volcanic"></mat-icon
+                    >Volcanic Disaster</mat-option
+                  >
+                  <mat-option i18n value="原子力災害">
+                    <mat-icon svgIcon="nuclear"></mat-icon>Nuclear Disaster</mat-option
+                  >
+                  <mat-option i18n value="テロ等">
+                    <mat-icon svgIcon="terrorism"></mat-icon>Terrorism, etc.</mat-option
+                  >
+                  <mat-option i18n value="その他">
+                    <mat-icon svgIcon="other"></mat-icon>Other</mat-option
+                  >
+                  <mat-option i18n value="会計検査">
+                    <mat-icon svgIcon="audit"></mat-icon
+                    >Board Of Audit</mat-option
+                  >
+                </mat-select>
+              
+              
+                <!-- <mat-label>{{selectTypeText}}</mat-label>
                 <mat-select [(ngModel)]="selectedValue" formControlName="anomalyType">
                   <mat-option *ngFor="let distasterType of distasterTypes" [value]="distasterType.value">
                     <mat-icon svgIcon="{{distasterType.icon}}"></mat-icon>  {{distasterType.viewValue}}
                   </mat-option>
-                </mat-select>
+                </mat-select> -->
               </mat-form-field>  
               <!-- <mat-form-field class="example-full-width">
                   <input i18n-placeholder matInput placeholder="Anomaly Type" formControlName="anomalyType">
