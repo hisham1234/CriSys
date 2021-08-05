@@ -429,6 +429,124 @@
           <context context-type="linenumber">86</context>
         </context-group>
       </trans-unit>
+
+      
+        <trans-unit id="8cfd8971c1075b70b717cdd479152e1cda1eb544" datatype="html">
+        <source>Anomaly Type</source>
+         <target> Anomaly Type </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/anomaly/anomaly.component.html</context>
+          <context context-type="linenumber">65</context>
+        </context-group>
+      </trans-unit>
+      
+       <trans-unit id="7553150205801017327" datatype="html">
+        <source>Anomaly Type</source>
+        <target> Anomaly Type </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/add-anomaly/add-anomaly.component.ts</context>
+          <context context-type="linenumber">15</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="bcfa8fb34a363599643493ec598b564a58c96d8b" datatype="html">
+        <source><x id="START_TAG_MAT_ICON" ctype="x-mat_icon" equiv-text="=&quot;自然災害&quot;&gt;
+                    "/><x id="CLOSE_TAG_MAT_ICON" ctype="x-mat_icon" equiv-text="&lt;mat-icon svgIcon=&quot;disasters&quot;&gt;&lt;/"/>Natural Disasters</source>
+       <target> Natural Disasters </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/add-anomaly/add-anomaly.component.html</context>
+          <context context-type="linenumber">31,32</context>
+        </context-group>
+      </trans-unit>
+
+      <trans-unit id="5fcc4faae3751ddb722dad12eca6f7f477cfae8b" datatype="html">
+        <source><x id="START_TAG_MAT_ICON" ctype="x-mat_icon" equiv-text=" value=&quot;地震&quot;&gt;
+                 "/><x id="CLOSE_TAG_MAT_ICON" ctype="x-mat_icon" equiv-text="   &lt;mat-icon svgIcon=&quot;earthquake"/>Earthquake</source>
+         <target> Earthquake </target>
+         <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/add-anomaly/add-anomaly.component.html</context>
+          <context context-type="linenumber">35,36</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="833e432d760530cfd2afdebe4f799029ab9393f3" datatype="html">
+        <source><x id="START_TAG_MAT_ICON" ctype="x-mat_icon" equiv-text="18n value=&quot;事故等&quot;&gt;
+           "/><x id="CLOSE_TAG_MAT_ICON" ctype="x-mat_icon" equiv-text="         &lt;mat-icon svgIcon=&quot;acci"/>Accident</source>
+         <target> Accident </target>
+         <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/add-anomaly/add-anomaly.component.html</context>
+          <context context-type="linenumber">39,40</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="a159ba4d15deebf4ab45cffd93f9957d89742c02" datatype="html">
+        <source><x id="START_TAG_MAT_ICON" ctype="x-mat_icon" equiv-text="n i18n value=&quot;異常降雨&quot;&gt;
+   "/><x id="CLOSE_TAG_MAT_ICON" ctype="x-mat_icon" equiv-text="           "/>Abnormal Rainfall</source>
+        <target> Abnormal Rainfall </target>
+         <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/add-anomaly/add-anomaly.component.html</context>
+          <context context-type="linenumber">43</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="17cbda8433433621a3f2f4801572ceada5e5eefc" datatype="html">
+        <source><x id="START_TAG_MAT_ICON" ctype="x-mat_icon" equiv-text="option i18n value=&quot;強風&quot;&gt;
+"/><x id="CLOSE_TAG_MAT_ICON" ctype="x-mat_icon" equiv-text="           "/>Strong Wind</source>
+        <target> Strong Wind </target>
+         <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/add-anomaly/add-anomaly.component.html</context>
+          <context context-type="linenumber">46</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="14242021b11c98b59c7d23d08ebda0fb0828e55a" datatype="html">
+        <source><x id="START_TAG_MAT_ICON" ctype="x-mat_icon" equiv-text="at-option i18n value=&quot;豪雪&quot;&gt;
+ "/><x id="CLOSE_TAG_MAT_ICON" ctype="x-mat_icon" equiv-text="           "/>Heavy Snowfall</source>
+        <target> Heavy Snowfall </target>
+         <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/add-anomaly/add-anomaly.component.html</context>
+          <context context-type="linenumber">49</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="980263ef18a6077c65f228eb0531287498436072" datatype="html">
+        <source><x id="START_TAG_MAT_ICON" ctype="x-mat_icon" equiv-text="mat-option i18n value=&quot;火山災害&quot;&gt;"/><x id="CLOSE_TAG_MAT_ICON" ctype="x-mat_icon" equiv-text="
+                    &lt;mat-icon "/>Volcanic Disaster</source>
+         <target> Volcanic Disaster [</target>
+         <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/add-anomaly/add-anomaly.component.html</context>
+          <context context-type="linenumber">52,53</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7ec8f50287b13bfbddd70075a324dd1564447902" datatype="html">
+        <source><x id="START_TAG_MAT_ICON" ctype="x-mat_icon" equiv-text="  &lt;mat-option i18n value=&quot;原子"/><x id="CLOSE_TAG_MAT_ICON" ctype="x-mat_icon" equiv-text="力災害&quot;&gt;
+    "/>Nuclear Disaster</source>
+         <target> Nuclear Disaster </target>
+         <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/add-anomaly/add-anomaly.component.html</context>
+          <context context-type="linenumber">56</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="0f42c2c37ac7ca1111a884bbfeae39820fd18739" datatype="html">
+        <source><x id="START_TAG_MAT_ICON" ctype="x-mat_icon" equiv-text="       &lt;mat-option i18n value="/><x id="CLOSE_TAG_MAT_ICON" ctype="x-mat_icon" equiv-text="&quot;テロ等&quot;&gt;
+   "/>Terrorism, etc.</source>
+        <target> Terrorism, etc. </target>
+         <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/add-anomaly/add-anomaly.component.html</context>
+          <context context-type="linenumber">59</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1039c9aa5e7bf210153a2d9d17565159c5f6158d" datatype="html">
+        <source><x id="START_TAG_MAT_ICON" ctype="x-mat_icon" equiv-text="          &lt;mat-option i18n"/><x id="CLOSE_TAG_MAT_ICON" ctype="x-mat_icon" equiv-text=" value=&quot;その他"/>Other</source>
+        <target> Other </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/add-anomaly/add-anomaly.component.html</context>
+          <context context-type="linenumber">62</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="70ea0285f0dd02ef38b0eba542c616f556fe4bf4" datatype="html">
+        <source><x id="START_TAG_MAT_ICON" ctype="x-mat_icon" equiv-text="            &lt;mat-option i1"/><x id="CLOSE_TAG_MAT_ICON" ctype="x-mat_icon" equiv-text="8n value=&quot;会計検査&quot;&gt;
+              "/>Board Of Audit</source>
+        <target> Board Of Audit </target>
+         <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/add-anomaly/add-anomaly.component.html</context>
+          <context context-type="linenumber">65,66</context>
+        </context-group>
+      </trans-unit>
     </body>
   </file>
 </xliff>
