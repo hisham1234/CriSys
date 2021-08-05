@@ -33,10 +33,11 @@ export class AddAnomalyComponent implements OnInit {
     
     if(this.data){
       this.anomaly = this.data['anomaly'];
-    this.viewOrEdit = this.data['type'];
+    this.viewOrEdit = this.data['type'];   
     if (this.anomaly){
       if(this.viewOrEdit == 'edit'){
         this.title = '異常の編集' //Edit anomaly
+        this.selectedValue = this.data.anomaly.anomalyType;
       } else if(this.viewOrEdit == 'view') {
         this.title = '異常を見る' //View anomaly
       }
