@@ -16,9 +16,9 @@
                 </div>
 
               <mat-form-field class="example-full-width">
-                  <input i18n-placeholder matInput placeholder="Name" formControlName="title">
+                  <input i18n-placeholder matInput placeholder="Name" formControlName="title" required>
               </mat-form-field>
-
+            
               <mat-form-field appearance="fill" class="example-full-width">
                 <mat-label>{{ selectTypeText }}</mat-label>
                 <mat-select
@@ -27,43 +27,55 @@
                   [(ngModel)]="selectedValue"
                   formControlName="anomalyType"
                 >
-                  <mat-option i18n value="自然災害">
+                  <mat-option value="自然災害" >
                     <mat-icon svgIcon="disasters"></mat-icon
-                    >Natural Disasters</mat-option
+                    >
+                   <span i18n> Natural Disasters</span></mat-option
                   >
-                  <mat-option i18n value="地震">
+                  <mat-option value="地震" >
                     <mat-icon svgIcon="earthquake"></mat-icon
-                    >Earthquake</mat-option
+                    >
+                    <span i18n>   Earthquake</span></mat-option
                   >
-                  <mat-option i18n value="事故等">
+                  <mat-option value="事故等" >
                     <mat-icon svgIcon="accident"></mat-icon
-                    >Accident</mat-option
+                    >
+                    <span i18n>   Accident</span></mat-option
                   >
-                  <mat-option i18n value="異常降雨">
-                    <mat-icon svgIcon="rain"></mat-icon>Abnormal Rainfall</mat-option
+                  <mat-option value="異常降雨" >
+                    <mat-icon svgIcon="rain"></mat-icon>
+                    <span i18n>    Abnormal Rainfall</span></mat-option
                   >
-                  <mat-option i18n value="強風">
-                    <mat-icon svgIcon="wind"></mat-icon>Strong Wind</mat-option
+                  <mat-option value="強風"  >
+                    <mat-icon svgIcon="wind"></mat-icon>
+                    <span i18n>    Strong Wind</span></mat-option
                   >
-                  <mat-option i18n value="豪雪">
-                    <mat-icon svgIcon="snowfall"></mat-icon>Heavy Snowfall</mat-option
+                  <mat-option value="豪雪">
+                    <mat-icon svgIcon="snowfall"></mat-icon>
+                    <span i18n>   Heavy Snowfall</span></mat-option
                   >
-                  <mat-option i18n value="火山災害">
+                  <mat-option value="火山災害">
                     <mat-icon svgIcon="volcanic"></mat-icon
-                    >Volcanic Disaster</mat-option
+                    >
+                    <span i18n>Volcanic Disaster</span></mat-option
                   >
-                  <mat-option i18n value="原子力災害">
-                    <mat-icon svgIcon="nuclear"></mat-icon>Nuclear Disaster</mat-option
+                  <mat-option value="原子力災害"  >
+                    <mat-icon svgIcon="nuclear"></mat-icon>
+                    
+                    <span i18n>Nuclear Disaster</span></mat-option
                   >
-                  <mat-option i18n value="テロ等">
-                    <mat-icon svgIcon="terrorism"></mat-icon>Terrorism, etc.</mat-option
+                  <mat-option value="テロ等"  >
+                    <mat-icon svgIcon="terrorism"></mat-icon>
+                    <span i18n> Terrorism, etc.</span></mat-option
                   >
-                  <mat-option i18n value="その他">
-                    <mat-icon svgIcon="other"></mat-icon>Other</mat-option
+                  <mat-option value="その他" >
+                    <mat-icon svgIcon="other"></mat-icon>
+                    <span i18n>Other</span></mat-option
                   >
-                  <mat-option i18n value="会計検査">
+                  <mat-option value="会計検査" >
                     <mat-icon svgIcon="audit"></mat-icon
-                    >Board Of Audit</mat-option
+                    >
+                    <span i18n> Board Of Audit</span></mat-option
                   >
                 </mat-select>
               
