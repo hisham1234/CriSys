@@ -47,8 +47,8 @@ export class AppComponent {
         this.domSanitizer.bypassSecurityTrustResourceUrl("assets/images/icons/snowfall.svg")
     );
     this.matIconRegistry.addSvgIcon(
-      `others`,
-      this.domSanitizer.bypassSecurityTrustResourceUrl("assets/images/icons/others.svg")
+      `other`,
+      this.domSanitizer.bypassSecurityTrustResourceUrl("assets/images/icons/other.svg")
     );
     this.matIconRegistry.addSvgIcon(
         `disasters`,
