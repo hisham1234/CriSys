@@ -17,7 +17,7 @@ import { environment } from 'src/environments/environment';
 import { AnomalyService } from 'src/app/services/anomaly.service';
 import { Subscription } from 'rxjs';
 import { EventEmitterService } from 'src/app/services/event-emitter.service';
-
+import * as moment from 'moment';
 const iconRetinaUrl = 'assets/marker-icon-2x.png';
 const iconUrl = 'assets/marker-icon.png';
 const shadowUrl = 'assets/marker-shadow.png';
@@ -59,8 +59,10 @@ displayedColumns = [ 'id', 'image', 'title', 'road', 'createdAt','kp','latitude'
     loading = true;
     subscription: Subscription;
     clickEventsubscription: Subscription;
+    
     @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
     @ViewChild(MatSort, { static: true }) sort: MatSort;
+  offset: number;
     constructor(
         private  reportService: ReportService,
         private anomalyService:AnomalyService,
@@ -71,6 +73,7 @@ displayedColumns = [ 'id', 'image', 'title', 'road', 'createdAt','kp','latitude'
         private markerService: MarkerService,
         private eventEmitterService: EventEmitterService
     ) {
+      this.offset = new Date().getTimezoneOffset();
       this.clickEventsubscription = this.eventEmitterService
       .getClickEvent()
       .subscribe(() => {
@@ -95,7 +98,7 @@ displayedColumns = [ 'id', 'image', 'title', 'road', 'createdAt','kp','latitude'
 
     getAnomalyName(){
       this.anomalyService.getAnomaly(this.anomalyId).subscribe((res)=>{
-        debugger;
+       // debugger;
         console.log(res);
         this.anomalyName=res['response'].title;
         console.log(this.anomalyName);
@@ -128,8 +131,17 @@ displayedColumns = [ 'id', 'image', 'title', 'road', 'createdAt','kp','latitude'
     
     getAnomalyReport(){
        
+
+
+      
         this.reportService.getAnomalyReport(this.anomalyId).subscribe(res => {
           
+          res['response'].forEach(element => {               
+            const dateComponent = moment.utc(element.createdAt).format('YYYY-MM-DD');
+            const timeComponent = moment.utc(element.createdAt).local().format('HH:mm:ss');
+            const createdAt =dateComponent+" "+timeComponent;
+            element.createdAt = createdAt;
+          });        
             this.dataSource = res['response'];
             this.totalSize = res['totalCount'];
             this.loading = false;
