@@ -17,6 +17,7 @@ import { environment } from 'src/environments/environment';
 import { AnomalyService } from 'src/app/services/anomaly.service';
 import { Subscription } from 'rxjs';
 import { EventEmitterService } from 'src/app/services/event-emitter.service';
+import * as moment from 'moment';
 import { MatTableDataSource } from '@angular/material/table';
 
 const iconRetinaUrl = 'assets/marker-icon-2x.png';
@@ -59,6 +60,7 @@ export class ReportListComponent implements OnInit, AfterViewInit{
     btnAdd=$localize`Add Report`;
     btnArcGis=$localize`View in ArcGIS`;
     loading = true;
+    offset: number;
     subscription: Subscription;
     clickEventsubscription: Subscription;
     @ViewChild(MatSort, { static: true }) sort: MatSort;
@@ -73,6 +75,7 @@ export class ReportListComponent implements OnInit, AfterViewInit{
         private markerService: MarkerService,
         private eventEmitterService: EventEmitterService
     ) {
+      this.offset = new Date().getTimezoneOffset();
       this.clickEventsubscription = this.eventEmitterService
       .getClickEvent()
       .subscribe(() => {
@@ -133,8 +136,19 @@ export class ReportListComponent implements OnInit, AfterViewInit{
     
     getAnomalyReport(){
        
+
+
+      
         this.reportService.getAnomalyReport(this.anomalyId).subscribe(res => {
           
+          res['response'].forEach(element => {               
+            const dateComponent = moment.utc(element.createdAt).format('YYYY-MM-DD');
+            const timeComponent = moment.utc(element.createdAt).local().format('HH:mm:ss');
+            const createdAt =dateComponent+" "+timeComponent;
+            element.createdAt = createdAt;
+          });        
+      
+          this.totalSize = res['totalCount'];
           this.dataSource.data = res['response'] as ReportModel[];
           this.totalSize = res['totalCount'];
             this.loading = false;

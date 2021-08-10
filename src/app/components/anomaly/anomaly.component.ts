@@ -12,6 +12,7 @@ import { Routes, RouterModule, ActivatedRoute, Router } from '@angular/router';
 import { environment } from 'src/environments/environment';
 import { AddAnomalyComponent } from '../add-anomaly/add-anomaly.component'
 import { MarkerService } from 'src/app/services/marker.service';
+import * as moment from 'moment';
 import { MatTableDataSource } from '@angular/material/table';
 
 @Component({
@@ -69,6 +70,12 @@ export class AnomalyComponent implements OnInit, AfterViewInit {
 
     getAllAnomalys() {
         this.anomalyService.getAllAnomalys().subscribe((res) => {
+            res['response'].forEach(element => {               
+                const dateComponent = moment.utc(element.createdAt).format('YYYY-MM-DD');
+                const timeComponent = moment.utc(element.createdAt).local().format('HH:mm:ss');
+                const createdAt =dateComponent+" "+timeComponent;
+                element.createdAt = createdAt;
+              });         
             this.dataSource.data = res['response'] as AnomalyModel[];
             this.totalSize = res['totalCount'];
             this.loading = false;

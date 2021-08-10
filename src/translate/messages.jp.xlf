@@ -448,7 +448,7 @@
           
      <trans-unit id="7553150205801017327" datatype="html">
         <source>Anomaly Type</source>
-          <target> 異常の種類 </target>
+          <target>異常の種類 </target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/add-anomaly/add-anomaly.component.ts</context>
           <context context-type="linenumber">15</context>
@@ -456,49 +456,49 @@
       </trans-unit>
     
 
-     <trans-unit id="638e0f78ca88f0200dab98d3cb62ae93fbd2168b" datatype="html">
+     <trans-unit id="3e37ca875a31e9a416688156727482c4ed5761a8" datatype="html">
         <source> Natural Disasters</source>
-          <target> 自然災害 </target>
+          <target>自然災害 </target>
           <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/add-anomaly/add-anomaly.component.html</context>
           <context context-type="linenumber">34</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="4f60fe3b36c0c3645de68b4b40da8aa3679602c4" datatype="html">
+      <trans-unit id="b63a2beddfa68f189d9313c68b8a0e7f8d2541a2" datatype="html">
         <source> Earthquake</source>
-         <target> 地震 </target>
+         <target>地震 </target>
           <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/add-anomaly/add-anomaly.component.html</context>
           <context context-type="linenumber">39</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="d55a8bdba7c2595621b74faec1c4dd73be317f73" datatype="html">
+      <trans-unit id="c6cc76b6a38bdd3921198557a06b54f94c0b2db8" datatype="html">
         <source> Accident</source>
-          <target> 事故等 </target>
+          <target>事故等 </target>
           <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/add-anomaly/add-anomaly.component.html</context>
           <context context-type="linenumber">44</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="e8b29213dc1460d0d89d3169158efd69f24854f7" datatype="html">
+      <trans-unit id="f5694b478ef037146fe6b82125803334b39c0ee8" datatype="html">
         <source> Abnormal Rainfall</source>
-         <target> 異常降雨 </target>
+         <target>異常降雨 </target>
           <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/add-anomaly/add-anomaly.component.html</context>
           <context context-type="linenumber">48</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="22e3582a00fabaa5e29bdf8947fd768d4331eb50" datatype="html">
+      <trans-unit id="c4896a44ed4f5e1cd5c2497275a7463db210594f" datatype="html">
         <source> Strong Wind</source>
-         <target> 強風 </target>
+         <target>強風 </target>
           <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/add-anomaly/add-anomaly.component.html</context>
           <context context-type="linenumber">52</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="de25c7748580ddc79712f3c0083c4e5dea0bcc09" datatype="html">
+      <trans-unit id="b919258e5061644da367c6bf94b941fa8784a135" datatype="html">
         <source> Heavy Snowfall</source>
-          <target> 豪雪 </target>
+          <target>豪雪 </target>
           <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/add-anomaly/add-anomaly.component.html</context>
           <context context-type="linenumber">56</context>
@@ -506,7 +506,7 @@
       </trans-unit>
       <trans-unit id="f813d78cad1e1c4e8cd42f26cdff7299886235e8" datatype="html">
         <source> Volcanic Disaster</source>
-          <target> 火山災害 </target>
+          <target>火山災害 </target>
           <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/add-anomaly/add-anomaly.component.html</context>
           <context context-type="linenumber">61</context>
@@ -514,15 +514,15 @@
       </trans-unit>
       <trans-unit id="6559eb37d6c3aee0c2d7238d2dc8809fb9df6af7" datatype="html">
         <source> Nuclear Disaster</source>
-          <target> 原子力災害 </target>
+          <target>原子力災害 </target>
           <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/add-anomaly/add-anomaly.component.html</context>
           <context context-type="linenumber">66</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="194a8427661962b80817d9b202137ce463c486b3" datatype="html">
+      <trans-unit id="0adddda33b15eba2ae275f250b81137f17f9eb1d" datatype="html">
         <source> Terrorism, etc.</source>
-         <target> テロ等 </target>
+         <target>テロ等 </target>
           <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/add-anomaly/add-anomaly.component.html</context>
           <context context-type="linenumber">70</context>
@@ -530,15 +530,15 @@
       </trans-unit>
       <trans-unit id="c2a9de3714f5767b174d0424bc8abe2dc37acc41" datatype="html">
         <source> Other</source>
-         <target> その他 </target>
+         <target>その他 </target>
           <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/add-anomaly/add-anomaly.component.html</context>
           <context context-type="linenumber">74</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="d2d86b5932bff256a830848e9c8cce9c17a86849" datatype="html">
+      <trans-unit id="995246cdcc60038fe38ab922a7e3095bc6cfb74e" datatype="html">
         <source> Board Of Audit</source>
-          <target> 会計検査 </target>
+          <target>会計検査 </target>
           <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/add-anomaly/add-anomaly.component.html</context>
           <context context-type="linenumber">79</context>

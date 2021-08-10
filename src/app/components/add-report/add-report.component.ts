@@ -260,7 +260,7 @@ export class AddReportComponent implements OnInit {
 				}
         this.hasFormErrors = false;
         this.eventEmitterService.sendClickEvent();
-        this.redirectTo(`anomaly/${this.anomalyId}/${this.anomalyName}/report`);
+        this.redirectTo(`anomaly/${this.anomalyId}/report`);
 			})
       
 		}
@@ -308,7 +308,7 @@ export class AddReportComponent implements OnInit {
 						duration: 2000
 					});
           this.eventEmitterService.sendClickEvent();
-          this.redirectTo(`anomaly/${this.anomalyId}/${this.anomalyName}/report`);
+          this.redirectTo(`anomaly/${this.anomalyId}/report`);
 				}
 			})
 		}
