@@ -60,7 +60,7 @@ import { testBackendProvider } from '../services/test-backend';
 import { JwtInterceptor } from '../services/jwt.interceptor';
 import { ErrorInterceptor } from '../services/error.interceptor';
 import { MatSelectModule } from '@angular/material/select';
-
+import { MatSortModule } from '@angular/material/sort';
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   wheelPropagation: true,
 };
@@ -83,6 +83,7 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     MatPaginatorModule,
     MatTableModule,
     MatDialogModule,
+    MatSortModule,
     FormsModule,
     ReactiveFormsModule,
     MatProgressBarModule,
@@ -105,6 +106,7 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     MatInputModule,
     MatMenuModule,
     MatListModule,
+    MatSortModule,
     MatPaginatorModule,
     MatTableModule,
     MatDialogModule,
@@ -143,6 +145,7 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     MatSelectModule,
     MatMenuModule,
     MatListModule,
+    MatSortModule,
     MatPaginatorModule,
     MatTableModule,
     MatDialogModule,
