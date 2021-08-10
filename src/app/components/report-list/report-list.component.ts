@@ -18,6 +18,8 @@ import { AnomalyService } from 'src/app/services/anomaly.service';
 import { Subscription } from 'rxjs';
 import { EventEmitterService } from 'src/app/services/event-emitter.service';
 import * as moment from 'moment';
+import { MatTableDataSource } from '@angular/material/table';
+
 const iconRetinaUrl = 'assets/marker-icon-2x.png';
 const iconUrl = 'assets/marker-icon.png';
 const shadowUrl = 'assets/marker-shadow.png';
@@ -38,9 +40,10 @@ L.Marker.prototype.options.icon = iconDefault;
   templateUrl: './report-list.component.html',
   styleUrls: ['./report-list.component.scss']
 })
-export class ReportListComponent implements OnInit {
-displayedColumns = [ 'id', 'image', 'title', 'road', 'createdAt','kp','latitude','longitude', 'edit', 'delete'];
-    dataSource: ReportModel[] = []
+export class ReportListComponent implements OnInit, AfterViewInit{
+    displayedColumns = [ 'id', 'image', 'title', 'road', 'createdAt','kp','latitude','longitude', 'edit', 'delete'];
+    dataSource = new MatTableDataSource<ReportModel>();
+
     searchText=''
     pageSize = 100;
     anomalyData:any;
@@ -57,12 +60,11 @@ displayedColumns = [ 'id', 'image', 'title', 'road', 'createdAt','kp','latitude'
     btnAdd=$localize`Add Report`;
     btnArcGis=$localize`View in ArcGIS`;
     loading = true;
+    offset: number;
     subscription: Subscription;
     clickEventsubscription: Subscription;
-    
-    @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
     @ViewChild(MatSort, { static: true }) sort: MatSort;
-  offset: number;
+    @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
     constructor(
         private  reportService: ReportService,
         private anomalyService:AnomalyService,
@@ -81,9 +83,7 @@ displayedColumns = [ 'id', 'image', 'title', 'road', 'createdAt','kp','latitude'
       });
     }
 
-    ngOnInit() {
-      
-       
+    ngOnInit() {           
        this.getAnomalyReportData();    
        this.getAnomalyName(); 
     }
@@ -98,25 +98,30 @@ displayedColumns = [ 'id', 'image', 'title', 'road', 'createdAt','kp','latitude'
 
     getAnomalyName(){
       this.anomalyService.getAnomaly(this.anomalyId).subscribe((res)=>{
-       // debugger;
-        console.log(res);
+        debugger;
+        //console.log(res);
         this.anomalyName=res['response'].title;
-        console.log(this.anomalyName);
+      //  console.log(this.anomalyName);
       })
     }
 
     private map;
-  
-    
-
-    
-
+   
     ngOnDestroy() {
     this.sub.unsubscribe();
-  }
-
+   }
+    ngAfterViewInit(): void {
+      this.dataSource.sort = this.sort;
+      this.dataSource.paginator = this.paginator;
+    }
   
+    public customSort = (event) => {
+     // console.log(event);
+    }
 
+    public doFilter = (value: string) => {      
+      this.dataSource.filter = value.trim().toLocaleLowerCase();
+    }
     applyFilter(filterValue: string) {
         this.searchText = filterValue
         this.getAllReports();
@@ -142,10 +147,12 @@ displayedColumns = [ 'id', 'image', 'title', 'road', 'createdAt','kp','latitude'
             const createdAt =dateComponent+" "+timeComponent;
             element.createdAt = createdAt;
           });        
-            this.dataSource = res['response'];
-            this.totalSize = res['totalCount'];
+      
+          this.totalSize = res['totalCount'];
+          this.dataSource.data = res['response'] as ReportModel[];
+          this.totalSize = res['totalCount'];
             this.loading = false;
-            this.reportCordinates=this.dataSource;
+            this.reportCordinates=this.dataSource.data;
           
             this.markerService.makeCapitalMarkers(this.map,this.dataSource)
                  
@@ -162,7 +169,7 @@ displayedColumns = [ 'id', 'image', 'title', 'road', 'createdAt','kp','latitude'
     this.loading = true;
         const queryParams = new QueryParamsModel(
             this.filterConfiguration(),
-//             this.sort.direction,
+//            this.sort.direction,
             'desc',
 //             this.sort.active,
             'createdAt',
@@ -171,7 +178,7 @@ displayedColumns = [ 'id', 'image', 'title', 'road', 'createdAt','kp','latitude'
         );
         this.reportService.getReports(queryParams).subscribe((res)=>{
             this.loading = false;
-            this.dataSource = res['response'];
+            this.dataSource.data = res['response'] as ReportModel[];
             this.totalSize = res['totalCount'];
         });
     }

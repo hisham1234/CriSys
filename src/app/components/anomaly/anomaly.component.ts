@@ -13,16 +13,18 @@ import { environment } from 'src/environments/environment';
 import { AddAnomalyComponent } from '../add-anomaly/add-anomaly.component'
 import { MarkerService } from 'src/app/services/marker.service';
 import * as moment from 'moment';
+import { MatTableDataSource } from '@angular/material/table';
+
 @Component({
     selector: 'app-anomaly',
     templateUrl: './anomaly.component.html',
     styleUrls: ['./anomaly.component.scss'],
     
 })
-export class AnomalyComponent implements OnInit {
+export class AnomalyComponent implements OnInit, AfterViewInit {
 
     displayedColumns = ['id', 'title', 'anomalyType', 'createdAt',  'reports','map', 'view', 'edit', 'delete'];
-    dataSource = []
+    dataSource = new MatTableDataSource<AnomalyModel>();
     searchText = ''
     pageSize = 100;
 
@@ -36,8 +38,8 @@ export class AnomalyComponent implements OnInit {
     loading = true;
     mapid="map";
     map:any
-    @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
     @ViewChild(MatSort, { static: true }) sort: MatSort;
+    @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
     constructor(
         private anomalyService: AnomalyService,
         public dialog: MatDialog,
@@ -57,11 +59,12 @@ export class AnomalyComponent implements OnInit {
       this.map=anomalyMap;
       this.markerService.makeAnomalyMarkers(this.map)
     }
-    ngAfterViewInit() {
-    }
-
+    
     applyFilter(filterValue: string) {
-        this.searchText = filterValue
+        //this.searchText = filterValue
+        this.searchText = filterValue.trim().toLowerCase(); // Remove whitespace
+        //filterValue = filterValue.toLowerCase(); // MatTableDataSource defaults to lowercase matches
+        this.dataSource.filter = filterValue;
         // this.getAllAnomalys();
     }
 
@@ -72,13 +75,24 @@ export class AnomalyComponent implements OnInit {
                 const timeComponent = moment.utc(element.createdAt).local().format('HH:mm:ss');
                 const createdAt =dateComponent+" "+timeComponent;
                 element.createdAt = createdAt;
-              }); 
-            this.dataSource = res['response'];
+              });         
+            this.dataSource.data = res['response'] as AnomalyModel[];
             this.totalSize = res['totalCount'];
             this.loading = false;
         });
     }
-
+    ngAfterViewInit(): void {
+        this.dataSource.sort = this.sort;
+        this.dataSource.paginator = this.paginator;
+      }
+    
+      public customSort = (event) => {
+      // console.log(event);
+      }
+    
+      public doFilter = (value: string) => {     
+        this.dataSource.filter = value.trim().toLocaleLowerCase();
+      }
     //     getAllAnomalys(){
     //       this.loading = true;
     //         const queryParams = new QueryParamsModel(
