@@ -243,6 +243,19 @@
           <context context-type="linenumber">43</context>
         </context-group>
       </trans-unit>
+
+         <trans-unit id="5ca707824ab93066c7d9b44e1b8bf216725c2c22" datatype="html">
+        <source>Filter</source>
+         <target>Filter</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/anomaly/anomaly.component.html</context>
+          <context context-type="linenumber">43</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/report-list/report-list.component.html</context>
+          <context context-type="linenumber">52</context>
+        </context-group>
+      </trans-unit>
       <trans-unit id="383fb13dff3d1e4a0d47ef965f18cedf547a0418" datatype="html">
         <source> Image </source>
         <target>Image</target>
