@@ -256,8 +256,8 @@ export class ReportListComponent implements OnInit, AfterViewInit{
     }
 
     openImageCarousel(row){        
-      if(row.anomelyReportImage.length > 0){
-        const dialogRef = this.dialog.open(ImageCarouselComponent, {data: row.anomelyReportImage.map(i => i.image), width: '700px'});
+      if(row.anomalyReportImage.length > 0){
+        const dialogRef = this.dialog.open(ImageCarouselComponent, {data: row.anomalyReportImage.map(i => i.image), width: '700px'});
           dialogRef.afterClosed().subscribe(res => {
           });
       }
