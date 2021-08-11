@@ -79,8 +79,8 @@
                     <ng-container matColumnDef="image">
                         <th i18n mat-header-cell *matHeaderCellDef> Image </th>
                         <td mat-cell *matCellDef="let row">
-                          <img *ngIf="row?.anomelyReportImage?.length>0" style="height: 40px; width:60px; cursor: pointer" (click)="openImageCarousel(row)" src="{{row?.anomelyReportImage[0]?.image?.url}}">
-                          <img *ngIf="row?.anomelyReportImage?.length<=0" style="height: 40px; width:50px; cursor: pointer"  src="assets/images/no-photo.png">
+                          <img *ngIf="row?.anomalyReportImage?.length>0" style="height: 40px; width:60px; cursor: pointer" (click)="openImageCarousel(row)" src="{{row?.anomalyReportImage[0]?.image?.url}}">
+                          <img *ngIf="row?.anomalyReportImage?.length<=0" style="height: 40px; width:50px; cursor: pointer"  src="assets/images/no-photo.png">
                         </td>
                     </ng-container>
         

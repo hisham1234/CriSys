@@ -120,9 +120,9 @@ export class AddReportComponent implements OnInit {
 		this.reportService.getReport(this.reportId).subscribe(res => {
 			this.report = res["response"];
            
-			if (this.report.anomelyReportImage) {
+			if (this.report.anomalyReportImage) {
 				
-				this.selectedLibraryImages = this.report.anomelyReportImage.map(i => i.image);
+				this.selectedLibraryImages = this.report.anomalyReportImage.map(i => i.image);
 			}
 			this.fillUpForm();
 			this.loading = false;
