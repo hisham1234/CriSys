@@ -24,7 +24,7 @@
 
 
 <section id="sample-table" class="mat-elevation-z8 bg-white">
-    <mat-progress-bar *ngIf="loading" mode="buffer"></mat-progress-bar>
+    <!-- <mat-progress-bar *ngIf="loading" mode="buffer"></mat-progress-bar> -->
     <div class="pt-2"></div>
     <div class="row">
         <div class="col-md-12">
@@ -37,7 +37,7 @@
             <hr>
         </div>
     </div>
-    <div class="row">
+    <div class="row" *ngIf="!loading">
         <div class="col-md-6 col-sm col-xs">
             <mat-form-field>
                 <input i18n-placeholder matInput (keyup)="doFilter($event.target.value)" placeholder="Filter">
@@ -53,7 +53,14 @@
 
     
     <ng-container >
-        <div class="row">
+        <div class="row" *ngIf="loading" >
+            <div class="col-md-12" >
+                <div class="row loading-spinner-div" *ngIf="true">                  
+                    <img class="loading-spinner" src="/assets/images/icons/loading.gif"/>
+                </div>    
+            </div>    
+        </div>
+        <div class="row" *ngIf="!loading">
             <div class="col-md-12">
                 <table mat-table [dataSource]="dataSource" matSort  matSortStart="desc" (matSortChange)="customSort($event)" class="w-100">
                   
@@ -127,7 +134,7 @@
         </div>
     </ng-container>
     
-    <div class="row">
+    <div class="row" *ngIf="!loading">
         <div class="col-md 12">
             <div i18n class="pb20 pt20 text-center" *ngIf="dataSource.data.length <= 0">No Data To Display</div>
         </div>
