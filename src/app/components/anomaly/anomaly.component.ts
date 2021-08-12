@@ -197,8 +197,8 @@ export class AnomalyComponent implements OnInit, AfterViewInit, OnDestroy {
     }
 
     showMap(row) {
-        console.log(row.id)
-        console.log(this.gisUrl + "" + row.id);
+        // console.log(row.id)
+        // console.log(this.gisUrl + "" + row.id);
         window.open(this.gisUrl + "" + row.id, "_blank")
     }
 
