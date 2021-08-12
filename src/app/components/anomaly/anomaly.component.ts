@@ -31,7 +31,7 @@ export class AnomalyComponent implements OnInit, AfterViewInit, OnDestroy {
     refreshRateSub: Subscription;
     timerCallBack: Subscription;
 
-    displayedColumns = ['id', 'title', 'anomalyType', 'createdAt', 'reports', 'map', 'view', 'edit', 'delete'];
+    displayedColumns = ['id', 'title', 'anomalyType', 'createdAt', 'reports', 'map', 'edit', 'delete'];
     dataSource = new MatTableDataSource<AnomalyModel>();
     searchText = ''
     pageSize = 100;
