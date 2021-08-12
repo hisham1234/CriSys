@@ -117,7 +117,7 @@ export class ReportListComponent implements OnInit, AfterViewInit, OnDestroy {
 
   getAnomalyName() {
     this.anomalyService.getAnomaly(this.anomalyId).subscribe((res) => {
-      debugger;
+      //debugger;
       //console.log(res);
       this.anomalyName = res['response'].title;
       //  console.log(this.anomalyName);
@@ -156,10 +156,6 @@ export class ReportListComponent implements OnInit, AfterViewInit, OnDestroy {
   // }
 
   getAnomalyReport() {
-
-
-
-
     this.reportService.getAnomalyReport(this.anomalyId).subscribe(res => {
 
       res['response'].forEach(element => {
@@ -173,9 +169,8 @@ export class ReportListComponent implements OnInit, AfterViewInit, OnDestroy {
       this.dataSource.data = res['response'] as ReportModel[];
       this.totalSize = res['totalCount'];
       this.loading = false;
-      this.reportCordinates = this.dataSource.data;
-
-      this.markerService.makeCapitalMarkers(this.map, this.dataSource)
+      this.reportCordinates = this.dataSource.data;    
+      this.markerService.makeCapitalMarkers(this.map,this.dataSource.data)
 
     })
   }

@@ -37,16 +37,16 @@ export class ImageDialogComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    debugger;
+    //debugger;
     this.selectedImages = this.data;
     this.getAllImages();
   }
 
   getAllImages(){
     this.loading = true;
-    debugger;
+    //debugger;
     this.imageService.getAllImages().subscribe(res => {
-      debugger;
+      //debugger;
         this.images = res['response'];
         this.loading = false;
     })
@@ -54,7 +54,7 @@ export class ImageDialogComponent implements OnInit {
 
 
    selectImage(image){
-     debugger;
+     //debugger;
         let indexToRemove = this.selectedImages.findIndex(im => im.id == image.id);
         if (indexToRemove!== undefined && indexToRemove !== -1) {
             this.selectedImages.splice(indexToRemove, 1);
