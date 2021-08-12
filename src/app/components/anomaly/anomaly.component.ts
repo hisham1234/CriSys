@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from "@angular/material/paginator";
 import { MatSort } from "@angular/material/sort";
 import { QueryParamsModel } from "../../models/query-param.model";
@@ -14,16 +14,24 @@ import { AddAnomalyComponent } from '../add-anomaly/add-anomaly.component'
 import { MarkerService } from 'src/app/services/marker.service';
 import * as moment from 'moment';
 import { MatTableDataSource } from '@angular/material/table';
+import { Subscription } from 'rxjs';
+import { interval } from 'rxjs';
+import { SettingService } from 'src/app/services/settings.service';
 
 @Component({
     selector: 'app-anomaly',
     templateUrl: './anomaly.component.html',
     styleUrls: ['./anomaly.component.scss'],
-    
-})
-export class AnomalyComponent implements OnInit, AfterViewInit {
 
-    displayedColumns = ['id', 'title', 'anomalyType', 'createdAt',  'reports','map', 'view', 'edit', 'delete'];
+})
+export class AnomalyComponent implements OnInit, AfterViewInit, OnDestroy {
+
+    // Auto-Refresh variable
+    refreshRate: number;
+    refreshRateSub: Subscription;
+    timerCallBack: Subscription;
+
+    displayedColumns = ['id', 'title', 'anomalyType', 'createdAt', 'reports', 'map', 'view', 'edit', 'delete'];
     dataSource = new MatTableDataSource<AnomalyModel>();
     searchText = ''
     pageSize = 100;
@@ -32,12 +40,12 @@ export class AnomalyComponent implements OnInit, AfterViewInit {
 
     totalSize = 100;
 
-    title = $localize `List Of Anomaly`;
+    title = $localize`List Of Anomaly`;
 
-    gisUrl=environment.arcGisUrl;
+    gisUrl = environment.arcGisUrl;
     loading = true;
-    mapid="map";
-    map:any
+    mapid = "map";
+    map: any
     @ViewChild(MatSort, { static: true }) sort: MatSort;
     @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
     constructor(
@@ -46,20 +54,34 @@ export class AnomalyComponent implements OnInit, AfterViewInit {
         private _snackBar: MatSnackBar,
         private router: Router,
         private markerService: MarkerService,
-        private route: ActivatedRoute
+        private route: ActivatedRoute,
+        private settings: SettingService
     ) { }
 
     ngOnInit() {
 
         this.getAllAnomalys();
+
+        // Subscribe to any change of the refresh the list's refresh rate
+        this.refreshRateSub = this.settings.listRefreshRateSubject.subscribe((rate) => {
+            this.timerCallBack = interval(rate * 1000).subscribe(res => {
+                this.getAllAnomalys();
+            });
+        });
+        this.settings.emitListRefreshSubject();
     }
-    onNotified(anomalyMap:any)
-    {
-      debugger;
-      this.map=anomalyMap;
-      this.markerService.makeAnomalyMarkers(this.map)
+
+
+    ngOnDestroy() {
+        this.timerCallBack.unsubscribe();
+        this.refreshRateSub.unsubscribe();
     }
-    
+    onNotified(anomalyMap: any) {
+        debugger;
+        this.map = anomalyMap;
+        this.markerService.makeAnomalyMarkers(this.map)
+    }
+
     applyFilter(filterValue: string) {
         //this.searchText = filterValue
         this.searchText = filterValue.trim().toLowerCase(); // Remove whitespace
@@ -70,12 +92,12 @@ export class AnomalyComponent implements OnInit, AfterViewInit {
 
     getAllAnomalys() {
         this.anomalyService.getAllAnomalys().subscribe((res) => {
-            res['response'].forEach(element => {               
+            res['response'].forEach(element => {
                 const dateComponent = moment.utc(element.createdAt).format('YYYY-MM-DD');
                 const timeComponent = moment.utc(element.createdAt).local().format('HH:mm:ss');
-                const createdAt =dateComponent+" "+timeComponent;
+                const createdAt = dateComponent + " " + timeComponent;
                 element.createdAt = createdAt;
-              });         
+            });
             this.dataSource.data = res['response'] as AnomalyModel[];
             this.totalSize = res['totalCount'];
             this.loading = false;
@@ -84,15 +106,15 @@ export class AnomalyComponent implements OnInit, AfterViewInit {
     ngAfterViewInit(): void {
         this.dataSource.sort = this.sort;
         this.dataSource.paginator = this.paginator;
-      }
-    
-      public customSort = (event) => {
-      // console.log(event);
-      }
-    
-      public doFilter = (value: string) => {     
+    }
+
+    public customSort = (event) => {
+        // console.log(event);
+    }
+
+    public doFilter = (value: string) => {
         this.dataSource.filter = value.trim().toLocaleLowerCase();
-      }
+    }
     //     getAllAnomalys(){
     //       this.loading = true;
     //         const queryParams = new QueryParamsModel(
@@ -120,19 +142,19 @@ export class AnomalyComponent implements OnInit, AfterViewInit {
 
     deleteAnomaly(row) {
         Swal.fire({
-            title: $localize `Do You want to delete it?`,
+            title: $localize`Do You want to delete it?`,
             icon: 'warning',
             showCancelButton: true,
-            confirmButtonText: $localize `Yes`,
-            cancelButtonText: $localize `No`
+            confirmButtonText: $localize`Yes`,
+            cancelButtonText: $localize`No`
         }).then((result) => {
             if (result.value) {
                 this.loading = true;
                 this.anomalyService.deleteAnomaly(row.id).subscribe((res) => {
                     if (res) {
                         Swal.fire(
-                            $localize `Deleted!`,
-                            $localize `Anomaly Successfully Deleted`,
+                            $localize`Deleted!`,
+                            $localize`Anomaly Successfully Deleted`,
                             'success'
                         )
                         this.getAllAnomalys();
@@ -143,11 +165,11 @@ export class AnomalyComponent implements OnInit, AfterViewInit {
     }
 
     editAnomaly(row) {
-        const dialogRef = this.dialog.open(AddAnomalyComponent, { data: {anomaly:row, type: 'edit'},  width: '440px' });
+        const dialogRef = this.dialog.open(AddAnomalyComponent, { data: { anomaly: row, type: 'edit' }, width: '440px' });
         dialogRef.afterClosed().subscribe(res => {
             if (res) {
                 this.getAllAnomalys();
-                let message = $localize `Anomaly Information Updated`;
+                let message = $localize`Anomaly Information Updated`;
                 this._snackBar.open(message, 'OK', {
                     duration: 2000
                 });
@@ -156,8 +178,8 @@ export class AnomalyComponent implements OnInit, AfterViewInit {
     }
 
     viewAnomaly(row) {
-        const dialogRef = this.dialog.open(AddAnomalyComponent, { data: {anomaly:row, type: 'view'}, width: '440px' });
-       
+        const dialogRef = this.dialog.open(AddAnomalyComponent, { data: { anomaly: row, type: 'view' }, width: '440px' });
+
     }
 
     addAnomaly() {
@@ -165,7 +187,7 @@ export class AnomalyComponent implements OnInit, AfterViewInit {
         dialogRef.afterClosed().subscribe(res => {
             if (res) {
                 this.getAllAnomalys();
-                let message = $localize `New Anomaly Successfully Added`;
+                let message = $localize`New Anomaly Successfully Added`;
                 this._snackBar.open(message, 'OK', {
                     duration: 2000
                 });
@@ -174,10 +196,10 @@ export class AnomalyComponent implements OnInit, AfterViewInit {
 
     }
 
-    showMap(row){
+    showMap(row) {
         console.log(row.id)
-        console.log(this.gisUrl+""+row.id);   
-        window.open(this.gisUrl+""+row.id,"_blank")     
+        console.log(this.gisUrl + "" + row.id);
+        window.open(this.gisUrl + "" + row.id, "_blank")
     }
 
     goToReport(row) {
