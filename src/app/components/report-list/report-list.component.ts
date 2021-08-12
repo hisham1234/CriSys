@@ -117,7 +117,7 @@ export class ReportListComponent implements OnInit, AfterViewInit, OnDestroy {
 
   getAnomalyName() {
     this.anomalyService.getAnomaly(this.anomalyId).subscribe((res) => {
-      debugger;
+      //debugger;
       //console.log(res);
       this.anomalyName = res['response'].title;
       //  console.log(this.anomalyName);

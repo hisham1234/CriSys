@@ -77,7 +77,7 @@ export class AnomalyComponent implements OnInit, AfterViewInit, OnDestroy {
         this.refreshRateSub.unsubscribe();
     }
     onNotified(anomalyMap: any) {
-        debugger;
+        //debugger;
         this.map = anomalyMap;
         this.markerService.makeAnomalyMarkers(this.map)
     }
