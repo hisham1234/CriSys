@@ -10,7 +10,7 @@ export class ReportModel {
 	anomalyId: number;
 	createdAt: Date;
 	updatedAt: Date;
-	anomelyReportImage: AnomalyReportImageModel[];
+	anomalyReportImage: AnomalyReportImageModel[];
 
 	constructor() {
 		this.id = undefined;
@@ -22,6 +22,6 @@ export class ReportModel {
 		this.longitude = '';
 		this.kp = '';
 		this.anomalyId = undefined;
-		this.anomelyReportImage = [];
+		this.anomalyReportImage = [];
 	}
 }

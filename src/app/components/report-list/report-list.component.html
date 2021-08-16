@@ -32,7 +32,7 @@
 
 
 <section id="sample-table" class="mat-elevation-z8 bg-white">
-            <mat-progress-bar *ngIf="loading" mode="buffer"></mat-progress-bar>
+            <!-- <mat-progress-bar *ngIf="loading" mode="buffer"></mat-progress-bar> -->
             <div class="pt-2"></div>
             <div class="row">
                 <div class="col-md-12">
@@ -46,10 +46,10 @@
                     <hr>
                 </div>
             </div>
-            <div class="row">
+            <div class="row" *ngIf="!loading">
                 <div class="col-md-6 col-sm col-xs">
                     <mat-form-field>
-                        <input i18n-placeholder matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+                        <input i18n-placeholder matInput (keyup)="doFilter($event.target.value)" placeholder="Filter">
                     </mat-form-field>
                 </div>
                 <div class="col-md-6 col-sm col-xs">
@@ -58,9 +58,16 @@
                     </button>
                 </div>
             </div>
-            <div class="row">
+            <div class="row" *ngIf="loading" >
+                <div class="col-md-12" >
+                    <div class="row loading-spinner-div" *ngIf="true">                  
+                        <img class="loading-spinner" src="/assets/images/icons/loading.gif"/>
+                    </div>    
+                </div>    
+            </div>
+            <div class="row" *ngIf="!loading">
                 <div class="col-md-12">
-                <table mat-table [dataSource]="dataSource" matSort class="w-100">
+                <table mat-table [dataSource]="dataSource" matSort class="w-100"  matSortStart="desc" (matSortChange)="customSort($event)">
                     <!--    <ng-container matColumnDef="select">-->
                     <!--      <th mat-header-cell *matHeaderCellDef>-->
                     <!--        <mat-checkbox (change)="$event ? masterToggle() : null" [checked]="selection.hasValue() && isAllSelected()" [indeterminate]="selection.hasValue() && !isAllSelected()">-->
@@ -72,35 +79,35 @@
                     <!--      </td>-->
                     <!--    </ng-container>-->
                     <ng-container matColumnDef="id">
-                        <th mat-header-cell *matHeaderCellDef> ID </th>
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header> ID </th>
                         <td mat-cell *matCellDef="let row"> {{row.id}} </td>
                     </ng-container>
         
                     <ng-container matColumnDef="image">
                         <th i18n mat-header-cell *matHeaderCellDef> Image </th>
                         <td mat-cell *matCellDef="let row">
-                          <img *ngIf="row?.anomelyReportImage?.length>0" style="height: 40px; width:60px; cursor: pointer" (click)="openImageCarousel(row)" src="{{row?.anomelyReportImage[0]?.image?.url}}">
-                          <img *ngIf="row?.anomelyReportImage?.length<=0" style="height: 40px; width:50px; cursor: pointer"  src="assets/images/no-photo.png">
+                          <img *ngIf="row?.anomalyReportImage?.length>0" style="height: 40px; width:60px; cursor: pointer" (click)="openImageCarousel(row)" src="{{row?.anomalyReportImage[0]?.image?.url}}">
+                          <img *ngIf="row?.anomalyReportImage?.length<=0" style="height: 40px; width:50px; cursor: pointer"  src="assets/images/no-photo.png">
                         </td>
                     </ng-container>
         
                     <ng-container matColumnDef="road">
-                        <th i18n mat-header-cell *matHeaderCellDef> Road </th>
+                        <th i18n mat-header-cell *matHeaderCellDef mat-sort-header> Road </th>
                         <td mat-cell *matCellDef="let row"> {{row.road}} </td>
                     </ng-container>
         
                     <ng-container matColumnDef="title">
-                        <th i18n mat-header-cell *matHeaderCellDef>Name</th>
+                        <th i18n mat-header-cell *matHeaderCellDef mat-sort-header>Name</th>
                         <td mat-cell *matCellDef="let row"> {{row.title}} </td>
                     </ng-container>
         
                     <ng-container matColumnDef="createdAt">
-                        <th i18n mat-header-cell *matHeaderCellDef> Created Time </th>
+                        <th i18n mat-header-cell *matHeaderCellDef mat-sort-header> Created Time </th>
                         <td mat-cell *matCellDef="let row"> {{row.createdAt}} </td>
                     </ng-container>
         
                     <ng-container matColumnDef="kp">
-                        <th mat-header-cell *matHeaderCellDef> KP </th>
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header> KP </th>
                         <td mat-cell *matCellDef="let row"> {{row.kp}} </td>
                     </ng-container>
         
@@ -138,16 +145,18 @@
                 </table>
                 </div>
             </div>
-            <div class="row">
+            <div class="row" *ngIf="!loading">
                 <div class="col-md 12">
-                    <div i18n class="pb20 pt20 text-center" *ngIf="dataSource.length <= 0">No Data</div>
+                    <div i18n class="pb20 pt20 text-center" *ngIf="dataSource.data.length <= 0">No Data</div>
                 </div>
             </div>
             <!-- <div class="row">
                 <div class="col-md 12">
-                    <mat-paginator #paginator *ngIf="dataSource.length > 0" [pageSize]="pageSize" [showFirstLastButtons]="false" [length]="totalSize" [pageIndex]="currentPage" (page)="handlePage($event)"></mat-paginator>
+                    <mat-paginator [pageSize]="100" [pageSizeOptions]="[5,10,20,40,50,70,80,100]"></mat-paginator>
+                  
                 </div>
             </div> -->
+           <!-- LINE 149 >>> <mat-paginator #paginator *ngIf="dataSource.length > 0" [pageSize]="pageSize" [showFirstLastButtons]="false" [length]="totalSize" [pageIndex]="currentPage" (page)="handlePage($event)"></mat-paginator> -->
 </section>
   
     
