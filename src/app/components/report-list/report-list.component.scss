@@ -52,3 +52,9 @@
   width: 15%;
   margin-left: 42%;
 }
+
+.report-id:hover,.report-title:hover{
+  text-decoration: underline;
+  cursor: pointer;
+  color: gray;
+}
