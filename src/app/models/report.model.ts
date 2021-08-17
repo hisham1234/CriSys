@@ -16,6 +16,7 @@ export class ReportModel {
 		this.id = undefined;
 		this.road = '';
 		this.title = '';
+		this.comment= '';
 		this.createdAt = new Date;
 		this.updatedAt = new Date;
 		this.latitude = '';
