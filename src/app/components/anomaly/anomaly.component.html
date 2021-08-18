@@ -60,7 +60,7 @@
                 </div>    
             </div>    
         </div>
-        <div class="row" *ngIf="!loading">
+        <div class="row" [hidden]="loading">
             <div class="col-md-12">
                 <table mat-table [dataSource]="dataSource" matSort  matSortStart="desc" (matSortChange)="customSort($event)" class="w-100">
                   
