@@ -89,11 +89,11 @@ export class ReportViewComponent implements OnInit {
         .utc(reportResponse.createdAt)
         .local()
         .format('HH:mm:ss');
+        
       const createdAt = dateComponent + ' ' + timeComponent;
       reportResponse.createdAt = createdAt;
-
       this.reportData = reportResponse;
-      console.log(' this.reportData > ', this.reportData);
+     
     });
   }
   getAnomalyName() {
