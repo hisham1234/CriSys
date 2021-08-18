@@ -21,7 +21,6 @@ export class TopNavComponent implements OnInit {
     private authenticationService: AuthenticationService,
     private readonly router: Router
   ) {
-    this.authenticationService.user.subscribe((x) => (this.user = x));
   }
 
   languageList = [  
@@ -31,12 +30,16 @@ export class TopNavComponent implements OnInit {
   ];  
 
   ngOnInit() {
-    this.userService
-      .getById(this.user.id)
-      .pipe(first())
-      .subscribe((user) => {
-        this.loggedUser = user;
-      });
+
+    this.authenticationService.getUserByToken().subscribe(ans => {
+        this.loggedUser = ans.response;
+    });
+    // this.userService
+    //   .getById(this.user.id)
+    //   .pipe(first())
+    //   .subscribe((user) => {
+    //     this.loggedUser = user;
+    //   });
   }
 
   toggleSidebar() {
