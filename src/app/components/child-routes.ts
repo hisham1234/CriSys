@@ -4,6 +4,7 @@ import { AddReportComponent } from './add-report/add-report.component';
 import { MapComponent } from './map/map.component';
 import { AuthGuard } from '../core/auth.guard';
 import { Role } from '../models/role';
+import { ReportViewComponent } from './report-view/report-view.component';
 
 export const childRoutes = [
   {
@@ -42,6 +43,14 @@ export const childRoutes = [
   {
     path: 'anomaly/:aid/report',
     component: ReportListComponent,
+    data: {
+      showInSidebar: false,
+    },
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'anomaly/:aid/:rid/report-view',
+    component: ReportViewComponent,
     data: {
       showInSidebar: false,
     },

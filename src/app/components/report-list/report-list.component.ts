@@ -95,7 +95,6 @@ export class ReportListComponent implements OnInit, AfterViewInit, OnDestroy {
   ngOnInit() {
     this.getAnomalyReportData();
     this.getAnomalyName();
-
     // Subscribe to any list's refresh rate modification
     this.refreshRateSub = this.settings.listRefreshRateSubject.subscribe((rate) => {
       this.timerCallBack = interval(rate * 1000).subscribe(res => {
@@ -241,9 +240,10 @@ export class ReportListComponent implements OnInit, AfterViewInit, OnDestroy {
     this.router.navigate([rowId], { relativeTo: this.route });
   }
 
-  goToReport(row) {
-
+  goToReportView(row) {   
+    this.router.navigate([`anomaly/${this.anomalyId}/${row.id}/report-view`]);
   }
+
 
   addToGIS(row) {
     this.loading = true;

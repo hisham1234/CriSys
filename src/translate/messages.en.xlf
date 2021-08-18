@@ -550,7 +550,78 @@
           <context context-type="linenumber">79</context>
         </context-group>
       </trans-unit> 
- 
+       <trans-unit id="3466717080499226256" datatype="html">
+        <source>Report ID</source>
+         <target>Report ID</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/report-view/report-view.component.ts</context>
+          <context context-type="linenumber">33</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5701618810648052610" datatype="html">
+        <source>Title</source>
+         <target>Title</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/report-view/report-view.component.ts</context>
+          <context context-type="linenumber">34</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5935587678138115505" datatype="html">
+        <source>Anomaly ID</source>
+         <target>Anomaly ID</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/report-view/report-view.component.ts</context>
+          <context context-type="linenumber">35</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8072897279966878128" datatype="html">
+        <source>Road</source>
+        <target>Road</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/report-view/report-view.component.ts</context>
+          <context context-type="linenumber">36</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8314090883669143391" datatype="html">
+        <source>Latitude</source>
+        <target>Latitude</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/report-view/report-view.component.ts</context>
+          <context context-type="linenumber">37</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5174359152122758396" datatype="html">
+        <source>Longitude</source>
+        <target>Longitude</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/report-view/report-view.component.ts</context>
+          <context context-type="linenumber">38</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7293347258713947796" datatype="html">
+        <source>Created At</source>
+        <target>Created At</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/report-view/report-view.component.ts</context>
+          <context context-type="linenumber">39</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2662644497259948010" datatype="html">
+        <source>Comment</source>
+        <target>Comment</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/report-view/report-view.component.ts</context>
+          <context context-type="linenumber">40</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="414887388288176527" datatype="html">
+        <source>Images</source>
+        <target>Images</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/report-view/report-view.component.ts</context>
+          <context context-type="linenumber">41</context>
+        </context-group>
+      </trans-unit>
     </body>
   </file>
 </xliff>
