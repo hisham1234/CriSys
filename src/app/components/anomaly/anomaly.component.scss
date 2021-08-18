@@ -29,7 +29,12 @@
   justify-content: center;
 }
 
- .loading-spinner{
+.loading-spinner{
     width: 15%;
     margin-left: 42%;
-  }
+}
+.anomaly-id:hover,.anomaly-title:hover{
+  text-decoration: underline;
+  cursor: pointer;
+  color: gray;
+}
