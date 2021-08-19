@@ -27,7 +27,7 @@ export class AuthService {
 		formData.append('password', password);
 		formData.append('client_id', 'ui');
         return  this.http.post<AuthModel>(OAUTH_TOKEN_URL, formData).subscribe((authModel) =>{
-            localStorage.setItem('token', authModel.access_token)
+            localStorage.setItem('token', authModel.token)
             console.log()
             return  this.getUserByToken()
         });

@@ -3,44 +3,45 @@ import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-
 import { environment } from 'src/environments/environment';
 import { User } from '../models/user';
+import { AuthModel } from '../models/auth.model';
+import { UserModel } from '../models/user.model';
 
 @Injectable({ providedIn: 'root' })
 export class AuthenticationService {
-  private userSubject: BehaviorSubject<User>;
-  public user: Observable<User>;
 
   constructor(private router: Router, private http: HttpClient) {
-    this.userSubject = new BehaviorSubject<User>(
-      JSON.parse(localStorage.getItem('user'))
-    );
-    this.user = this.userSubject.asObservable();
   }
 
-  public get userValue(): User {
-    return this.userSubject.value;
-  }
-
-  login(username: string, password: string) {
+  login(email: string, password: string) {
     return this.http
-      .post<any>(`${environment.apiUrl}/users/authenticate`, {
-        username,
-        password,
+      .post<any>(`${environment.organizationUrl}/api/accounts/login`, {
+        "Email": email,
+        "Password": password,
       })
       .pipe(
-        map((user) => {       
-          localStorage.setItem('user', JSON.stringify(user));
-          this.userSubject.next(user);
-          return user;
+        map((auth: AuthModel) => {       
+          localStorage.setItem('token', auth.token);
+          //this.userSubject.next(auth);
+          return auth;
         })
       );
   }
 
+
+  getUserByToken() {
+    console.log('AuthService.getUserByToken!');
+    // const userToken = localStorage.getItem('token');
+    // const headers = new HttpHeaders({
+    //     'Content-Type': 'application/json; charset=utf-8',
+    //     'Authorization': 'Bearer ' + userToken
+    //});
+    return this.http.get<any>(`${environment.organizationUrl}/api/accounts/me`);
+    }
+
   logout() {  
-    localStorage.removeItem('user');
-    this.userSubject.next(null);
+    localStorage.removeItem('token');
     this.router.navigate(['/login']);
   }
 }
