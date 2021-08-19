@@ -29,7 +29,7 @@ export class LoginComponent implements OnInit {
     private authenticationService: AuthenticationService
   ) {
     // redirect to home if already logged in
-    if (this.authenticationService.userValue) {
+    if (localStorage.getItem('token')!== undefined) {
       this.router.navigate(['/']);
     }
   }
@@ -62,6 +62,7 @@ export class LoginComponent implements OnInit {
       .pipe(first())
       .subscribe({
         next: () => {
+            
           // get return url from query parameters or default to home page
           const returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
           this.router.navigateByUrl(returnUrl);
