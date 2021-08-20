@@ -44,11 +44,11 @@ export class AuthService {
             if (user){
                     localStorage.setItem('isLoggedin', 'true');
                     localStorage.setItem('user', JSON.stringify(user));
-                    if (user.role == 1){
-                        this.router.navigate(['/admin']);
-                    } else {
-                        this.router.navigate(['/employee']);
-                    }
+                    // if (user.role == 1){
+                    //     this.router.navigate(['/admin']);
+                    // } else {
+                    //     this.router.navigate(['/employee']);
+                    // }
             }
         });
     }
