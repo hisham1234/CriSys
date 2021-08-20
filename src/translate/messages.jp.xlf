@@ -616,6 +616,30 @@
           <context context-type="linenumber">41</context>
         </context-group>
       </trans-unit>
+      <trans-unit id="5a5d7ee2acbfa9c91ab7f41d26bda9ff0cafe42f" datatype="html">
+        <source>Comment</source>
+        <target>コメント</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/anomaly/anomaly.component.html</context>
+          <context context-type="linenumber">82</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/add-anomaly/add-anomaly.component.html</context>
+          <context context-type="linenumber">94</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/add-report/add-report.component.html</context>
+          <context context-type="linenumber">37</context>
+        </context-group>
+      </trans-unit>
+       <trans-unit id="a3d57cb09b8c89d3e10ceaf70f53ad0d454144ee" datatype="html">
+        <source> Comment </source>
+        <target>コメント</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/report-list/report-list.component.html</context>
+          <context context-type="linenumber">105</context>
+        </context-group>
+      </trans-unit>
          </body>
   </file>
 </xliff>
