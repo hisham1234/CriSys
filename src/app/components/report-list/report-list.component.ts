@@ -116,10 +116,9 @@ export class ReportListComponent implements OnInit, AfterViewInit, OnDestroy {
 
   getAnomalyName() {
     this.anomalyService.getAnomaly(this.anomalyId).subscribe((res) => {
-      //debugger;
-      //console.log(res);
+      //debugger;     
       this.anomalyName = res['response'].title;
-      //  console.log(this.anomalyName);
+      
     })
   }
 
@@ -158,7 +157,7 @@ export class ReportListComponent implements OnInit, AfterViewInit, OnDestroy {
     this.reportService.getAnomalyReport(this.anomalyId).subscribe(res => {
 
       res['response'].forEach(element => {
-        console.log("comment ", element)
+        
         const dateComponent = moment.utc(element.createdAt).format('YYYY-MM-DD');
         const timeComponent = moment.utc(element.createdAt).local().format('HH:mm:ss');
         const createdAt = dateComponent + " " + timeComponent;
