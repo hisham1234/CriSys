@@ -58,3 +58,43 @@
   cursor: pointer;
   color: gray;
 }
+.row-comment{ 
+  max-width: 20%;
+}
+
+.mat-column-id, 
+.mat-column-image,
+.mat-column-road,
+.mat-column-title ,
+.mat-column-comment ,
+.mat-column-createdAt ,
+.mat-column-latitude ,
+.mat-column-longitude ,
+.mat-column-kp ,
+.mat-column-edit {
+  word-wrap: break-word !important;
+  white-space: unset !important;
+  flex: 0 0 10% !important;
+  width: 10% !important;
+  overflow-wrap: break-word;
+  word-wrap: break-word;  
+  word-break: break-word;
+
+  -ms-hyphens: auto;
+  -moz-hyphens: auto;
+  -webkit-hyphens: auto;
+  hyphens: auto;
+}
+.mat-column-delete{
+  word-wrap: break-word !important;
+  white-space: unset !important;
+  flex: 0 0 10% !important;
+  width: 12% !important;
+  overflow-wrap: break-word;
+  word-wrap: break-word;  
+  text-align: center;
+}
+.mat-column-map ,
+.mat-column-edit {
+  text-align: center;
+}

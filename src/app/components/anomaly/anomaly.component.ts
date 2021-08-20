@@ -31,7 +31,7 @@ export class AnomalyComponent implements OnInit, AfterViewInit, OnDestroy {
     refreshRateSub: Subscription;
     timerCallBack: Subscription;
 
-    displayedColumns = ['id', 'title', 'anomalyType', 'createdAt', 'map', 'edit', 'delete'];
+    displayedColumns = ['id', 'title', 'anomalyType','comment', 'createdAt', 'map', 'edit', 'delete'];
     dataSource = new MatTableDataSource<AnomalyModel>();
     searchText = ''
     pageSize = 100;
@@ -96,7 +96,7 @@ export class AnomalyComponent implements OnInit, AfterViewInit, OnDestroy {
                 const dateComponent = moment.utc(element.createdAt).format('YYYY-MM-DD');
                 const timeComponent = moment.utc(element.createdAt).local().format('HH:mm:ss');
                 const createdAt = dateComponent + " " + timeComponent;
-                element.createdAt = createdAt;
+                element.createdAt = createdAt;               
             });
             this.dataSource.data = res['response'] as AnomalyModel[];
             this.totalSize = res['totalCount'];

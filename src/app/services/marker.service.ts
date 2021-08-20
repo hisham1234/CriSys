@@ -32,7 +32,7 @@ export class MarkerService {
     const headers = this.httpUtils.getHTTPHeaders();
     this.http.get(ANOMALY_URL, { headers: headers }).subscribe(res => {
         this.allAnomalyData=  res['response'];
-       console.log(this.allAnomalyData);
+       
        for(const c of this.allAnomalyData)
        {
          if(c.latitude !=null && c.longitude!=null)

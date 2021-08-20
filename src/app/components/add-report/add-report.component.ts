@@ -69,7 +69,7 @@ export class AddReportComponent implements OnInit {
 		public dialog: MatDialog,
 		private _snackBar: MatSnackBar,
 		private anomalyService:AnomalyService,
-    private eventEmitterService: EventEmitterService
+        private eventEmitterService: EventEmitterService
 	) {
 		this.getScreenSize();
 	}
@@ -101,7 +101,8 @@ export class AddReportComponent implements OnInit {
 			latitude: [''],
 			longitude: [''],
 			kp: ['',],
-			road: ['']
+			road: [''],
+			comment:['']
 		});
 	}
 
@@ -111,7 +112,8 @@ export class AddReportComponent implements OnInit {
 			latitude: [this.report.latitude ? this.report.latitude : '', Validators.required],
 			longitude: [this.report.longitude ? this.report.longitude : '', Validators.required],
 			kp: [this.report.kp ? this.report.kp : '',],
-			road: [this.report.road ? this.report.road : '']
+			road: [this.report.road ? this.report.road : ''],
+			comment: [this.report.comment ? this.report.comment : '']
 		});
 	}
 
@@ -229,19 +231,19 @@ export class AddReportComponent implements OnInit {
         return;
       }
     
-      editedReport.title = formControls['title'].value;
+            editedReport.title = formControls['title'].value;
 			editedReport.latitude = formControls['latitude'].value;
 			editedReport.longitude = formControls['longitude'].value;
 			editedReport.kp = formControls['kp'].value;
 			editedReport.road = formControls['road'].value;
+			editedReport.comment =formControls['comment'].value;
 
 			let selectedLibraryImageIds = this.selectedLibraryImages.map( image => image.id);
 
 			let anomalyReportImageDatas = {
 				anomalyReportId : this.report.id,
 				imageIds : selectedLibraryImageIds
-			}
-			
+			}			
 
 			this.loading = true;
 			this.reportService.editReport(editedReport.id, editedReport).subscribe((res) => {
@@ -282,6 +284,7 @@ export class AddReportComponent implements OnInit {
 			newReport.longitude = formControls['longitude'].value;
 			newReport.kp = formControls['kp'].value;
 			newReport.road = formControls['road'].value;
+			newReport.comment = formControls['comment'].value;
 
 			//newReport.anomelyReportImage = this.selectedLibraryImages;
 			let selectedLibraryImageIds = this.selectedLibraryImages.map( image => image.id);
