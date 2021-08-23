@@ -52,7 +52,7 @@ export class AddAnomalyComponent implements OnInit {
     this.anomalyForm = this.formBuilder.group({
       title: [{value: this.anomaly.title, disabled: this.viewOrEdit == 'view' ? true : false}, Validators.required],
       anomalyType: [{value: this.anomaly.anomalyType, disabled: this.viewOrEdit == 'view' ? true : false}, Validators.required],
-      comments:['']
+      comment:['']
     });
   }
 
@@ -78,7 +78,7 @@ export class AddAnomalyComponent implements OnInit {
     
     newAnomaly.title = this.anomalyForm.controls.title.value;
     newAnomaly.anomalyType = this.anomalyForm.controls.anomalyType.value;
-    newAnomaly.comment = this.anomalyForm.controls.comments.value;
+    newAnomaly.comment = this.anomalyForm.controls.comment.value;
 
     if (this.anomaly.id){
       this.txtSaving = $localize`Updating...`;
