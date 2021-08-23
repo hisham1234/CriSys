@@ -23,6 +23,6 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     LoginRoutingModule,
     ReactiveFormsModule
   ],
-  declarations: [LoginComponent]
+  declarations: []
 })
 export class LoginModule {}

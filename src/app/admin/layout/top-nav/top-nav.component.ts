@@ -1,7 +1,7 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Router } from '@angular/router';
 import { first } from 'rxjs/operators';
-import { User } from 'src/app/models/user';
+import { UserModel } from 'src/app/models/user.model';
 import { AuthenticationService } from 'src/app/services/authentication.service';
 import { UserService } from 'src/app/services/user.service';
 
@@ -11,8 +11,8 @@ import { UserService } from 'src/app/services/user.service';
   styleUrls: ['./top-nav.component.scss'],
 })
 export class TopNavComponent implements OnInit {
-  user: User;
-  loggedUser: User;
+  loggedUser: UserModel;
+  userFirstName = '';
   txtSignOutText =$localize`Sign out` 
   @Output() sideNavToggled = new EventEmitter<void>();
 
@@ -31,15 +31,25 @@ export class TopNavComponent implements OnInit {
 
   ngOnInit() {
 
-    this.authenticationService.getUserByToken().subscribe(ans => {
-        this.loggedUser = ans.response;
-    });
+    // Request LoggedUser
+      this.authenticationService.getUserByToken().subscribe(res => {
+          this.authenticationService.updateUser(res);
+      });
+
+      // Subscribe modification on the user loggedUser
+      this.authenticationService.userSubject.subscribe(res => {
+          this.loggedUser = res;
+      });
+
+
     // this.userService
     //   .getById(this.user.id)
     //   .pipe(first())
     //   .subscribe((user) => {
     //     this.loggedUser = user;
     //   });
+
+    
   }
 
   toggleSidebar() {

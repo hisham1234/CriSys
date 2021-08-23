@@ -5,6 +5,7 @@ import { MapComponent } from './map/map.component';
 import { AuthGuard } from '../core/auth.guard';
 import { Role } from '../models/role';
 import { ReportViewComponent } from './report-view/report-view.component';
+import { DisplaySettingsComponent } from './display-settings/display-settings.component';
 
 export const childRoutes = [
   {
@@ -14,6 +15,13 @@ export const childRoutes = [
     data: {
       icon: 'dashboard',
       text: 'タイムライ',
+      showInSidebar: false,
+    },
+    canActivate: [AuthGuard],
+  },{
+    path: 'settings/display',
+    component: DisplaySettingsComponent,
+    data: {
       showInSidebar: false,
     },
     canActivate: [AuthGuard],

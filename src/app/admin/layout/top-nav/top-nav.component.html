@@ -22,9 +22,7 @@
       <a button mat-button  href="/{{language.code}}/">{{language.label}}</a> 
     </ng-container> 
     <mat-icon>account_circle</mat-icon>
-    <span *ngIf="loggedUser">
-      <span class="user-name">{{ loggedUser.firstName }} </span>
-    </span>
+      <span *ngIf="loggedUser" class="user-name">{{ loggedUser.firstName }} </span>
 
     <button mat-button class="sign-out" (click)="logout()">{{ txtSignOutText }}</button>
   </mat-toolbar>
