@@ -78,7 +78,7 @@ export class AddAnomalyComponent implements OnInit {
     
     newAnomaly.title = this.anomalyForm.controls.title.value;
     newAnomaly.anomalyType = this.anomalyForm.controls.anomalyType.value;
-    newAnomaly.comments = this.anomalyForm.controls.comments.value;
+    newAnomaly.comment = this.anomalyForm.controls.comments.value;
 
     if (this.anomaly.id){
       this.txtSaving = $localize`Updating...`;

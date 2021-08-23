@@ -42,6 +42,10 @@ export class AuthenticationService {
             .get<UserModel>(`${environment.organizationUrl}/api/accounts/me`);
     }
 
+    updateUserByToken(user: UserModel) {
+        return this.http.put<UserModel>(`${environment.organizationUrl}/api/accounts/me`, user)
+    }
+
     logout() {
         localStorage.removeItem('token');
         this.router.navigate(['/login']);
