@@ -662,6 +662,14 @@
           <context context-type="linenumber">12</context>
         </context-group>
       </trans-unit>
+      <trans-unit id="3e632324db4b9f94c14c64cb435a451afb27e431" datatype="html">
+        <source> Settings</source>
+        <target> Settings</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/admin/layout/top-nav/top-nav.component.html</context>
+          <context context-type="linenumber">29</context>
+        </context-group>
+      </trans-unit>
     </body>
   </file>
 </xliff>
