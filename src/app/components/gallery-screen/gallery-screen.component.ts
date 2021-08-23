@@ -12,18 +12,7 @@ export class GalleryScreenComponent implements OnInit {
   constructor(public dialog: MatDialog,) { }
 
   ngOnInit(): void {
-    /* let width = this.scrWidth - (this.scrWidth * .2);
-		let height = this.scrHeight - (this.scrHeight * .2);
-    const dialogRef = this.dialog.open(ImageDialogComponent,
-			{
-        
-				width: width.toString() + 'px',
-				height: height.toString() + 'px',
-				data: {}
-        
-			
-			}
-		); */
+   
   }
 
 }
