@@ -1,22 +1,38 @@
-<div>
+
     <div>
-    <span style="float: right; cursor:pointer"> <mat-icon (click)="closeDialog()" > close </mat-icon> </span>
+    <span style="float: right; cursor:pointer"> <mat-icon (click)="closeDialog()" [hidden]=IsGalleryScreen> close </mat-icon> </span>
     <div class="row" style="z-index:1000">
     <mat-progress-bar *ngIf="loading" mode="buffer" class="mb20"></mat-progress-bar>
-        <div class="col-md-12 " style="text-align:center" >
-            <div >
+        <div class="col-md-12 " *ngIf="!IsGalleryScreen" style="text-align:center" >
+            
             <span i18n>Select An Image</span>
+       
         </div>
+        <div class="col-md-3" *ngIf="IsGalleryScreen"  >
+            
+            <button type="button" class="btn btn-success"  i18n (click)="DownloadAll()">Download Images</button>
+       
+        </div>
+        <div class="col-md-3" *ngIf="IsGalleryScreen"  >
+            
+            <button type="button" class="btn btn-success"  i18n  (click)="addFile()">Add Images</button>
+            <input style="display: none;" type="file" id="fileUpload" name="imageFile" #selectedFile [(ngModel)]="fileUpload" [ngModelOptions]="{standalone: true}" (click)="selectedFile.value = null" value="" (change)="handleFileInput($event.target.files)" />
+                    
+        </div>
+        <div class="col-md-3" *ngIf="IsGalleryScreen"  >
+            
+            <button type="button" class="btn btn-success"  i18n (click)="clearSelection()">Clear Selection</button>
+       
         </div>
     </div>
     </div>
 
-    <div class="row">
-        <div class="row" fxFlex="auto" >
+    <div class="row" fxFlex="auto">
+        
             <div class="col-md-3" *ngFor="let image of images">
-                <img [ngClass]="selectedImageCSS(image) == true? 'selectedImage' : ''" (click)="selectImage(image)" class="img-thumbnail  mt10 mb10 ml5 mr5" src="{{image.url}}" alt="">
+                <img id={{image.name}} [ngClass]="selectedImageCSS(image) == true? 'selectedImage' : ''" (click)="selectImage(image)" class="img-thumbnail  mt10 mb10 ml5 mr5" src="{{image.url}}" alt="">
             </div>
-        </div>
+       
 </div>
-</div>
+
 

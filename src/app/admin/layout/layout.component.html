@@ -1,6 +1,6 @@
 <div class="layout-container">
   <app-top-nav (sideNavToggled)="snav.toggle()"></app-top-nav>
-
+  <!-- (sideNavToggled)="snav.toggle()" -->
   <mat-sidenav-container class="sidenav-container" [style.marginTop.px]="toolBarHeight">
     <mat-sidenav #snav class="sidenav mat-elevation-z10" [(mode)]="sideNavMode" [(opened)]="sideNavOpened">
       <app-side-nav></app-side-nav>
