@@ -640,6 +640,22 @@
           <context context-type="linenumber">105</context>
         </context-group>
       </trans-unit>
+      <trans-unit id="c69078f897bf8e3ac886072c22ed0ea91815066f" datatype="html">
+        <source>Display Settings</source>
+        <target>画面設定</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/display-settings/display-settings.component.html</context>
+          <context context-type="linenumber">3</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="23b9cc8ce82820552bdb52683290aa0710501677" datatype="html">
+        <source>Refresh Rate (s)</source>
+        <target>リフレッシュレート (s)</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/display-settings/display-settings.component.html</context>
+          <context context-type="linenumber">12</context>
+        </context-group>
+      </trans-unit>
          </body>
   </file>
 </xliff>
