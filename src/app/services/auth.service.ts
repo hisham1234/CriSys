@@ -27,7 +27,7 @@ export class AuthService {
 		formData.append('password', password);
 		formData.append('client_id', 'ui');
         return  this.http.post<AuthModel>(OAUTH_TOKEN_URL, formData).subscribe((authModel) =>{
-            localStorage.setItem('token', authModel.access_token)
+            localStorage.setItem('token', authModel.token)
             console.log()
             return  this.getUserByToken()
         });
@@ -44,11 +44,11 @@ export class AuthService {
             if (user){
                     localStorage.setItem('isLoggedin', 'true');
                     localStorage.setItem('user', JSON.stringify(user));
-                    if (user.role == 1){
-                        this.router.navigate(['/admin']);
-                    } else {
-                        this.router.navigate(['/employee']);
-                    }
+                    // if (user.role == 1){
+                    //     this.router.navigate(['/admin']);
+                    // } else {
+                    //     this.router.navigate(['/employee']);
+                    // }
             }
         });
     }

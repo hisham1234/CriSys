@@ -49,7 +49,7 @@ export class ReportListComponent implements OnInit, AfterViewInit, OnDestroy {
   timerCallBack: Subscription;
 
 
-  displayedColumns = ['id', 'image', 'title', 'road', 'createdAt', 'kp', 'latitude', 'longitude', 'edit', 'delete'];
+  displayedColumns = ['id', 'image', 'title', 'road', 'comment','createdAt', 'kp', 'latitude', 'longitude', 'edit', 'delete'];
   dataSource = new MatTableDataSource<ReportModel>();
 
   searchText = ''
@@ -95,7 +95,6 @@ export class ReportListComponent implements OnInit, AfterViewInit, OnDestroy {
   ngOnInit() {
     this.getAnomalyReportData();
     this.getAnomalyName();
-
     // Subscribe to any list's refresh rate modification
     this.refreshRateSub = this.settings.listRefreshRateSubject.subscribe((rate) => {
       this.timerCallBack = interval(rate * 1000).subscribe(res => {
@@ -117,10 +116,9 @@ export class ReportListComponent implements OnInit, AfterViewInit, OnDestroy {
 
   getAnomalyName() {
     this.anomalyService.getAnomaly(this.anomalyId).subscribe((res) => {
-      //debugger;
-      //console.log(res);
+      //debugger;     
       this.anomalyName = res['response'].title;
-      //  console.log(this.anomalyName);
+      
     })
   }
 
@@ -159,10 +157,14 @@ export class ReportListComponent implements OnInit, AfterViewInit, OnDestroy {
     this.reportService.getAnomalyReport(this.anomalyId).subscribe(res => {
 
       res['response'].forEach(element => {
+        
         const dateComponent = moment.utc(element.createdAt).format('YYYY-MM-DD');
         const timeComponent = moment.utc(element.createdAt).local().format('HH:mm:ss');
         const createdAt = dateComponent + " " + timeComponent;
         element.createdAt = createdAt;
+        // if(!element.comment){
+        //   element.comment ="test commenihdfigbrigb";
+        //  }
       });
 
       this.totalSize = res['totalCount'];
@@ -241,9 +243,10 @@ export class ReportListComponent implements OnInit, AfterViewInit, OnDestroy {
     this.router.navigate([rowId], { relativeTo: this.route });
   }
 
-  goToReport(row) {
-
+  goToReportView(row) {   
+    this.router.navigate([`anomaly/${this.anomalyId}/${row.id}/report-view`]);
   }
+
 
   addToGIS(row) {
     this.loading = true;

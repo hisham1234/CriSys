@@ -4,6 +4,7 @@ export class AnomalyModel {
 	createdAt: Date;
 	updatedAt: Date;
 	title: string;
+	comment: string;
 
 	constructor() {
 		this.id = undefined;
@@ -11,5 +12,6 @@ export class AnomalyModel {
 		this.createdAt = new Date();
 		this.updatedAt = new Date();
 		this.title = '';
+		this.comment = '';
 	}
 }

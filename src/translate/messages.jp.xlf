@@ -544,12 +544,124 @@
           <context context-type="linenumber">79</context>
         </context-group>
       </trans-unit> 
-      <trans-unit id="bf6f8dcc4f48a79b3be98d580f707aebcec791bf" datatype="html">
-        <source>Select An Image</source>
-        <target>Select An Image</target>
+      <trans-unit id="3466717080499226256" datatype="html">
+        <source>Report ID</source>
+         <target>レポートID</target>
         <context-group purpose="location">
-          <context context-type="sourcefile">src/app/components/image-dialog/image-dialog.component.html</context>
-          <context context-type="linenumber">8</context>
+          <context context-type="sourcefile">src/app/components/report-view/report-view.component.ts</context>
+          <context context-type="linenumber">33</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5701618810648052610" datatype="html">
+        <source>Title</source>
+         <target>名前</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/report-view/report-view.component.ts</context>
+          <context context-type="linenumber">34</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5935587678138115505" datatype="html">
+        <source>Anomaly ID</source>
+         <target>異常ID</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/report-view/report-view.component.ts</context>
+          <context context-type="linenumber">35</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8072897279966878128" datatype="html">
+        <source>Road</source>
+        <target>道</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/report-view/report-view.component.ts</context>
+          <context context-type="linenumber">36</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8314090883669143391" datatype="html">
+        <source>Latitude</source>
+        <target>緯度</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/report-view/report-view.component.ts</context>
+          <context context-type="linenumber">37</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5174359152122758396" datatype="html">
+        <source>Longitude</source>
+        <target>経度</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/report-view/report-view.component.ts</context>
+          <context context-type="linenumber">38</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7293347258713947796" datatype="html">
+        <source>Created At</source>
+        <target>作成時間</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/report-view/report-view.component.ts</context>
+          <context context-type="linenumber">39</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2662644497259948010" datatype="html">
+        <source>Comment</source>
+        <target>コメント</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/report-view/report-view.component.ts</context>
+          <context context-type="linenumber">40</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="414887388288176527" datatype="html">
+        <source>Images</source>
+        <target>画像</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/report-view/report-view.component.ts</context>
+          <context context-type="linenumber">41</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5a5d7ee2acbfa9c91ab7f41d26bda9ff0cafe42f" datatype="html">
+        <source>Comment</source>
+        <target>コメント</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/anomaly/anomaly.component.html</context>
+          <context context-type="linenumber">82</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/add-anomaly/add-anomaly.component.html</context>
+          <context context-type="linenumber">94</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/add-report/add-report.component.html</context>
+          <context context-type="linenumber">37</context>
+        </context-group>
+      </trans-unit>
+       <trans-unit id="a3d57cb09b8c89d3e10ceaf70f53ad0d454144ee" datatype="html">
+        <source> Comment </source>
+        <target>コメント</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/report-list/report-list.component.html</context>
+          <context context-type="linenumber">105</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="c69078f897bf8e3ac886072c22ed0ea91815066f" datatype="html">
+        <source>Display Settings</source>
+        <target>画面設定</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/display-settings/display-settings.component.html</context>
+          <context context-type="linenumber">3</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="23b9cc8ce82820552bdb52683290aa0710501677" datatype="html">
+        <source>Refresh Rate (s)</source>
+        <target>リフレッシュレート (s)</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/display-settings/display-settings.component.html</context>
+          <context context-type="linenumber">12</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3e632324db4b9f94c14c64cb435a451afb27e431" datatype="html">
+        <source> Settings</source>
+        <target> 設定</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/admin/layout/top-nav/top-nav.component.html</context>
+          <context context-type="linenumber">29</context>
         </context-group>
       </trans-unit>
       <trans-unit id="012b8223814dc22064e5731d4ca9d1e3a319027b" datatype="html">
@@ -568,7 +680,7 @@
           <context context-type="linenumber">18</context>
         </context-group>
       </trans-unit>
-       <trans-unit id="6f286074c957b1f7052ba9a11341486b8e669e55" datatype="html">
+      <trans-unit id="6f286074c957b1f7052ba9a11341486b8e669e55" datatype="html">
         <source>Clear Selection</source>
         <target>Clear Selection</target>
         <context-group purpose="location">
@@ -576,12 +688,12 @@
           <context context-type="linenumber">24</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="4162118539354149635" datatype="html">
+       <trans-unit id="4162118539354149635" datatype="html">
         <source>Gallery Screen</source>
         <target>Gallery Screen</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/child-routes.ts</context>
-          <context context-type="linenumber">65</context>
+          <context context-type="linenumber">82</context>
         </context-group>
       </trans-unit>
          </body>

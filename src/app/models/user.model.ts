@@ -5,12 +5,14 @@ export class UserModel {
 	email: string;
 	password: string;
 	role: number;
-
+    refreshRate: number;
+    
 	constructor() {
 		this.id = undefined;
 		this.firstName = '';
 		this.lastName = '';
 		this.password = '';
 		this.role = undefined;
+        this.refreshRate = 300;
 	}
 }
