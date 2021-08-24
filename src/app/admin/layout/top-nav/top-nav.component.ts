@@ -41,7 +41,6 @@ export class TopNavComponent implements OnInit {
           this.loggedUser = res;
       });
 
-
     // this.userService
     //   .getById(this.user.id)
     //   .pipe(first())

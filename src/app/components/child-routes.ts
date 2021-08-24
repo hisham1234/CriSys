@@ -3,9 +3,9 @@ import { ReportListComponent } from './report-list/report-list.component';
 import { AddReportComponent } from './add-report/add-report.component';
 import { MapComponent } from './map/map.component';
 import { AuthGuard } from '../core/auth.guard';
-import { Role } from '../models/role';
 import { ReportViewComponent } from './report-view/report-view.component';
 import { DisplaySettingsComponent } from './display-settings/display-settings.component';
+import { UserListComponent } from './user-list/user-list.component';
 
 export const childRoutes = [
   {
@@ -21,6 +21,14 @@ export const childRoutes = [
   },{
     path: 'settings/display',
     component: DisplaySettingsComponent,
+    data: {
+      showInSidebar: false,
+    },
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'settings/users',
+    component: UserListComponent,
     data: {
       showInSidebar: false,
     },

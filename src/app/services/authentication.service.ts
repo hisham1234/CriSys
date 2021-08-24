@@ -54,7 +54,7 @@ export class AuthenticationService {
 
 
     emitUser() {
-        this.userSubject.next({ ...this.user });
+        this.userSubject.next({...this.user});
     }
 
     updateUser(user: UserModel) {
