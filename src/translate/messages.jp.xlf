@@ -664,6 +664,54 @@
           <context context-type="linenumber">29</context>
         </context-group>
       </trans-unit>
+      <trans-unit id="012b8223814dc22064e5731d4ca9d1e3a319027b" datatype="html">
+        <source>Download Images</source>
+        <target>Download Images</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/image-dialog/image-dialog.component.html</context>
+          <context context-type="linenumber">13</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="d923301510202f70bda4d2acad3453ed7c133361" datatype="html">
+        <source>Add Images</source>
+        <target>Add Images</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/image-dialog/image-dialog.component.html</context>
+          <context context-type="linenumber">18</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6f286074c957b1f7052ba9a11341486b8e669e55" datatype="html">
+        <source>Clear Selection</source>
+        <target>Clear Selection</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/image-dialog/image-dialog.component.html</context>
+          <context context-type="linenumber">24</context>
+        </context-group>
+      </trans-unit>
+       <trans-unit id="4162118539354149635" datatype="html">
+        <source>Gallery Screen</source>
+        <target>Gallery Screen</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/child-routes.ts</context>
+          <context context-type="linenumber">82</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8ad07795bc398a849c5d57425bb889e30b427ca0" datatype="html">
+        <source>Anomalies</source>
+        <target>Anomalies</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/admin/layout/top-nav/top-nav.component.html</context>
+          <context context-type="linenumber">25</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="f96bc528d5759c767f97fc8e0da7f477d5c7addb" datatype="html">
+        <source>Gallery Image</source>
+        <target>Gallery Image</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/admin/layout/top-nav/top-nav.component.html</context>
+          <context context-type="linenumber">28</context>
+        </context-group>
+      </trans-unit>
          </body>
   </file>
 </xliff>

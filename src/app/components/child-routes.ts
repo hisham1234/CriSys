@@ -3,6 +3,7 @@ import { ReportListComponent } from './report-list/report-list.component';
 import { AddReportComponent } from './add-report/add-report.component';
 import { MapComponent } from './map/map.component';
 import { AuthGuard } from '../core/auth.guard';
+import { GalleryScreenComponent } from './gallery-screen/gallery-screen.component';
 import { ReportViewComponent } from './report-view/report-view.component';
 import { DisplaySettingsComponent } from './display-settings/display-settings.component';
 import { UserListComponent } from './user-list/user-list.component';
@@ -80,4 +81,15 @@ export const childRoutes = [
     },
     canActivate: [AuthGuard],
   },
+  {
+    path: 'gallery',
+    pathMatch: 'full',
+    component: GalleryScreenComponent,
+    data: {
+      icon: 'dashboard',
+      text: $localize`Gallery Screen`,
+      showInSidebar: true,
+    },
+    canActivate: [AuthGuard],
+  }
 ];
