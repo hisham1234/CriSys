@@ -1,0 +1,66 @@
+<section id="sample-table" class="mat-elevation-z8 bg-white">
+    <div class="pt-2"></div>
+    <div class="row">
+        <div class="col-md-12">
+            <span><a  href="javascript:void(0)">{{title}}</a> > </span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <h5> {{title}} </h5>
+            <hr>
+        </div>
+    </div>
+    <div class="row" *ngIf="!loading">
+        <div class="col-md-6 col-sm col-xs">
+            <mat-form-field>
+                <input i18n-placeholder matInput (keyup)="doFilter($event.target.value)" placeholder="Filter">
+            </mat-form-field>
+        </div>
+    </div>
+
+    
+    <ng-container >
+        <div class="row" *ngIf="loading" >
+            <div class="col-md-12" >
+                <div class="row loading-spinner-div" *ngIf="true">                  
+                    <img class="loading-spinner" src="/assets/images/icons/loading.gif"/>
+                </div>    
+            </div>    
+        </div>
+        <div class="row" [hidden]="loading">
+            <div class="col-md-12">
+                <table mat-table [dataSource]="dataSource" matSort  matSortStart="desc" class="w-100">
+                  
+                    <ng-container matColumnDef="ID">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header> ID </th>
+                        <td mat-cell *matCellDef="let row" (click)="goToUserDetails(row)" class="user-id"> {{row.id}} </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="Email">
+                        <th i18n mat-header-cell *matHeaderCellDef mat-sort-header>Email</th>
+                        <td mat-cell *matCellDef="let row" (click)="goToUserDetails(row)" class="user-Email"> {{row.email}} </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="Office">
+                        <th i18n mat-header-cell *matHeaderCellDef mat-sort-header>Office</th>
+                        <td mat-cell *matCellDef="let row" > {{formatOffice(row.office)}} </td>
+                    </ng-container>                      
+                    <ng-container matColumnDef="Roles">
+                        <th i18n mat-header-cell *matHeaderCellDef mat-sort-header> Roles </th>
+                        <td mat-cell *matCellDef="let row"> {{formatRoles(row.roles)}} </td>
+                    </ng-container>
+
+                    <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+                    <tr mat-row *matRowDef="let row; columns: displayedColumns;" ></tr>
+                </table>
+            </div>
+        </div>
+    </ng-container>
+    
+    <div class="row" *ngIf="!loading">
+        <div class="col-md 12">
+            <div i18n class="pb20 pt20 text-center" *ngIf="dataSource.data.length <= 0">No Data To Display</div>
+        </div>
+    </div>
+</section>
