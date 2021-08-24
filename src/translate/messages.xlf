@@ -9,12 +9,12 @@
           <context context-type="linenumber">43</context>
         </context-group>
         <context-group purpose="location">
-          <context context-type="sourcefile">src/app/components/add-report/add-report.component.ts</context>
-          <context context-type="linenumber">53</context>
-        </context-group>
-        <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/report-list/report-list.component.ts</context>
           <context context-type="linenumber">67</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/add-report/add-report.component.ts</context>
+          <context context-type="linenumber">53</context>
         </context-group>
       </trans-unit>
       <trans-unit id="6890505548560811605" datatype="html">
@@ -127,12 +127,12 @@
           <context context-type="linenumber">19</context>
         </context-group>
         <context-group purpose="location">
-          <context context-type="sourcefile">src/app/components/add-report/add-report.component.html</context>
-          <context context-type="linenumber">22</context>
-        </context-group>
-        <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/report-list/report-list.component.html</context>
           <context context-type="linenumber">100</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/add-report/add-report.component.html</context>
+          <context context-type="linenumber">22</context>
         </context-group>
       </trans-unit>
       <trans-unit id="8cfd8971c1075b70b717cdd479152e1cda1eb544" datatype="html">
@@ -363,90 +363,15 @@
         </context-group>
         <note priority="1" from="description">AnomalyAdd</note>
       </trans-unit>
-      <trans-unit id="5030479970605929493" datatype="html">
-        <source>Select From Azure</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/components/add-report/add-report.component.ts</context>
-          <context context-type="linenumber">51</context>
-        </context-group>
-      </trans-unit>
       <trans-unit id="8676885572354932865" datatype="html">
         <source>List Of Reports</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/components/add-report/add-report.component.ts</context>
-          <context context-type="linenumber">54</context>
-        </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/report-list/report-list.component.ts</context>
           <context context-type="linenumber">66</context>
         </context-group>
-      </trans-unit>
-      <trans-unit id="5575743992457228713" datatype="html">
-        <source>Edit Report</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/add-report/add-report.component.ts</context>
-          <context context-type="linenumber">84</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="07277f34d6f913565f34a8917829ed2ea6147516" datatype="html">
-        <source> Latitude </source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/components/add-report/add-report.component.html</context>
-          <context context-type="linenumber">25</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/components/report-list/report-list.component.html</context>
-          <context context-type="linenumber">120</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="39c20af68c00c1009f59b30fe750683b20ba46cd" datatype="html">
-        <source> Longtitude </source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/components/add-report/add-report.component.html</context>
-          <context context-type="linenumber">28</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/components/report-list/report-list.component.html</context>
-          <context context-type="linenumber">125</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="92814b602e3bce5373fc867441aacb03f29a387c" datatype="html">
-        <source> Road </source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/components/add-report/add-report.component.html</context>
-          <context context-type="linenumber">34</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/components/report-list/report-list.component.html</context>
-          <context context-type="linenumber">95</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="bf6f8dcc4f48a79b3be98d580f707aebcec791bf" datatype="html">
-        <source>Select An Image</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/components/image-dialog/image-dialog.component.html</context>
-          <context context-type="linenumber">8</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="012b8223814dc22064e5731d4ca9d1e3a319027b" datatype="html">
-        <source>Download Images</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/components/image-dialog/image-dialog.component.html</context>
-          <context context-type="linenumber">13</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="d923301510202f70bda4d2acad3453ed7c133361" datatype="html">
-        <source>Add Images</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/components/image-dialog/image-dialog.component.html</context>
-          <context context-type="linenumber">18</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="6f286074c957b1f7052ba9a11341486b8e669e55" datatype="html">
-        <source>Clear Selection</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/components/image-dialog/image-dialog.component.html</context>
-          <context context-type="linenumber">24</context>
+          <context context-type="linenumber">54</context>
         </context-group>
       </trans-unit>
       <trans-unit id="6864016537810263548" datatype="html">
@@ -499,6 +424,17 @@
           <context context-type="linenumber">87</context>
         </context-group>
       </trans-unit>
+      <trans-unit id="92814b602e3bce5373fc867441aacb03f29a387c" datatype="html">
+        <source> Road </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/report-list/report-list.component.html</context>
+          <context context-type="linenumber">95</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/add-report/add-report.component.html</context>
+          <context context-type="linenumber">34</context>
+        </context-group>
+      </trans-unit>
       <trans-unit id="a3d57cb09b8c89d3e10ceaf70f53ad0d454144ee" datatype="html">
         <source> Comment </source>
         <context-group purpose="location">
@@ -506,11 +442,75 @@
           <context context-type="linenumber">105</context>
         </context-group>
       </trans-unit>
+      <trans-unit id="07277f34d6f913565f34a8917829ed2ea6147516" datatype="html">
+        <source> Latitude </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/report-list/report-list.component.html</context>
+          <context context-type="linenumber">120</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/add-report/add-report.component.html</context>
+          <context context-type="linenumber">25</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="39c20af68c00c1009f59b30fe750683b20ba46cd" datatype="html">
+        <source> Longtitude </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/report-list/report-list.component.html</context>
+          <context context-type="linenumber">125</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/add-report/add-report.component.html</context>
+          <context context-type="linenumber">28</context>
+        </context-group>
+      </trans-unit>
       <trans-unit id="7159867e1593a49f81cc5e192ea9588c1235d8bf" datatype="html">
         <source>No Data</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/report-list/report-list.component.html</context>
           <context context-type="linenumber">155</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5030479970605929493" datatype="html">
+        <source>Select From Azure</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/add-report/add-report.component.ts</context>
+          <context context-type="linenumber">51</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5575743992457228713" datatype="html">
+        <source>Edit Report</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/add-report/add-report.component.ts</context>
+          <context context-type="linenumber">84</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="bf6f8dcc4f48a79b3be98d580f707aebcec791bf" datatype="html">
+        <source>Select An Image</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/image-dialog/image-dialog.component.html</context>
+          <context context-type="linenumber">8</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="012b8223814dc22064e5731d4ca9d1e3a319027b" datatype="html">
+        <source>Download Images</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/image-dialog/image-dialog.component.html</context>
+          <context context-type="linenumber">13</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="d923301510202f70bda4d2acad3453ed7c133361" datatype="html">
+        <source>Add Images</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/image-dialog/image-dialog.component.html</context>
+          <context context-type="linenumber">18</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6f286074c957b1f7052ba9a11341486b8e669e55" datatype="html">
+        <source>Clear Selection</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/image-dialog/image-dialog.component.html</context>
+          <context context-type="linenumber">24</context>
         </context-group>
       </trans-unit>
       <trans-unit id="3466717080499226256" datatype="html">
@@ -595,6 +595,20 @@
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/admin/layout/top-nav/top-nav.component.ts</context>
           <context context-type="linenumber">16</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8ad07795bc398a849c5d57425bb889e30b427ca0" datatype="html">
+        <source>Anomalies</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/admin/layout/top-nav/top-nav.component.html</context>
+          <context context-type="linenumber">25</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="f96bc528d5759c767f97fc8e0da7f477d5c7addb" datatype="html">
+        <source>Gallery Image</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/admin/layout/top-nav/top-nav.component.html</context>
+          <context context-type="linenumber">28</context>
         </context-group>
       </trans-unit>
       <trans-unit id="3e632324db4b9f94c14c64cb435a451afb27e431" datatype="html">

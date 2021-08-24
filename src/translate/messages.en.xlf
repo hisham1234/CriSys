@@ -702,7 +702,22 @@
           <context context-type="linenumber">82</context>
         </context-group>
       </trans-unit>
-     
+     <trans-unit id="8ad07795bc398a849c5d57425bb889e30b427ca0" datatype="html">
+        <source>Anomalies</source>
+        <target>Anomalies</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/admin/layout/top-nav/top-nav.component.html</context>
+          <context context-type="linenumber">25</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="f96bc528d5759c767f97fc8e0da7f477d5c7addb" datatype="html">
+        <source>Gallery Image</source>
+        <target>Gallery Image</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/admin/layout/top-nav/top-nav.component.html</context>
+          <context context-type="linenumber">28</context>
+        </context-group>
+      </trans-unit>
     </body>
   </file>
 </xliff>
