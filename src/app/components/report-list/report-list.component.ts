@@ -60,16 +60,21 @@ export class ReportListComponent implements OnInit, AfterViewInit, OnDestroy {
 
   searchText = ''
   pageSize = 100;
-  anomalyData: any;
+ 
   mapid = "maps"
   reportCordinates: any;
   currentPage = 0;
   gisUrl = environment.arcGisUrl;
   totalSize = 100;
   private sub: any;
+
+  anomalyData: any;
+  anomalySatus:string;
   anomalyId: number;
   anomalyName: string;
   anomaly: any={};
+  isOnGoingAnomaly: boolean;
+
   title = $localize`List Of Reports`;
   titleAnomaly = $localize`List Of Anomaly`
   btnAdd = $localize`Add Report`;
@@ -84,6 +89,7 @@ export class ReportListComponent implements OnInit, AfterViewInit, OnDestroy {
   lblComment = $localize`Comment`;
   lblCreatedAt = $localize`Created At`;
   lblFinishedAt = $localize`Finished At`;
+  
   constructor(
     private reportService: ReportService,
     private anomalyService: AnomalyService,
@@ -128,13 +134,16 @@ export class ReportListComponent implements OnInit, AfterViewInit, OnDestroy {
   getAnomalyDetails() {
     this.anomalyService.getAnomaly(this.anomalyId).subscribe((res) => {
       //debugger;    
-      this.anomaly =  res['response'];
+      this.anomaly =  res['response'];    
+
+      this.anomaly.status ="Finished"
+
       if( this.anomaly.comment="" ||!this.anomaly.comment){
         this.anomaly.comment ="-";    
       }
-      if( this.anomaly.status="" ||!this.anomaly.status){
-        this.anomaly.status =$localize`Status`;
-      }
+
+      this.updateAnomalyStatus();
+     
       if( this.anomaly.finishedAt="" ||!this.anomaly.finishedAt){
         this.anomaly.finishedAt ="---";
       }
@@ -145,6 +154,15 @@ export class ReportListComponent implements OnInit, AfterViewInit, OnDestroy {
     })
   }
 
+  updateAnomalyStatus(){
+    if(this.anomaly.status ==="On going"){
+      this.isOnGoingAnomaly =true;
+      this.anomalySatus= $localize`On going`;
+    }else if(this.anomaly.status ==="Finished"){
+      this.isOnGoingAnomaly =false;
+      this.anomalySatus= $localize`Finished`;
+    }
+  }
   private map;
 
   ngOnDestroy() {

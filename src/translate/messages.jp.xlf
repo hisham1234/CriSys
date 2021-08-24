@@ -704,6 +704,22 @@
           <context context-type="linenumber">136</context>
         </context-group>
       </trans-unit>
+      <trans-unit id="8050941079656524192" datatype="html">
+        <source>On going</source>
+        <target>進行中</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/report-list/report-list.component.ts</context>
+          <context context-type="linenumber">160</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="340430316261570792" datatype="html">
+        <source>Finished</source>
+        <target>完了</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/report-list/report-list.component.ts</context>
+          <context context-type="linenumber">163</context>
+        </context-group>
+      </trans-unit>
          </body>
   </file>
 </xliff>
