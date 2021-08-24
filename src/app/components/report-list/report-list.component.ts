@@ -142,7 +142,7 @@ export class ReportListComponent implements OnInit, AfterViewInit, OnDestroy {
       this.anomaly =  res['response'];          
 
       if( this.anomaly.comment="" ||!this.anomaly.comment){
-        this.anomaly.comment ="-";    
+        this.anomaly.comment ="---";    
       }
       this.anomaly.status= "Finished"
       this.updateAnomalyStatus();

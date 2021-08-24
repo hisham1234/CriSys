@@ -108,7 +108,7 @@
   margin-right: 5%;
  }
 
- .anomaly-status:hover{
+.anomaly-status:hover{
    background-color: #fafafa;
  }
 .left-content-up{  
@@ -139,7 +139,9 @@
 .anomaly-type{
   text-decoration: underline;
 }
-.lbl-comment, .anomaly-created-at, .anomaly-finished-at{
+.lbl-comment, 
+.anomaly-created-at, 
+.anomaly-finished-at{
   color: gray;
   margin-right: 0.2em;
 }
