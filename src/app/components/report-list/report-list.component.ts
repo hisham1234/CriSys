@@ -36,6 +36,12 @@ const iconDefault = L.icon({
   shadowSize: [41, 41]
 });
 L.Marker.prototype.options.icon = iconDefault;
+export interface Tile {
+  color: string;
+  cols: number;
+  rows: number;
+  text: string;
+}
 
 @Component({
   selector: 'app-report-list',
@@ -43,6 +49,13 @@ L.Marker.prototype.options.icon = iconDefault;
   styleUrls: ['./report-list.component.scss']
 })
 export class ReportListComponent implements OnInit, AfterViewInit, OnDestroy {
+  tiles: Tile[] = [
+    {text: 'One', cols: 1, rows: 1, color: 'lightblue'},
+    {text: 'Two', cols: 1, rows: 1, color: 'lightgreen'},
+    {text: 'Three', cols: 1, rows: 1, color: 'lightpink'},
+    {text: 'Four', cols: 1, rows: 1, color: '#DDBDF1'},
+  ];
+
   // Auto-Refresh Variable
   refreshRate: number;
   refreshRateSub: Subscription;
@@ -63,6 +76,7 @@ export class ReportListComponent implements OnInit, AfterViewInit, OnDestroy {
   private sub: any;
   anomalyId: number;
   anomalyName: string;
+  anomaly: any={};
   title = $localize`List Of Reports`;
   titleAnomaly = $localize`List Of Anomaly`
   btnAdd = $localize`Add Report`;
@@ -73,6 +87,7 @@ export class ReportListComponent implements OnInit, AfterViewInit, OnDestroy {
   clickEventsubscription: Subscription;
   @ViewChild(MatSort, { static: true }) sort: MatSort;
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
+ 
   constructor(
     private reportService: ReportService,
     private anomalyService: AnomalyService,
@@ -94,7 +109,7 @@ export class ReportListComponent implements OnInit, AfterViewInit, OnDestroy {
 
   ngOnInit() {
     this.getAnomalyReportData();
-    this.getAnomalyName();
+    this.getAnomalyDetails();
     // Subscribe to any list's refresh rate modification
     this.refreshRateSub = this.settings.listRefreshRateSubject.subscribe((rate) => {
       this.timerCallBack = interval(rate * 1000).subscribe(res => {
@@ -114,9 +129,16 @@ export class ReportListComponent implements OnInit, AfterViewInit, OnDestroy {
     });
   }
 
-  getAnomalyName() {
+  getAnomalyDetails() {
     this.anomalyService.getAnomaly(this.anomalyId).subscribe((res) => {
-      //debugger;     
+      //debugger;    
+      this.anomaly =  res['response'];
+      if( this.anomaly.comment="" ||!this.anomaly.comment){
+        this.anomaly.comment ="Chemical Truck Involved";
+        console.log(" this.anomaly > ", this.anomaly);
+      }
+      this.anomaly.status =  "On Going";
+      this.anomaly.createdAt = this.editDateTimeFormat(res['response'].createdAt);
       this.anomalyName = res['response'].title;
       
     })
@@ -146,22 +168,11 @@ export class ReportListComponent implements OnInit, AfterViewInit, OnDestroy {
     this.getAllReports();
   }
 
-  //     getAllReports(){
-  //     this.reportService.getAllReports().subscribe((res)=>{
-  //         this.dataSource = res['response'];
-  //         this.totalSize = res['totalCount'];
-  //     });
-  // }
-
   getAnomalyReport() {
     this.reportService.getAnomalyReport(this.anomalyId).subscribe(res => {
 
-      res['response'].forEach(element => {
-        
-        const dateComponent = moment.utc(element.createdAt).format('YYYY-MM-DD');
-        const timeComponent = moment.utc(element.createdAt).local().format('HH:mm:ss');
-        const createdAt = dateComponent + " " + timeComponent;
-        element.createdAt = createdAt;
+      res['response'].forEach((element: { createdAt: string; }) => {      
+         element.createdAt = this.editDateTimeFormat(element);
         // if(!element.comment){
         //   element.comment ="test commenihdfigbrigb";
         //  }
@@ -291,6 +302,12 @@ export class ReportListComponent implements OnInit, AfterViewInit, OnDestroy {
   redirectToArcGis() {
     window.open(this.gisUrl + "" + this.anomalyId, "_blank")
 
+  }
+  editDateTimeFormat(dateTime:any):string {
+    const dateComponent = moment.utc(dateTime.createdAt).format('YYYY-MM-DD');
+    const timeComponent = moment.utc(dateTime.createdAt).local().format('HH:mm:ss');
+    const createdAt = dateComponent + " " + timeComponent;
+    return createdAt
   }
 
 }

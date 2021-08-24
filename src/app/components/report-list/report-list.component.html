@@ -1,17 +1,53 @@
-<div class="row">
-<div class="col-md-2">
-  <h2>{{anomalyName}} </h2>  
-</div>
+<mat-grid-list cols="1" rowHeight="80px" class="row-one-list">        
+        <mat-grid-tile  [colspan]="1" [rowspan]="1" >  
 
-<div class="col-md-2" (click)="redirectToArcGis()" >
-    <button mat-raised-button class="ArcGisBtn">
-        {{btnArcGis}}
-    </button>
+            <span class="left-content-up">
+                <span class="anomaly-type">{{anomaly.anomalyType}}</span> 
+                <span class="anomaly-id"> #{{anomaly.id}} -</span> 
+                <span class="anomaly-title">{{anomaly.title}}</span>
+            </span>
+           
+
+            <span class="right-content-up">                
+                <button class="anomaly-status" mat-button>{{anomaly.status}}</button>
+                <button class="btn-arcgis" mat-raised-button class="ArcGisBtn" (click)="redirectToArcGis()">
+                    {{btnArcGis}}
+                </button>    
+                <span class="anomaly-edit"> 
+                    <mat-icon style="cursor:pointer" color="primary">edit</mat-icon>
+                </span>
+            </span>
+        </mat-grid-tile>
+</mat-grid-list>
     
-</div>
+<mat-grid-list cols="1" rowHeight="75px" class="row-two-list">        
+    <mat-grid-tile  [colspan]="1" [rowspan]="1" >
+        <span class="left-content-down">
+            <span class="anomaly-comment"><span class="lbl-comment">Comment:</span>   {{anomaly.comment}}</span> 
+        </span>
+        <span class="right-content-down">
+            <p class="anomaly-times">
+                <span class="anomaly-created">Created:  {{anomaly.createdAt}}</span> <br>
+                <span class="anomaly-finished">Finished:  {{anomaly.createdAt}}</span> 
+            </p> 
+        </span>
+           
+    </mat-grid-tile>
+</mat-grid-list>
 
-</div>
- 
+<!-- <div class="row">      
+    <div class="col-md-2">
+    <h2>{{anomalyName}}*** </h2>  
+    </div>
+
+    <div class="col-md-2" (click)="redirectToArcGis()" >
+        <button mat-raised-button class="ArcGisBtn">
+            {{btnArcGis}}
+        </button>        
+    </div>
+</div> -->
+
+
 <mat-accordion class="example-headers-align" multi>
     <mat-expansion-panel >
         <mat-expansion-panel-header>

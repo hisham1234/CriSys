@@ -98,3 +98,47 @@
 .mat-column-edit {
   text-align: center;
 }
+.anomaly-type{
+  font-weight: 600;
+  padding-right: 4%;
+}
+.anomaly-status {
+  cursor: auto;
+  border-style:solid;
+  border-color:#ff0000;
+  color:#ff0000;
+  border-radius: 3px;
+  margin-right: 5%;
+
+ }
+.left-content-up{  
+  font-size: 22px;
+  margin-right: 33%;
+  width: 30%;
+}
+.right-content-up{
+  width: 40%;
+}
+.anomaly-edit{
+ margin-left: 5%;
+}
+.left-content-down{  
+  font-size: 18px;
+  margin-right: 23%;
+  width: 40%;
+}
+.right-content-down{
+  width: 40%;
+}
+.anomaly-times{
+  font-style: italic;  
+}
+.row-one-list{
+  margin-bottom: -2%;
+}
+.anomaly-type{
+  text-decoration: underline;
+}
+.lbl-comment, .anomaly-times{
+  color: gray;
+}
