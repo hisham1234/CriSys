@@ -61,6 +61,7 @@ import { JwtInterceptor } from '../services/jwt.interceptor';
 import { ErrorInterceptor } from '../services/error.interceptor';
 import { MatSelectModule } from '@angular/material/select';
 import { MatSortModule } from '@angular/material/sort';
+import { GalleryScreenComponent } from './gallery-screen/gallery-screen.component';
 import { ReportViewComponent } from './report-view/report-view.component';
 import { DisplaySettingsComponent } from './display-settings/display-settings.component';
 
@@ -168,6 +169,7 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     ImageCarouselComponent,
     MapComponent,
     LoginComponent,
+    GalleryScreenComponent,
     ReportViewComponent,
     DisplaySettingsComponent,
   ],

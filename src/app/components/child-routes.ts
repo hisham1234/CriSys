@@ -4,6 +4,7 @@ import { AddReportComponent } from './add-report/add-report.component';
 import { MapComponent } from './map/map.component';
 import { AuthGuard } from '../core/auth.guard';
 import { Role } from '../models/role';
+import { GalleryScreenComponent } from './gallery-screen/gallery-screen.component';
 import { ReportViewComponent } from './report-view/report-view.component';
 import { DisplaySettingsComponent } from './display-settings/display-settings.component';
 
@@ -72,4 +73,15 @@ export const childRoutes = [
     },
     canActivate: [AuthGuard],
   },
+  {
+    path: 'gallery',
+    pathMatch: 'full',
+    component: GalleryScreenComponent,
+    data: {
+      icon: 'dashboard',
+      text: $localize`Gallery Screen`,
+      showInSidebar: true,
+    },
+    canActivate: [AuthGuard],
+  }
 ];
