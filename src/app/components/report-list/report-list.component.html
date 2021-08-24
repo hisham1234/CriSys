@@ -23,12 +23,15 @@
 <mat-grid-list cols="1" rowHeight="75px" class="row-two-list">        
     <mat-grid-tile  [colspan]="1" [rowspan]="1" >
         <span class="left-content-down">
-            <span class="anomaly-comment"><span class="lbl-comment">Comment:</span>   {{anomaly.comment}}</span> 
+            <span class="anomaly-comment">               
+                    <span class="lbl-comment">{{lblComment}}:</span>
+                 {{anomaly.comment}}
+            </span> 
         </span>
         <span class="right-content-down">
             <p class="anomaly-times">
-                <span class="anomaly-created">Created:  {{anomaly.createdAt}}</span> <br>
-                <span class="anomaly-finished">Finished:  {{anomaly.createdAt}}</span> 
+                <span ><span class="anomaly-created-at"> {{lblCreatedAt}}:</span>  {{anomaly.createdAt}}</span> <br>
+                <span ><span class="anomaly-finished-at">{{lblFinishedAt}}:</span>  {{anomaly.createdAt}}</span> 
             </p> 
         </span>
            
