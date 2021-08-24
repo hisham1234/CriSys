@@ -95,8 +95,7 @@ export class ReportListComponent implements OnInit, AfterViewInit, OnDestroy {
   constructor(
     private reportService: ReportService,
     private anomalyService: AnomalyService,
-    public dialog: MatDialog,
-    private _snackBar: MatSnackBar,
+    public dialog: MatDialog,   
     private router: Router,
     private route: ActivatedRoute,
     private markerService: MarkerService,
@@ -144,7 +143,7 @@ export class ReportListComponent implements OnInit, AfterViewInit, OnDestroy {
       if( this.anomaly.comment="" ||!this.anomaly.comment){
         this.anomaly.comment ="---";    
       }
-      this.anomaly.status= "Finished"
+      //this.anomaly.status= "On going"
       this.updateAnomalyStatus();
      
       if( this.anomaly.finishedAt="" ||!this.anomaly.finishedAt){
@@ -185,12 +184,8 @@ export class ReportListComponent implements OnInit, AfterViewInit, OnDestroy {
   getAnomalyReport() {
     this.reportService.getAnomalyReport(this.anomalyId).subscribe(res => {
 
-      res['response'].forEach((element: { createdAt: string; }) => {      
-        console.log(element)
-         element.createdAt = this.editDateTimeFormat(element);
-        // if(!element.comment){
-        //   element.comment ="test commenihdfigbrigb";
-        //  }
+      res['response'].forEach((element: { createdAt: string; }) => {     
+        element.createdAt = this.editDateTimeFormat(element);
       });
 
       this.totalSize = res['totalCount'];
@@ -203,7 +198,6 @@ export class ReportListComponent implements OnInit, AfterViewInit, OnDestroy {
     })
   }
   onNotified(reportMap: any) {
-
     this.map = reportMap;
   }
 
