@@ -49,14 +49,7 @@ export interface Tile {
   styleUrls: ['./report-list.component.scss']
 })
 export class ReportListComponent implements OnInit, AfterViewInit, OnDestroy {
-  tiles: Tile[] = [
-    {text: 'One', cols: 1, rows: 1, color: 'lightblue'},
-    {text: 'Two', cols: 1, rows: 1, color: 'lightgreen'},
-    {text: 'Three', cols: 1, rows: 1, color: 'lightpink'},
-    {text: 'Four', cols: 1, rows: 1, color: '#DDBDF1'},
-  ];
-
-  // Auto-Refresh Variable
+   // Auto-Refresh Variable
   refreshRate: number;
   refreshRateSub: Subscription;
   timerCallBack: Subscription;
@@ -136,7 +129,10 @@ export class ReportListComponent implements OnInit, AfterViewInit, OnDestroy {
       if( this.anomaly.comment="" ||!this.anomaly.comment){
         this.anomaly.comment ="-";    
       }
-      this.anomaly.status =  "On Going";
+      if( this.anomaly.status="" ||!this.anomaly.status){
+        this.anomaly.status =$localize`Status`;
+      }
+      
       this.anomaly.createdAt = this.editDateTimeFormat(res['response'].createdAt);
       this.anomalyName = res['response'].title;
       

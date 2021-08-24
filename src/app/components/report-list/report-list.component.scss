@@ -31,8 +31,7 @@
 
 .anomaly-title {
   margin-left: 1%;
-  font-weight: 500;
-}
+ }
 
 #maps {
   height: 100%;
@@ -106,10 +105,12 @@
   cursor: auto;
   border-style:solid;
   border-color:#ff0000;
-  color:#ff0000;
+  color:#ff0000 !important;
   border-radius: 3px;
   margin-right: 5%;
-
+ }
+ .anomaly-status:hover{
+   background-color: white;
  }
 .left-content-up{  
   font-size: 22px;
