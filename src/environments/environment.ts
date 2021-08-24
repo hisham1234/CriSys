@@ -8,7 +8,6 @@ export const environment = {
   //pathToAPI: 'http://localhost:5001',
   pathToAPI: 'https://anomaly-service.azurewebsites.net',
   organizationUrl: 'https://organization-service.azurewebsites.net',
-  //organizationUrl: 'https://localhost:5001',
   arcGisUrl: 'https://nee-bousai1.maps.arcgis.com/apps/dashboards/c90637c801b64db2b49dc08eec84f84e#AnomalyId='
 };
 

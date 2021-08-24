@@ -19,8 +19,8 @@ import { Subscription } from 'rxjs';
 import { EventEmitterService } from 'src/app/services/event-emitter.service';
 import * as moment from 'moment';
 import { MatTableDataSource } from '@angular/material/table';
-import { SettingService } from 'src/app/services/settings.service';
 import { interval } from 'rxjs';
+import { AuthenticationService } from 'src/app/services/authentication.service';
 
 const iconRetinaUrl = 'assets/marker-icon-2x.png';
 const iconUrl = 'assets/marker-icon.png';
@@ -51,7 +51,7 @@ export interface Tile {
 export class ReportListComponent implements OnInit, AfterViewInit, OnDestroy {
    // Auto-Refresh Variable
   refreshRate: number;
-  refreshRateSub: Subscription;
+  userSub: Subscription;
   timerCallBack: Subscription;
 
 
@@ -83,6 +83,7 @@ export class ReportListComponent implements OnInit, AfterViewInit, OnDestroy {
   loading = true;
   offset: number;
   subscription: Subscription;
+  MILLI_IN_SEC = 1000;
   clickEventsubscription: Subscription;
   @ViewChild(MatSort, { static: true }) sort: MatSort;
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
@@ -100,7 +101,7 @@ export class ReportListComponent implements OnInit, AfterViewInit, OnDestroy {
     private route: ActivatedRoute,
     private markerService: MarkerService,
     private eventEmitterService: EventEmitterService,
-    private settings: SettingService
+    private authentication: AuthenticationService
   ) {
     this.offset = new Date().getTimezoneOffset();
     this.clickEventsubscription = this.eventEmitterService
@@ -115,12 +116,14 @@ export class ReportListComponent implements OnInit, AfterViewInit, OnDestroy {
     this.getAnomalyReportData();
     this.getAnomalyDetails();
     // Subscribe to any list's refresh rate modification
-    this.refreshRateSub = this.settings.listRefreshRateSubject.subscribe((rate) => {
-      this.timerCallBack = interval(rate * 1000).subscribe(res => {
+    this.userSub = this.authentication.userSubject.subscribe((user) => {
+      this.timerCallBack = interval(user.refreshRate * this.MILLI_IN_SEC).subscribe(res => {
         this.getAnomalyReport();
       });
     });
-    this.settings.emitListRefreshSubject();
+    if(this.authentication.user !== undefined) {
+        this.authentication.emitUser();
+    }
   }
 
 
@@ -160,7 +163,7 @@ export class ReportListComponent implements OnInit, AfterViewInit, OnDestroy {
   ngOnDestroy() {
     this.sub.unsubscribe();
     this.timerCallBack.unsubscribe();
-    this.refreshRateSub.unsubscribe();
+    this.userSub.unsubscribe();
   }
   ngAfterViewInit(): void {
     this.dataSource.sort = this.sort;

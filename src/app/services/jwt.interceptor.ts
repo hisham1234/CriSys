@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 
 import { environment } from 'src/environments/environment';
 import { AuthenticationService } from './authentication.service';
+import { Breakpoints } from '@angular/cdk/layout';
 
 
 @Injectable()
@@ -21,7 +22,6 @@ export class JwtInterceptor implements HttpInterceptor {
                 }
             });
         }
-
         return next.handle(request);
     }
 }

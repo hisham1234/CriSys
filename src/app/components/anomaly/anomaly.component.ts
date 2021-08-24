@@ -1,13 +1,12 @@
 import { AfterViewInit, Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from "@angular/material/paginator";
 import { MatSort } from "@angular/material/sort";
-import { QueryParamsModel } from "../../models/query-param.model";
 import { AnomalyService } from "../../services/anomaly.service";
 import { AnomalyModel } from "../../models/anomaly.model";
 import { MatDialog } from "@angular/material/dialog";
 import { MatSnackBar } from "@angular/material/snack-bar";
 import Swal from 'sweetalert2';
-import { Routes, RouterModule, ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 import { environment } from 'src/environments/environment';
 import { AddAnomalyComponent } from '../add-anomaly/add-anomaly.component'
@@ -16,7 +15,8 @@ import * as moment from 'moment';
 import { MatTableDataSource } from '@angular/material/table';
 import { Subscription } from 'rxjs';
 import { interval } from 'rxjs';
-import { SettingService } from 'src/app/services/settings.service';
+import { AuthenticationService } from 'src/app/services/authentication.service';
+import { UserModel } from 'src/app/models/user.model';
 
 @Component({
     selector: 'app-anomaly',
@@ -28,7 +28,7 @@ export class AnomalyComponent implements OnInit, AfterViewInit, OnDestroy {
 
     // Auto-Refresh variable
     refreshRate: number;
-    refreshRateSub: Subscription;
+    userSub: Subscription;
     timerCallBack: Subscription;
 
     displayedColumns = ['id', 'title', 'anomalyType','comment', 'createdAt', 'map', 'edit', 'delete'];
@@ -37,9 +37,8 @@ export class AnomalyComponent implements OnInit, AfterViewInit, OnDestroy {
     pageSize = 100;
 
     currentPage = 0;
-
+    MILLI_IN_SEC = 1000;
     totalSize = 100;
-
     title = $localize`List Of Anomaly`;
 
     gisUrl = environment.arcGisUrl;
@@ -55,26 +54,27 @@ export class AnomalyComponent implements OnInit, AfterViewInit, OnDestroy {
         private router: Router,
         private markerService: MarkerService,
         private route: ActivatedRoute,
-        private settings: SettingService
+        private authentication: AuthenticationService 
     ) { }
 
     ngOnInit() {
 
         this.getAllAnomalys();
-
         // Subscribe to any change of the refresh the list's refresh rate
-        this.refreshRateSub = this.settings.listRefreshRateSubject.subscribe((rate) => {
-            this.timerCallBack = interval(rate * 1000).subscribe(res => {
-                this.getAllAnomalys();
-            });
+        this.userSub = this.authentication.userSubject.subscribe((user) => {
+                this.timerCallBack = interval(user.refreshRate * this.MILLI_IN_SEC).subscribe(res => {
+                    this.getAllAnomalys();
+                });
         });
-        this.settings.emitListRefreshSubject();
+        if(this.authentication.user !== undefined) {
+            this.authentication.emitUser();
+        } 
     }
 
 
     ngOnDestroy() {
         this.timerCallBack.unsubscribe();
-        this.refreshRateSub.unsubscribe();
+        this.userSub.unsubscribe();
     }
     onNotified(anomalyMap: any) {
         //debugger;

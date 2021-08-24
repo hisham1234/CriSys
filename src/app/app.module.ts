@@ -10,7 +10,6 @@ import { AppComponent } from './app.component';
 
 import { PLATFORM_ID, APP_ID, Inject } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
-import { testBackendProvider } from './services/test-backend';
 import { JwtInterceptor } from './services/jwt.interceptor';
 import { ErrorInterceptor } from './services/error.interceptor';
 
@@ -33,7 +32,6 @@ import { ErrorInterceptor } from './services/error.interceptor';
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
 
     // provider used to create test backend
-    testBackendProvider,
   ],
   declarations: [AppComponent],
   bootstrap: [AppComponent],

@@ -56,13 +56,14 @@ import { MatExpansionModule } from '@angular/material/expansion';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { AuthService } from '../services/auth.service';
 import { LoginComponent } from '../login/login/login.component';
-import { testBackendProvider } from '../services/test-backend';
 import { JwtInterceptor } from '../services/jwt.interceptor';
 import { ErrorInterceptor } from '../services/error.interceptor';
 import { MatSelectModule } from '@angular/material/select';
 import { MatSortModule } from '@angular/material/sort';
+import { GalleryScreenComponent } from './gallery-screen/gallery-screen.component';
 import { ReportViewComponent } from './report-view/report-view.component';
 import { DisplaySettingsComponent } from './display-settings/display-settings.component';
+import { UserListComponent } from './user-list/user-list.component';
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   wheelPropagation: true,
@@ -132,9 +133,6 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     },
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
-
-    // provider used to create test backend
-    testBackendProvider,
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   exports: [
@@ -171,8 +169,10 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     ImageCarouselComponent,
     MapComponent,
     LoginComponent,
+    GalleryScreenComponent,
     ReportViewComponent,
     DisplaySettingsComponent,
+    UserListComponent,
   ],
   entryComponents: [
     AddAnomalyComponent,

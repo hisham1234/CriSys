@@ -1,4 +1,4 @@
-import {Component, Inject, OnInit, ViewChild} from '@angular/core';
+import {Component, Inject, Input, OnInit, ViewChild} from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, FormGroupDirective, NgForm, Validators} from "@angular/forms";
 import {ErrorStateMatcher} from "@angular/material/core";
 import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material/dialog";
@@ -6,7 +6,10 @@ import {ImageModel} from "../../models/image.model";
 import {ImageService} from "../../services/image.service";
 import { PerfectScrollbarConfigInterface,
   PerfectScrollbarComponent, PerfectScrollbarDirective } from 'ngx-perfect-scrollbar';
-
+  import { Optional } from '@angular/core'; 
+import * as e from 'express';
+import { saveAs } from 'file-saver';
+import * as JSZip from 'jszip';
 
 @Component({
   selector: 'app-image-dialog',
@@ -19,26 +22,31 @@ export class ImageDialogComponent implements OnInit {
   selectedImages = []
   loading = true;
   public type: string = 'component';
-
+  @Input() IsGalleryScreen:boolean;
+  fileToUpload: FormData;  
+  fileUpload: any;  
+  fileUpoadInitiated: boolean; 
   public disabled: boolean = false;
 
   public config: PerfectScrollbarConfigInterface = {};
   @ViewChild(PerfectScrollbarComponent, { static: false }) componentRef?: PerfectScrollbarComponent;
   @ViewChild(PerfectScrollbarDirective, { static: false }) directiveRef?: PerfectScrollbarDirective;
 
-
+  
   constructor(
     private imageService: ImageService,
-    private dialogRef: MatDialogRef<ImageDialogComponent>,
-      @Inject(MAT_DIALOG_DATA) public data: any
+    @Optional() private dialogRef: MatDialogRef<ImageDialogComponent>,
+    @Optional()  @Inject(MAT_DIALOG_DATA) public data?: any
   ) {
 
-    this.dialogRef.disableClose = true;
+    if(this.IsGalleryScreen)
+      this.dialogRef.disableClose =true;
   }
+  
 
   ngOnInit(): void {
-    //debugger;
-    this.selectedImages = this.data;
+   
+    this.selectedImages =(this.IsGalleryScreen?[]:this.data) 
     this.getAllImages();
   }
 
@@ -50,6 +58,9 @@ export class ImageDialogComponent implements OnInit {
         this.images = res['response'];
         this.loading = false;
     })
+  }
+  clearSelection(){
+    this.selectedImages=[];
   }
 
 
@@ -75,7 +86,64 @@ export class ImageDialogComponent implements OnInit {
         this.dialogRef.close({data:this.selectedImages});
     }
 
+    addFile() {  
+        
+        document.getElementById('fileUpload').click();  
+        
+      }
+
+      handleFileInput(files: any) {  
+		  
+        let formData: FormData = new FormData();  
+        formData.append("imageFile", files[0],files[0].name);  
+        
+        this.fileToUpload = formData;  
+        this.onUploadFiles();  
+      
+        }
+        onUploadFiles() { 
+		   
+		 
+          if (this.fileToUpload == undefined) {  
+            this.fileUpoadInitiated = false;  
+            return false;  
+          }  
+          else {  
+            
+            return this.imageService.createImage(this.fileToUpload)  
+            .subscribe((response: any) => {  
+              this.fileUpoadInitiated = false;  
+              this.fileUpload = ''; 
+               
+              if (response) {  							
+               //this.selectedLibraryImages.push(response.response);
+               this.getAllImages();
+               console.log("done");
+              }  
+              else {  
+              alert('Error occured!');  
+              this.fileUpoadInitiated = false;  
+              }  
+            },  
+              err => console.log(err),  
+            );  
+          
+          }  
+      }
+  
+    
+
+    DownloadAll(){
+      
+      for (var i in this.selectedImages) { 
+        window.open(this.selectedImages[i].url,'_blank')       
+      }
+      
+    }
+
   onScrollEvent(event: any): void {
   }
 
 }
+
+

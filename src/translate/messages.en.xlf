@@ -662,6 +662,38 @@
           <context context-type="linenumber">12</context>
         </context-group>
       </trans-unit>
+      <trans-unit id="b6f6b6a18d069231b33f11b4e43fe77b6c5ed6fd" datatype="html">
+        <source> Roles </source>
+        <target> Roles </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/user-list/user-list.component.html</context>
+          <context context-type="linenumber">50</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1908513266d3ce2dc37135be38ac4baef11a3a0b" datatype="html">
+        <source>Office</source>
+        <target>Office</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/user-list/user-list.component.html</context>
+          <context context-type="linenumber">46</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="244aae9346da82b0922506c2d2581373a15641cc" datatype="html">
+        <source>Email</source>
+        <target>Email</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/user-list/user-list.component.html</context>
+          <context context-type="linenumber">41</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6913850558590611794" datatype="html">
+        <source>List Of Users</source>
+        <target>List Of Users</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/user-list/user-list.component.ts</context>
+          <context context-type="linenumber">26</context>
+        </context-group>
+      </trans-unit>
       <trans-unit id="3e632324db4b9f94c14c64cb435a451afb27e431" datatype="html">
         <source> Settings</source>
         <target> Settings</target>
@@ -670,60 +702,52 @@
           <context context-type="linenumber">29</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="2662644497259948010" datatype="html">
-        <source>Comment</source>  
-        <target>Comment</target>
+       <trans-unit id="012b8223814dc22064e5731d4ca9d1e3a319027b" datatype="html">
+        <source>Download Images</source>
+        <target>Download Images</target>
         <context-group purpose="location">
-          <context context-type="sourcefile">src/app/components/report-list/report-list.component.ts</context>
-          <context context-type="linenumber">84</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/components/report-view/report-view.component.ts</context>
-          <context context-type="linenumber">40</context>
+          <context context-type="sourcefile">src/app/components/image-dialog/image-dialog.component.html</context>
+          <context context-type="linenumber">13</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="7293347258713947796" datatype="html">
-        <source>Created At</source>
-        <target>Created At</target>
+      <trans-unit id="d923301510202f70bda4d2acad3453ed7c133361" datatype="html">
+        <source>Add Images</source>
+        <target>Add Images</target>
         <context-group purpose="location">
-          <context context-type="sourcefile">src/app/components/report-list/report-list.component.ts</context>
-          <context context-type="linenumber">85</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/components/report-view/report-view.component.ts</context>
-          <context context-type="linenumber">39</context>
+          <context context-type="sourcefile">src/app/components/image-dialog/image-dialog.component.html</context>
+          <context context-type="linenumber">18</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="1424781787640205457" datatype="html">
-        <source>Finished At</source>
-        <target>Finished At</target>
+      <trans-unit id="6f286074c957b1f7052ba9a11341486b8e669e55" datatype="html">
+        <source>Clear Selection</source>
+        <target>Clear Selection</target>
         <context-group purpose="location">
-          <context context-type="sourcefile">src/app/components/report-list/report-list.component.ts</context>
-          <context context-type="linenumber">86</context>
+          <context context-type="sourcefile">src/app/components/image-dialog/image-dialog.component.html</context>
+          <context context-type="linenumber">24</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="5611592591303869712" datatype="html">
-        <source>Status</source>
-        <target>Status</target>
+       <trans-unit id="4162118539354149635" datatype="html">
+        <source>Gallery Screen</source>
+        <target>Gallery Screen</target>
         <context-group purpose="location">
-          <context context-type="sourcefile">src/app/components/report-list/report-list.component.ts</context>
-          <context context-type="linenumber">136</context>
+          <context context-type="sourcefile">src/app/components/child-routes.ts</context>
+          <context context-type="linenumber">82</context>
         </context-group>
       </trans-unit>
-     <trans-unit id="8050941079656524192" datatype="html">
-        <source>On going</source>
-        <target>進行中</target>
+     <trans-unit id="8ad07795bc398a849c5d57425bb889e30b427ca0" datatype="html">
+        <source>Anomalies</source>
+        <target>Anomalies</target>
         <context-group purpose="location">
-          <context context-type="sourcefile">src/app/components/report-list/report-list.component.ts</context>
-          <context context-type="linenumber">160</context>
+          <context context-type="sourcefile">src/app/admin/layout/top-nav/top-nav.component.html</context>
+          <context context-type="linenumber">25</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="340430316261570792" datatype="html">
-        <source>Finished</source>
-        <target>完了</target>
+      <trans-unit id="f96bc528d5759c767f97fc8e0da7f477d5c7addb" datatype="html">
+        <source>Gallery Image</source>
+        <target>Gallery Image</target>
         <context-group purpose="location">
-          <context context-type="sourcefile">src/app/components/report-list/report-list.component.ts</context>
-          <context context-type="linenumber">163</context>
+          <context context-type="sourcefile">src/app/admin/layout/top-nav/top-nav.component.html</context>
+          <context context-type="linenumber">28</context>
         </context-group>
       </trans-unit>
     </body>
