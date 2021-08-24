@@ -70,6 +70,7 @@ export class ReportListComponent implements OnInit, AfterViewInit, OnDestroy {
   loading = true;
   offset: number;
   subscription: Subscription;
+  MILLI_IN_SEC = 1000;
   clickEventsubscription: Subscription;
   @ViewChild(MatSort, { static: true }) sort: MatSort;
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
@@ -97,7 +98,7 @@ export class ReportListComponent implements OnInit, AfterViewInit, OnDestroy {
     this.getAnomalyName();
     // Subscribe to any list's refresh rate modification
     this.userSub = this.authentication.userSubject.subscribe((user) => {
-      this.timerCallBack = interval(user.refreshRate * 1000).subscribe(res => {
+      this.timerCallBack = interval(user.refreshRate * this.MILLI_IN_SEC).subscribe(res => {
         this.getAnomalyReport();
       });
     });
