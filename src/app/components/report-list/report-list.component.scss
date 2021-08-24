@@ -103,12 +103,11 @@
 }
 .anomaly-status {
   cursor: auto;
-  border-style:solid;
-  border-color:#ff0000;
-  color:#ff0000 !important;
+  border-style:solid; 
   border-radius: 3px;
   margin-right: 5%;
  }
+
  .anomaly-status:hover{
    background-color: white;
  }

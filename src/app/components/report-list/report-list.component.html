@@ -9,12 +9,12 @@
            
 
             <span class="right-content-up">                
-                <button class="anomaly-status" disabled mat-button>{{anomaly.status}}</button>
+                <button [ngStyle]="isOnGoingAnomaly==true?{'color':'red'}:{'color':'green'}" class="anomaly-status" disabled mat-button>{{anomalySatus}}</button>
                 <button class="btn-arcgis" mat-raised-button class="ArcGisBtn" (click)="redirectToArcGis()">
                     {{btnArcGis}}
                 </button>    
                 <span class="anomaly-edit"> 
-                    <mat-icon style="cursor:pointer"  (click)="editReport(anomalyId)"  color="primary">edit</mat-icon>
+                    <mat-icon style="cursor:pointer; color: green"  (click)="editReport(anomalyId)"  color="primary">edit</mat-icon>
                 </span>
             </span>
         </mat-grid-tile>
