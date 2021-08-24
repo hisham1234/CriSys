@@ -98,9 +98,13 @@ export class ReportListComponent implements OnInit, AfterViewInit, OnDestroy {
     this.getAnomalyName();
     // Subscribe to any list's refresh rate modification
     this.userSub = this.authentication.userSubject.subscribe((user) => {
-      this.timerCallBack = interval(user.refreshRate * this.MILLI_IN_SEC).subscribe(res => {
-        this.getAnomalyReport();
-      });
+        if(user.refreshRate >= 10){
+            this.timerCallBack = interval(user.refreshRate * this.MILLI_IN_SEC).subscribe(res => {
+                this.getAnomalyReport();
+              });
+        } else {
+            this.timerCallBack = null;
+        } 
     });
     if(this.authentication.user !== undefined) {
         this.authentication.emitUser();
