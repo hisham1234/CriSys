@@ -45,7 +45,7 @@ export class ImageDialogComponent implements OnInit {
   
 
   ngOnInit(): void {
-    debugger;
+   
     this.selectedImages =(this.IsGalleryScreen?[]:this.data) 
     this.getAllImages();
   }
