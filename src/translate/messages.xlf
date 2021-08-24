@@ -6,11 +6,11 @@
         <source>List Of Anomaly</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/anomaly/anomaly.component.ts</context>
-          <context context-type="linenumber">43</context>
+          <context context-type="linenumber">42</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/report-list/report-list.component.ts</context>
-          <context context-type="linenumber">79</context>
+          <context context-type="linenumber">80</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/add-report/add-report.component.ts</context>
@@ -21,18 +21,18 @@
         <source>Do You want to delete it?</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/anomaly/anomaly.component.ts</context>
-          <context context-type="linenumber">146</context>
+          <context context-type="linenumber">145</context>
         </context-group>
       </trans-unit>
       <trans-unit id="2807800733729323332" datatype="html">
         <source>Yes</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/anomaly/anomaly.component.ts</context>
-          <context context-type="linenumber">149</context>
+          <context context-type="linenumber">148</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/report-list/report-list.component.ts</context>
-          <context context-type="linenumber">218</context>
+          <context context-type="linenumber">242</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/report-view/report-view.component.ts</context>
@@ -43,11 +43,11 @@
         <source>No</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/anomaly/anomaly.component.ts</context>
-          <context context-type="linenumber">150</context>
+          <context context-type="linenumber">149</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/report-list/report-list.component.ts</context>
-          <context context-type="linenumber">219</context>
+          <context context-type="linenumber">243</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/report-view/report-view.component.ts</context>
@@ -58,11 +58,11 @@
         <source>Deleted!</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/anomaly/anomaly.component.ts</context>
-          <context context-type="linenumber">157</context>
+          <context context-type="linenumber">156</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/report-list/report-list.component.ts</context>
-          <context context-type="linenumber">227</context>
+          <context context-type="linenumber">251</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/report-view/report-view.component.ts</context>
@@ -73,21 +73,21 @@
         <source>Anomaly Successfully Deleted</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/anomaly/anomaly.component.ts</context>
-          <context context-type="linenumber">158</context>
+          <context context-type="linenumber">157</context>
         </context-group>
       </trans-unit>
       <trans-unit id="1771349513832887583" datatype="html">
         <source>Anomaly Information Updated</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/anomaly/anomaly.component.ts</context>
-          <context context-type="linenumber">173</context>
+          <context context-type="linenumber">172</context>
         </context-group>
       </trans-unit>
       <trans-unit id="6443116607013908281" datatype="html">
         <source>New Anomaly Successfully Added</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/anomaly/anomaly.component.ts</context>
-          <context context-type="linenumber">191</context>
+          <context context-type="linenumber">190</context>
         </context-group>
       </trans-unit>
       <trans-unit id="9db330759933db56a656e4a35431b42e0f63cb7d" datatype="html">
@@ -105,7 +105,7 @@
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/report-list/report-list.component.html</context>
-          <context context-type="linenumber">91</context>
+          <context context-type="linenumber">92</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/user-list/user-list.component.html</context>
@@ -132,7 +132,7 @@
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/report-list/report-list.component.html</context>
-          <context context-type="linenumber">139</context>
+          <context context-type="linenumber">140</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/add-report/add-report.component.html</context>
@@ -169,7 +169,7 @@
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/report-list/report-list.component.html</context>
-          <context context-type="linenumber">149</context>
+          <context context-type="linenumber">150</context>
         </context-group>
       </trans-unit>
       <trans-unit id="4f5e4536c9366e092252d2a337fc5c2896652482" datatype="html">
@@ -187,7 +187,7 @@
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/report-list/report-list.component.html</context>
-          <context context-type="linenumber">169</context>
+          <context context-type="linenumber">170</context>
         </context-group>
       </trans-unit>
       <trans-unit id="daa52b3eb35d393bd15ae121c96b502ef4011163" datatype="html">
@@ -198,7 +198,7 @@
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/report-list/report-list.component.html</context>
-          <context context-type="linenumber">175</context>
+          <context context-type="linenumber">176</context>
         </context-group>
       </trans-unit>
       <trans-unit id="361528bd8cd72f32116c96e85bcb2b07801b1f23" datatype="html">
@@ -375,7 +375,7 @@
         <source>List Of Reports</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/report-list/report-list.component.ts</context>
-          <context context-type="linenumber">78</context>
+          <context context-type="linenumber">79</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/add-report/add-report.component.ts</context>
@@ -386,21 +386,21 @@
         <source>Add Report</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/report-list/report-list.component.ts</context>
-          <context context-type="linenumber">80</context>
+          <context context-type="linenumber">81</context>
         </context-group>
       </trans-unit>
       <trans-unit id="5727275022314494904" datatype="html">
         <source>View in ArcGIS</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/report-list/report-list.component.ts</context>
-          <context context-type="linenumber">81</context>
+          <context context-type="linenumber">82</context>
         </context-group>
       </trans-unit>
       <trans-unit id="2662644497259948010" datatype="html">
         <source>Comment</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/report-list/report-list.component.ts</context>
-          <context context-type="linenumber">89</context>
+          <context context-type="linenumber">91</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/report-view/report-view.component.ts</context>
@@ -411,7 +411,7 @@
         <source>Created At</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/report-list/report-list.component.ts</context>
-          <context context-type="linenumber">90</context>
+          <context context-type="linenumber">92</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/report-view/report-view.component.ts</context>
@@ -422,28 +422,14 @@
         <source>Finished At</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/report-list/report-list.component.ts</context>
-          <context context-type="linenumber">91</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="8050941079656524192" datatype="html">
-        <source>On going</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/components/report-list/report-list.component.ts</context>
-          <context context-type="linenumber">160</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="340430316261570792" datatype="html">
-        <source>Finished</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/components/report-list/report-list.component.ts</context>
-          <context context-type="linenumber">163</context>
+          <context context-type="linenumber">93</context>
         </context-group>
       </trans-unit>
       <trans-unit id="655936072733033892" datatype="html">
         <source>Do You Want To Delete It?</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/report-list/report-list.component.ts</context>
-          <context context-type="linenumber">215</context>
+          <context context-type="linenumber">239</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/report-view/report-view.component.ts</context>
@@ -454,32 +440,46 @@
         <source>Report Successfully Deleted.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/report-list/report-list.component.ts</context>
-          <context context-type="linenumber">228</context>
+          <context context-type="linenumber">252</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/report-view/report-view.component.ts</context>
           <context context-type="linenumber">128</context>
         </context-group>
       </trans-unit>
+      <trans-unit id="8050941079656524192" datatype="html">
+        <source>On going</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/report-list/report-list.component.ts</context>
+          <context context-type="linenumber">336</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="340430316261570792" datatype="html">
+        <source>Finished</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/report-list/report-list.component.ts</context>
+          <context context-type="linenumber">340</context>
+        </context-group>
+      </trans-unit>
       <trans-unit id="f7d83b746be4b9f41db4b5ea84112e9363c2da57" datatype="html">
         <source> Map Of Reports </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/report-list/report-list.component.html</context>
-          <context context-type="linenumber">61,62</context>
+          <context context-type="linenumber">62,63</context>
         </context-group>
       </trans-unit>
       <trans-unit id="383fb13dff3d1e4a0d47ef965f18cedf547a0418" datatype="html">
         <source> Image </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/report-list/report-list.component.html</context>
-          <context context-type="linenumber">126</context>
+          <context context-type="linenumber">127</context>
         </context-group>
       </trans-unit>
       <trans-unit id="92814b602e3bce5373fc867441aacb03f29a387c" datatype="html">
         <source> Road </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/report-list/report-list.component.html</context>
-          <context context-type="linenumber">134</context>
+          <context context-type="linenumber">135</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/add-report/add-report.component.html</context>
@@ -490,14 +490,14 @@
         <source> Comment </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/report-list/report-list.component.html</context>
-          <context context-type="linenumber">144</context>
+          <context context-type="linenumber">145</context>
         </context-group>
       </trans-unit>
       <trans-unit id="07277f34d6f913565f34a8917829ed2ea6147516" datatype="html">
         <source> Latitude </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/report-list/report-list.component.html</context>
-          <context context-type="linenumber">159</context>
+          <context context-type="linenumber">160</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/add-report/add-report.component.html</context>
@@ -508,7 +508,7 @@
         <source> Longtitude </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/report-list/report-list.component.html</context>
-          <context context-type="linenumber">164</context>
+          <context context-type="linenumber">165</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/add-report/add-report.component.html</context>
@@ -519,7 +519,7 @@
         <source>No Data</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/report-list/report-list.component.html</context>
-          <context context-type="linenumber">194</context>
+          <context context-type="linenumber">195</context>
         </context-group>
       </trans-unit>
       <trans-unit id="5030479970605929493" datatype="html">
