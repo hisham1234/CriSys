@@ -31,8 +31,7 @@
 
 .anomaly-title {
   margin-left: 1%;
-  font-weight: 500;
-}
+ }
 
 #maps {
   height: 100%;
@@ -97,4 +96,54 @@
 .mat-column-map ,
 .mat-column-edit {
   text-align: center;
+}
+.anomaly-type{
+  font-weight: 600;
+  padding-right: 4%;
+}
+.anomaly-status {
+  cursor: auto;
+  border-style:solid; 
+  border-radius: 3px;
+  margin-right: 5%;
+ }
+
+.anomaly-status:hover{
+   background-color: #fafafa;
+ }
+.left-content-up{  
+  font-size: 22px;
+  margin-top: 1%;
+  margin-right: 61%;
+  width: 30%;
+}
+.right-content-up{
+  margin-top: 1%;
+  width: 40%;
+}
+.anomaly-edit{
+ margin-left: 5%;
+}
+.left-content-down{  
+  font-size: 18px;
+  margin-right: 55%;
+  width: 40%;
+}
+.right-content-down{
+  width: 40%;
+}
+.anomaly-times{
+  font-style: italic;  
+}
+.row-one-list{ 
+  margin-bottom: -2.2%;
+}
+.anomaly-type{
+  text-decoration: underline;
+}
+.lbl-comment, 
+.anomaly-created-at, 
+.anomaly-finished-at{
+  color: gray;
+  margin-right: 0.2em;
 }
