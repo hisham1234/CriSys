@@ -81,6 +81,9 @@ export class ReportListComponent implements OnInit, AfterViewInit, OnDestroy {
   @ViewChild(MatSort, { static: true }) sort: MatSort;
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
  
+  lblComment = $localize`Comment`;
+  lblCreatedAt = $localize`Created At`;
+  lblFinishedAt = $localize`Finished At`;
   constructor(
     private reportService: ReportService,
     private anomalyService: AnomalyService,
@@ -132,7 +135,10 @@ export class ReportListComponent implements OnInit, AfterViewInit, OnDestroy {
       if( this.anomaly.status="" ||!this.anomaly.status){
         this.anomaly.status =$localize`Status`;
       }
-      
+      if( this.anomaly.finishedAt="" ||!this.anomaly.finishedAt){
+        this.anomaly.finishedAt ="---";
+      }
+
       this.anomaly.createdAt = this.editDateTimeFormat(res['response'].createdAt);
       this.anomalyName = res['response'].title;
       
@@ -167,6 +173,7 @@ export class ReportListComponent implements OnInit, AfterViewInit, OnDestroy {
     this.reportService.getAnomalyReport(this.anomalyId).subscribe(res => {
 
       res['response'].forEach((element: { createdAt: string; }) => {      
+        console.log(element)
          element.createdAt = this.editDateTimeFormat(element);
         // if(!element.comment){
         //   element.comment ="test commenihdfigbrigb";
