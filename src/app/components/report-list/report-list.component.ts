@@ -134,8 +134,7 @@ export class ReportListComponent implements OnInit, AfterViewInit, OnDestroy {
       //debugger;    
       this.anomaly =  res['response'];
       if( this.anomaly.comment="" ||!this.anomaly.comment){
-        this.anomaly.comment ="Chemical Truck Involved";
-        console.log(" this.anomaly > ", this.anomaly);
+        this.anomaly.comment ="-";    
       }
       this.anomaly.status =  "On Going";
       this.anomaly.createdAt = this.editDateTimeFormat(res['response'].createdAt);
