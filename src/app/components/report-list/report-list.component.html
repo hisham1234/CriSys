@@ -8,8 +8,9 @@
             </span>
            
 
-            <span class="right-content-up">                
-                <button [ngStyle]="isOnGoingAnomaly==true?{'color':'red'}:{'color':'green'}" class="anomaly-status" disabled mat-button>{{anomalySatus}}</button>
+            <span class="right-content-up">      
+                <button *ngIf="noAnomalyStatus"  disabled mat-button>{{anomalyStatus}}</button>          
+                <button *ngIf="!noAnomalyStatus" [ngStyle]="isOnGoingAnomaly==true?{'color':'red'}:{'color':'green'}" class="anomaly-status" disabled mat-button>{{anomalyStatus}}</button>
                 <button class="btn-arcgis" mat-raised-button class="ArcGisBtn" (click)="redirectToArcGis()">
                     {{btnArcGis}}
                 </button>    

@@ -69,11 +69,12 @@ export class ReportListComponent implements OnInit, AfterViewInit, OnDestroy {
   private sub: any;
 
   anomalyData: any;
-  anomalySatus:string;
+  anomalyStatus:string;  
   anomalyId: number;
   anomalyName: string;
   anomaly: any={};
   isOnGoingAnomaly: boolean;
+  noAnomalyStatus:boolean;
 
   title = $localize`List Of Reports`;
   titleAnomaly = $localize`List Of Anomaly`
@@ -110,6 +111,7 @@ export class ReportListComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   ngOnInit() {
+    
     this.getAnomalyReportData();
     this.getAnomalyDetails();
     // Subscribe to any list's refresh rate modification
@@ -134,14 +136,12 @@ export class ReportListComponent implements OnInit, AfterViewInit, OnDestroy {
   getAnomalyDetails() {
     this.anomalyService.getAnomaly(this.anomalyId).subscribe((res) => {
       //debugger;    
-      this.anomaly =  res['response'];    
-
-      this.anomaly.status ="Finished"
+      this.anomaly =  res['response'];          
 
       if( this.anomaly.comment="" ||!this.anomaly.comment){
         this.anomaly.comment ="-";    
       }
-
+     
       this.updateAnomalyStatus();
      
       if( this.anomaly.finishedAt="" ||!this.anomaly.finishedAt){
@@ -154,15 +154,7 @@ export class ReportListComponent implements OnInit, AfterViewInit, OnDestroy {
     })
   }
 
-  updateAnomalyStatus(){
-    if(this.anomaly.status ==="On going"){
-      this.isOnGoingAnomaly =true;
-      this.anomalySatus= $localize`On going`;
-    }else if(this.anomaly.status ==="Finished"){
-      this.isOnGoingAnomaly =false;
-      this.anomalySatus= $localize`Finished`;
-    }
-  }
+  
   private map;
 
   ngOnDestroy() {
@@ -330,4 +322,21 @@ export class ReportListComponent implements OnInit, AfterViewInit, OnDestroy {
     return createdAt
   }
 
+  updateAnomalyStatus(){    
+    if(!this.anomaly.status ){
+      this.noAnomalyStatus= true;
+      this.anomalyStatus="--";      
+      return;
+    }else{
+      if(this.anomaly.status ==="On going"){
+        this.isOnGoingAnomaly =true;
+        this.anomalyStatus= $localize`On going`;
+
+      }else if(this.anomaly.status ==="Finished"){
+        this.isOnGoingAnomaly =false;
+        this.anomalyStatus= $localize`Finished`;
+      }     
+      this.noAnomalyStatus=false;
+    }
+  }
 }
