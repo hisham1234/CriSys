@@ -33,7 +33,7 @@
             <span class="right-content-down">
                 <p class="anomaly-times">
                     <span ><span class="anomaly-created-at"> {{lblCreatedAt}}:</span>  {{anomaly.createdAt}}</span> <br>
-                    <span ><span class="anomaly-finished-at">{{lblFinishedAt}}:</span>  {{anomaly.finishedAt}}</span> 
+                    <span ><span class="anomaly-finished-at">{{lblFinishedAt}}:</span>  {{anomaly.finishedAt?anomaly.finishedAt:"---"}}</span> 
                 </p> 
             </span>
             
