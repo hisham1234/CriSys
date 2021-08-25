@@ -57,6 +57,12 @@
   cursor: pointer;
   color: gray;
 }
+
+.kp-divider{
+  font-weight: 300;  
+  margin-left: 2%;
+  margin-right: 2%;
+}
 .row-comment{ 
   max-width: 20%;
 }
@@ -66,37 +72,24 @@
 .mat-column-road,
 .mat-column-title ,
 .mat-column-comment ,
-.mat-column-createdAt ,
-.mat-column-latitude ,
-.mat-column-longitude ,
-.mat-column-kp ,
-.mat-column-edit {
+.mat-column-createdAt,
+.mat-column-createdBy
+.mat-column-kp
+{
   word-wrap: break-word !important;
   white-space: unset !important;
   flex: 0 0 10% !important;
-  width: 10% !important;
+  width: 15% !important;
+  text-align: left;
   overflow-wrap: break-word;
   word-wrap: break-word;  
-  word-break: break-word;
-
+  // word-break: break-word;
   -ms-hyphens: auto;
   -moz-hyphens: auto;
   -webkit-hyphens: auto;
   hyphens: auto;
 }
-.mat-column-delete{
-  word-wrap: break-word !important;
-  white-space: unset !important;
-  flex: 0 0 10% !important;
-  width: 12% !important;
-  overflow-wrap: break-word;
-  word-wrap: break-word;  
-  text-align: center;
-}
-.mat-column-map ,
-.mat-column-edit {
-  text-align: center;
-}
+
 .anomaly-type{
   font-weight: 600;
   padding-right: 4%;
@@ -155,4 +148,7 @@
 }
 .row-anomaly-details{
   margin-top: -2%;
+}
+.row-anomaly-details{
+  margin-bottom: -2%
 }

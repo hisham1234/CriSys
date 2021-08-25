@@ -55,7 +55,7 @@ export class ReportListComponent implements OnInit, AfterViewInit, OnDestroy {
   timerCallBack: Subscription;
 
 
-  displayedColumns = ['id', 'image', 'title', 'road', 'comment','createdAt', 'kp', 'latitude', 'longitude', 'edit', 'delete'];
+  displayedColumns = ['id', 'image', 'title', 'comment','kp','createdAt','createdBy'];
   dataSource = new MatTableDataSource<ReportModel>();
 
   searchText = ''

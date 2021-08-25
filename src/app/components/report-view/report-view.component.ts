@@ -84,7 +84,7 @@ export class ReportViewComponent implements OnInit {
   getAnomalyReport() {
     this.reportService.getReport(this.reportId).subscribe((res) => {
       const reportResponse = res['response'];
-      console.log(reportResponse);
+      
       if (reportResponse.anomalyReportImage) {				
 				this.selectedLibraryImages = reportResponse.anomalyReportImage.map(i => i.image);
 			}
