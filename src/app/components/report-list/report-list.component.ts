@@ -320,9 +320,10 @@ export class ReportListComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   updateAnomalyStatus(){    
+    
     if(!this.anomaly.status ){
       this.noAnomalyStatus= true;
-      this.anomalyStatus="--";      
+      this.anomalyStatus=$localize`no_status`;      
       return;
     }else{
       if(this.anomaly.status ==="On going"){
