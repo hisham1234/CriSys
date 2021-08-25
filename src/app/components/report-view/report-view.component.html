@@ -3,6 +3,21 @@
       <h2>{{anomalyName}} </h2>  
     </div>
 </div>    
+<mat-accordion class="example-headers-align" multi>
+    <mat-expansion-panel >
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+              <i class="material-icons ">place</i> 
+          </mat-panel-title>
+          <mat-panel-description >
+            Map Of Report
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+        <div class="col-md-12 ">
+            <app-map [id]="mapid" (notify)="onNotified($event)"></app-map>               
+      </div>
+      </mat-expansion-panel>
+</mat-accordion>
 <section id="sample-table" class="mat-elevation-z8 bg-white">
 
     <div class="row">

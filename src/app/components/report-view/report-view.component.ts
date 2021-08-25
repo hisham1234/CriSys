@@ -7,6 +7,24 @@ import { ImageCarouselComponent } from '../image-carousel/image-carousel.compone
 import { ImageDialogComponent } from '../image-dialog/image-dialog.component';
 import * as moment from 'moment';
 import Swal from 'sweetalert2';
+import { MarkerService } from 'src/app/services/marker.service';
+import * as L from 'leaflet';
+
+const iconRetinaUrl = 'assets/marker-icon-2x.png';
+const iconUrl = 'assets/marker-icon.png';
+const shadowUrl = 'assets/marker-shadow.png';
+const iconDefault = L.icon({
+  iconRetinaUrl,
+  iconUrl,
+  shadowUrl,
+  iconSize: [25, 41],
+  iconAnchor: [12, 41],
+  popupAnchor: [1, -34],
+  tooltipAnchor: [16, -28],
+  shadowSize: [41, 41]
+});
+L.Marker.prototype.options.icon = iconDefault;
+
 interface ReportData {
   id: any;
   anomalyId: any;
@@ -49,12 +67,15 @@ export class ReportViewComponent implements OnInit {
   selectedLibraryImages = [];
   anomalyName: any;
 
+  mapid = "mapr";
+  coordination:any ={}; 
   constructor(
     private reportService: ReportService,
     private route: ActivatedRoute,
     public dialog: MatDialog,
     private router: Router,
-    private anomalyService: AnomalyService
+    private anomalyService: AnomalyService,
+    private markerService: MarkerService,
   ) {
     this.reportData = {
       id: '',
@@ -76,6 +97,8 @@ export class ReportViewComponent implements OnInit {
     this.sub = this.route.params.subscribe((params) => {
       this.reportId = +params['rid']; // (+) converts string 'id' to a number
       this.anomalyId = +params['aid'];
+       this.coordination.lat =35.7083;// +this.reportData.latitude;
+      this.coordination.lon =139.6948;//  +this.reportData.longitude;
       this.getAnomalyReport();
       this.getAnomalyName();
     });
@@ -101,6 +124,8 @@ export class ReportViewComponent implements OnInit {
       const createdAt = dateComponent + ' ' + timeComponent;
       reportResponse.createdAt = createdAt;
       this.reportData = reportResponse;
+     
+      this.markerService.makeCapitalMarkers(this.map,[this.reportData]);
     });
   }
   getAnomalyName() {
@@ -165,5 +190,9 @@ export class ReportViewComponent implements OnInit {
         let message = '新しいイベントが追加されました';
       }
     });
+  }
+  private map;
+  onNotified(reportMap: any) {
+    this.map = reportMap;
   }
 }

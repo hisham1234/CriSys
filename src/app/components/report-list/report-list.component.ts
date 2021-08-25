@@ -100,7 +100,7 @@ export class ReportListComponent implements OnInit, AfterViewInit, OnDestroy {
     private route: ActivatedRoute,
     private markerService: MarkerService,
     private eventEmitterService: EventEmitterService,
-    private authentication: AuthenticationService
+    private authentication: AuthenticationService,
   ) {
     this.offset = new Date().getTimezoneOffset();
     this.clickEventsubscription = this.eventEmitterService
