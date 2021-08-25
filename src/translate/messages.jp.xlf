@@ -810,7 +810,7 @@
       </trans-unit>
       <trans-unit id="e564966c959d8d7e9a1190cd0cbd227e7c15e11f" datatype="html">
         <source>If you want to use the auto-refresh, please fill out a value between 10 and 3600</source>
-        <target>If you want to use the auto-refresh, please fill out a value between 10 and 3600</target>
+        <target>オートフレッシュを使用の際は、10から3600の値を入力して下さい</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/display-settings/display-settings.component.html</context>
           <context context-type="linenumber">31</context>
