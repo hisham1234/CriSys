@@ -42,6 +42,7 @@ export class ReportViewComponent implements OnInit {
   lblComment = $localize`Comment`;
   lblImages = $localize`Images`;
   lblCreatedBy= $localize`Created By`;
+  lblDirection=$localize`Direction`;
 
   scrHeight: any;
 	scrWidth: any;
