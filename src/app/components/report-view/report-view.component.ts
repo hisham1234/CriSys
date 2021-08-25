@@ -97,8 +97,10 @@ export class ReportViewComponent implements OnInit {
     this.sub = this.route.params.subscribe((params) => {
       this.reportId = +params['rid']; // (+) converts string 'id' to a number
       this.anomalyId = +params['aid'];
-       this.coordination.lat =35.7083;// +this.reportData.latitude;
-      this.coordination.lon =139.6948;//  +this.reportData.longitude;
+      
+      this.coordination.lat = +params['rlat'];
+      this.coordination.lon =  +params['rlon'];
+      
       this.getAnomalyReport();
       this.getAnomalyName();
     });
@@ -123,8 +125,7 @@ export class ReportViewComponent implements OnInit {
 
       const createdAt = dateComponent + ' ' + timeComponent;
       reportResponse.createdAt = createdAt;
-      this.reportData = reportResponse;
-     
+      this.reportData = reportResponse;     
       this.markerService.makeCapitalMarkers(this.map,[this.reportData]);
     });
   }

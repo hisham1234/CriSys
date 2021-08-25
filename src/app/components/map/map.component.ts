@@ -25,13 +25,13 @@ export class MapComponent implements OnInit {
 
   private map=null;
    @Input() id;
-   
+   @Input() coordination;
    @Output() notify:EventEmitter<string>=new EventEmitter<string>();
 
   private initMap(): void {
     this.map=null;
     this.map = L.map(this.id, {
-      center: [ 35.7083, 139.6948 ],
+      center: [ this.coordination?this.coordination.lat:35.7083, this.coordination?this.coordination.lon:139.6948 ],
      //center: [ 39.8282, -98.5795 ],
       zoom: 3
     });

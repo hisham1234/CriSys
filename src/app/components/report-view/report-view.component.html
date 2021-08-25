@@ -14,7 +14,7 @@
           </mat-panel-description>
         </mat-expansion-panel-header>
         <div class="col-md-12 ">
-            <app-map [id]="mapid" (notify)="onNotified($event)"></app-map>               
+            <app-map [id]="mapid"  [coordination]="coordination" (notify)="onNotified($event)"></app-map>               
       </div>
       </mat-expansion-panel>
 </mat-accordion>

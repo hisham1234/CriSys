@@ -262,8 +262,8 @@ export class ReportListComponent implements OnInit, AfterViewInit, OnDestroy {
     this.router.navigate([rowId], { relativeTo: this.route });
   }
 
-  goToReportView(row) {   
-    this.router.navigate([`anomaly/${this.anomalyId}/${row.id}/report-view`]);
+  goToReportView(row:any) {       
+    this.router.navigate([`anomaly/report-view/${this.anomalyId}/${row.id}/${row.latitude}/${row.longitude}`]);
   }
 
 
