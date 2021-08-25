@@ -62,9 +62,15 @@ export class AnomalyComponent implements OnInit, AfterViewInit, OnDestroy {
         this.getAllAnomalys();
         // Subscribe to any change of the refresh the list's refresh rate
         this.userSub = this.authentication.userSubject.subscribe((user) => {
+            console.log(user.refreshRate)
+            if(user.refreshRate >= 10){
                 this.timerCallBack = interval(user.refreshRate * this.MILLI_IN_SEC).subscribe(res => {
                     this.getAllAnomalys();
                 });
+            } else {
+                this.timerCallBack = null;
+            } 
+ 
         });
         if(this.authentication.user !== undefined) {
             this.authentication.emitUser();
@@ -73,7 +79,8 @@ export class AnomalyComponent implements OnInit, AfterViewInit, OnDestroy {
 
 
     ngOnDestroy() {
-        this.timerCallBack.unsubscribe();
+        if(this.timerCallBack!== null)
+            this.timerCallBack.unsubscribe();
         this.userSub.unsubscribe();
     }
     onNotified(anomalyMap: any) {

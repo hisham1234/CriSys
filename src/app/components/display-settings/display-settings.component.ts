@@ -10,12 +10,18 @@ import { AuthenticationService } from 'src/app/services/authentication.service';
 export class DisplaySettingsComponent implements OnInit {
 
     constructor(private authentication: AuthenticationService) { }
-
+    slideToggle: boolean;
     user: UserModel;
+    error: boolean;
 
     ngOnInit(): void {
         this.authentication.userSubject.subscribe((user) => {
             this.user = user;
+            if(user.refreshRate < 10) {
+                this.slideToggle = false;
+            } else{
+                this.slideToggle = true;
+            } 
         });
         this.authentication.emitUser();
     }
@@ -23,8 +29,22 @@ export class DisplaySettingsComponent implements OnInit {
 
     save() {
         this.authentication.updateUserByToken(this.user).subscribe((user) => {
-            this.authentication.updateUser(user);
+            if(this.user.refreshRate < 10 && this.slideToggle == true) {
+                this.error = true;
+            } else {
+                this.error = false;
+                this.authentication.updateUser(user);
+            }      
         });
     }
-
+    toggleChange() {
+        this.slideToggle = !this.slideToggle;
+        if(this.slideToggle == true) {
+            this.user.refreshRate = 300;                
+        } else {
+            this.user.refreshRate = 0;
+            this.error = false;
+        } 
+        this.save();
+    } 
 }
