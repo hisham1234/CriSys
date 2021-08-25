@@ -814,6 +814,14 @@
           <context context-type="linenumber">45</context>
         </context-group>
       </trans-unit>
+       <trans-unit id="9ea974f9524e80e20c10e87a14e407f27ad2d6ef" datatype="html">
+        <source> Map Of Report </source> 
+        <target>Map Of Report</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/report-view/report-view.component.html</context>
+          <context context-type="linenumber">13,14</context>
+        </context-group>
+      </trans-unit>
     </body>
   </file>
 </xliff>
