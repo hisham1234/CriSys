@@ -36,6 +36,12 @@ const iconDefault = L.icon({
   shadowSize: [41, 41]
 });
 L.Marker.prototype.options.icon = iconDefault;
+export interface Tile {
+  color: string;
+  cols: number;
+  rows: number;
+  text: string;
+}
 
 @Component({
   selector: 'app-report-list',
@@ -43,7 +49,7 @@ L.Marker.prototype.options.icon = iconDefault;
   styleUrls: ['./report-list.component.scss']
 })
 export class ReportListComponent implements OnInit, AfterViewInit, OnDestroy {
-  // Auto-Refresh Variable
+   // Auto-Refresh Variable
   refreshRate: number;
   userSub: Subscription;
   timerCallBack: Subscription;
@@ -54,15 +60,22 @@ export class ReportListComponent implements OnInit, AfterViewInit, OnDestroy {
 
   searchText = ''
   pageSize = 100;
-  anomalyData: any;
+ 
   mapid = "maps"
   reportCordinates: any;
   currentPage = 0;
   gisUrl = environment.arcGisUrl;
   totalSize = 100;
   private sub: any;
+
+  anomalyData: any;
+  anomalyStatus:string;  
   anomalyId: number;
   anomalyName: string;
+  anomaly: any={};
+  isOnGoingAnomaly: boolean;
+  noAnomalyStatus:boolean;
+
   title = $localize`List Of Reports`;
   titleAnomaly = $localize`List Of Anomaly`
   btnAdd = $localize`Add Report`;
@@ -74,11 +87,15 @@ export class ReportListComponent implements OnInit, AfterViewInit, OnDestroy {
   clickEventsubscription: Subscription;
   @ViewChild(MatSort, { static: true }) sort: MatSort;
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
+ 
+  lblComment = $localize`Comment`;
+  lblCreatedAt = $localize`Created At`;
+  lblFinishedAt = $localize`Finished At`;
+  
   constructor(
     private reportService: ReportService,
     private anomalyService: AnomalyService,
-    public dialog: MatDialog,
-    private _snackBar: MatSnackBar,
+    public dialog: MatDialog,   
     private router: Router,
     private route: ActivatedRoute,
     private markerService: MarkerService,
@@ -94,8 +111,9 @@ export class ReportListComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   ngOnInit() {
+    
     this.getAnomalyReportData();
-    this.getAnomalyName();
+    this.getAnomalyDetails();
     // Subscribe to any list's refresh rate modification
     this.userSub = this.authentication.userSubject.subscribe((user) => {
         if(user.refreshRate >= 10){
@@ -121,14 +139,28 @@ export class ReportListComponent implements OnInit, AfterViewInit, OnDestroy {
     });
   }
 
-  getAnomalyName() {
+  getAnomalyDetails() {
     this.anomalyService.getAnomaly(this.anomalyId).subscribe((res) => {
-      //debugger;     
+      //debugger;    
+      this.anomaly =  res['response'];          
+
+      if( this.anomaly.comment="" ||!this.anomaly.comment){
+        this.anomaly.comment ="---";    
+      }
+      //this.anomaly.status= "On going"
+      this.updateAnomalyStatus();
+     
+      if( this.anomaly.finishedAt="" ||!this.anomaly.finishedAt){
+        this.anomaly.finishedAt ="---";
+      }
+
+      this.anomaly.createdAt = this.editDateTimeFormat(res['response'].createdAt);
       this.anomalyName = res['response'].title;
       
     })
   }
 
+  
   private map;
 
   ngOnDestroy() {
@@ -153,25 +185,11 @@ export class ReportListComponent implements OnInit, AfterViewInit, OnDestroy {
     this.getAllReports();
   }
 
-  //     getAllReports(){
-  //     this.reportService.getAllReports().subscribe((res)=>{
-  //         this.dataSource = res['response'];
-  //         this.totalSize = res['totalCount'];
-  //     });
-  // }
-
   getAnomalyReport() {
     this.reportService.getAnomalyReport(this.anomalyId).subscribe(res => {
 
-      res['response'].forEach(element => {
-        
-        const dateComponent = moment.utc(element.createdAt).format('YYYY-MM-DD');
-        const timeComponent = moment.utc(element.createdAt).local().format('HH:mm:ss');
-        const createdAt = dateComponent + " " + timeComponent;
-        element.createdAt = createdAt;
-        // if(!element.comment){
-        //   element.comment ="test commenihdfigbrigb";
-        //  }
+      res['response'].forEach((element: { createdAt: string; }) => {     
+        element.createdAt = this.editDateTimeFormat(element);
       });
 
       this.totalSize = res['totalCount'];
@@ -184,7 +202,6 @@ export class ReportListComponent implements OnInit, AfterViewInit, OnDestroy {
     })
   }
   onNotified(reportMap: any) {
-
     this.map = reportMap;
   }
 
@@ -299,5 +316,28 @@ export class ReportListComponent implements OnInit, AfterViewInit, OnDestroy {
     window.open(this.gisUrl + "" + this.anomalyId, "_blank")
 
   }
+  editDateTimeFormat(dateTime:any):string {
+    const dateComponent = moment.utc(dateTime.createdAt).format('YYYY-MM-DD');
+    const timeComponent = moment.utc(dateTime.createdAt).local().format('HH:mm:ss');
+    const createdAt = dateComponent + " " + timeComponent;
+    return createdAt
+  }
 
+  updateAnomalyStatus(){    
+    if(!this.anomaly.status ){
+      this.noAnomalyStatus= true;
+      this.anomalyStatus="--";      
+      return;
+    }else{
+      if(this.anomaly.status ==="On going"){
+        this.isOnGoingAnomaly =true;
+        this.anomalyStatus= $localize`On going`;
+
+      }else if(this.anomaly.status ==="Finished"){
+        this.isOnGoingAnomaly =false;
+        this.anomalyStatus= $localize`Finished`;
+      }     
+      this.noAnomalyStatus=false;
+    }
+  }
 }
