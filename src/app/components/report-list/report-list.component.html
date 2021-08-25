@@ -141,7 +141,7 @@
                     <ng-container matColumnDef="kp">  
                         <th mat-header-cell *matHeaderCellDef mat-sort-header >KP </th>
                         <td mat-cell *matCellDef="let row"> 
-                            {{row.road}} <span class="kp-divider">|</span> {{row.direction?row.direction:"--"}} <span class="kp-divider">|</span> {{row.kp}}  </td>
+                            {{row.road}} <span class="kp-divider">/</span> {{row.direction?row.direction:"--"}} <span class="kp-divider">/</span> {{row.kp}}  </td>
                     </ng-container>
                     <ng-container matColumnDef="createdAt">
                         <th i18n mat-header-cell *matHeaderCellDef mat-sort-header> Created Time </th>
