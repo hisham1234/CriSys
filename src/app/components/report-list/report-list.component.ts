@@ -129,7 +129,6 @@ export class ReportListComponent implements OnInit, AfterViewInit, OnDestroy {
   getAnomalyReportData() {
     this.sub = this.route.params.subscribe((params) => {
       this.anomalyId = +params['aid']; // (+) converts string 'id' to a number
-
       this.getAnomalyReport();
 
     });
