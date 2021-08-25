@@ -666,7 +666,7 @@
       </trans-unit>
       <trans-unit id="244aae9346da82b0922506c2d2581373a15641cc" datatype="html">
         <source>Email</source>
-        <target>メール</target>
+        <target>メールアドレス</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/user-list/user-list.component.html</context>
           <context context-type="linenumber">41</context>
@@ -790,6 +790,30 @@
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/report-list/report-list.component.ts</context>
           <context context-type="linenumber">340</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="cb90d802fa5eb207efb431e7de530b05718eb9bb" datatype="html">
+        <source>Auto-Refresh</source>
+        <target>オートリフレッシュ</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/display-settings/display-settings.component.html</context>
+          <context context-type="linenumber">13</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="132d8f58a8d51f8fd5efea53c0b96d8d8000da1d" datatype="html">
+        <source>min 10 ; max 3600</source>
+        <target>最小10 ; 最大3600</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/display-settings/display-settings.component.html</context>
+          <context context-type="linenumber">25</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="e564966c959d8d7e9a1190cd0cbd227e7c15e11f" datatype="html">
+        <source>If you want to use the auto-refresh, please fill out a value between 10 and 3600</source>
+        <target>If you want to use the auto-refresh, please fill out a value between 10 and 3600</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/display-settings/display-settings.component.html</context>
+          <context context-type="linenumber">31</context>
         </context-group>
       </trans-unit>
          </body>

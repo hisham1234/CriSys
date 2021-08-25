@@ -10,7 +10,7 @@
     
     <div class="row">
         <div class="col-md-3">
-            <span class="auto-refresh ">Auto-Refresh</span>
+            <span i18n class="auto-refresh ">Auto-Refresh</span>
         </div>
         <div class="col-md-9">
             <mat-slide-toggle [checked]="slideToggle" (change)="this.toggleChange()"></mat-slide-toggle>
@@ -28,7 +28,7 @@
 
     <div *ngIf="error" class="row">
         <div class="col-md-12">
-            <span class="error-message">If you want to use the auto-refresh, please fill out a value between 10 and 3600</span>
+            <span i18n class="error-message">If you want to use the auto-refresh, please fill out a value between 10 and 3600</span>
         </div>
     </div>
 </section>
