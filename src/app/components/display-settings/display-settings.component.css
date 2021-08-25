@@ -1,7 +1,15 @@
-.auto-refresh{
-    margin-right: 5px;
-}
-
 .max-min {
     color: #6666;
 } 
+
+.error-message {
+    color: red;
+}
+
+::ng-deep .mat-slide-toggle.mat-checked:not(.mat-disabled) .mat-slide-toggle-thumb {
+    background-color: rgb(73, 150, 67); /*replace with your color*/
+}
+
+::ng-deep .mat-slide-toggle.mat-checked:not(.mat-disabled) .mat-slide-toggle-bar {
+    background-color: rgb(108, 228, 108);;  /*replace with your color*/
+}

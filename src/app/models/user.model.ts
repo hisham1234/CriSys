@@ -17,6 +17,6 @@ export class UserModel {
 		this.lastName = '';
 		this.password = '';
 		this.roles = [];
-        this.refreshRate = 300;
+        this.refreshRate = 0;
 	}
 }
