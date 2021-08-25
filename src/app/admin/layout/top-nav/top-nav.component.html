@@ -39,12 +39,12 @@
       <a button mat-button  href="/{{language.code}}/">{{language.label}}</a> 
     </ng-container> 
 
-    <span routerLink="/settings/display">
-        <div class="nav-item" style="cursor: pointer">
+    <a href="/settings/display">
+        <div class="topnav-icon" style="cursor: pointer">
           <span i18n>
             Settings</span>
         </div>
-      </span>
+      </a>
 
     <mat-icon>account_circle</mat-icon>
       <span *ngIf="loggedUser" class="user-name">{{ loggedUser.firstName }} </span>
