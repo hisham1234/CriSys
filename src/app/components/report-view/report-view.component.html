@@ -12,41 +12,57 @@
                 <mat-list-item><span class="report-label">{{lblTitle}} : </span><span class="report-data">
                     {{this.reportData.title }}</span>
                 </mat-list-item>
+                <mat-divider></mat-divider>
+
                 <mat-list-item><span class="report-label">{{lblReportId}} : </span><span class="report-data">
                         {{this.reportData.id }}</span>
-                </mat-list-item>
-                            
+                </mat-list-item>                            
                 <mat-divider></mat-divider>
+
                 <mat-list-item><span class="report-label">{{lblAnomalyId}} : </span><span class="report-data">
                         {{this.reportData.anomalyId }}</span>
-                </mat-list-item>
+                </mat-list-item>                            
                 <mat-divider></mat-divider>
-                <mat-list-item><span class="report-label">{{lblRoad}} : </span><span class="report-data">
-                        {{this.reportData.road }}</span>
-                </mat-list-item>
-                <mat-divider></mat-divider>
-                <mat-list-item><span class="report-label">{{lblLatitude}} : </span>
-                    <span class="report-data">{{this.reportData.latitude }}</span>
-                </mat-list-item>
-                <mat-divider></mat-divider>
+                
                 <mat-list-item>
+                    <span class="report-label">{{lblLatitude}} : </span>
+                    <span class="report-data">{{this.reportData.latitude }}</span>
+                    <span class="kp-divider">|</span>
                     <span class="report-label">{{lblLongitude}} : </span>
                     <span class="report-data">{{this.reportData.longitude }}</span>
                 </mat-list-item>
+                <mat-divider></mat-divider>
 
+                <mat-list-item>
+                    <span class="report-label">{{lblRoad}} : </span><span class="report-data">
+                        {{this.reportData.road}}
+                    </span> 
+                    <span class="kp-divider">|</span>
+                    <span class="report-label">KP : </span><span class="report-data">
+                        {{this.reportData.kp }} 
+                    </span>
+                    <span class="kp-divider">|</span>
+                    <span class="report-label">Direction : </span><span class="report-data">
+                        {{this.reportData.direction?this.reportData.direction:"" }} 
+                    </span>                    
+                </mat-list-item>
                 <mat-divider></mat-divider>
-                <mat-list-item><span class="report-label">KP : </span><span class="report-data">
-                        {{this.reportData.kp }}</span></mat-list-item>
-                <mat-divider></mat-divider>
+
                 <mat-list-item><span class="report-label">{{lblCreatedAt}} : </span><span class="report-data">
                         {{this.reportData.createdAt }}</span>
                 </mat-list-item>
                 <mat-divider></mat-divider>
+
+                <mat-list-item><span class="report-label">{{lblCreatedBy}} : </span><span class="report-data">
+                        {{this.reportData.createdBy }}</span>
+                </mat-list-item>
+                <mat-divider></mat-divider>
+
                 <mat-list-item><span class="report-label">{{lblComment}} : </span><span class="report-data">
                         {{this.reportData.comment }}</span>
                 </mat-list-item>
-
                 <mat-divider></mat-divider>
+
                 <mat-list-item>
                     <span class="report-label">{{lblImages}} : </span><br>
                 <p *ngFor="let selectedLibraryImage of selectedLibraryImages">

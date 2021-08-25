@@ -16,6 +16,8 @@ interface ReportData {
   latitude: any;
   longitude: any;
   comment: any;
+  createdBy: any;
+  direction:any,
   road: any;
   anomalyReportImage: []; 
 }
@@ -39,6 +41,7 @@ export class ReportViewComponent implements OnInit {
   lblCreatedAt = $localize`Created At`;
   lblComment = $localize`Comment`;
   lblImages = $localize`Images`;
+  lblCreatedBy= $localize`Created By`;
 
   scrHeight: any;
 	scrWidth: any;
@@ -62,6 +65,8 @@ export class ReportViewComponent implements OnInit {
       latitude: '',
       longitude: '',
       comment: '',
+      createdBy:'',
+      direction:'',
       road: '',
       anomalyReportImage: [],
     };
@@ -79,6 +84,7 @@ export class ReportViewComponent implements OnInit {
   getAnomalyReport() {
     this.reportService.getReport(this.reportId).subscribe((res) => {
       const reportResponse = res['response'];
+      console.log(reportResponse);
       if (reportResponse.anomalyReportImage) {				
 				this.selectedLibraryImages = reportResponse.anomalyReportImage.map(i => i.image);
 			}
