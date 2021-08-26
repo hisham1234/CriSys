@@ -64,6 +64,7 @@ import { GalleryScreenComponent } from './gallery-screen/gallery-screen.componen
 import { ReportViewComponent } from './report-view/report-view.component';
 import { DisplaySettingsComponent } from './display-settings/display-settings.component';
 import { UserListComponent } from './user-list/user-list.component';
+import {MatSlideToggleModule} from '@angular/material/slide-toggle' 
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   wheelPropagation: true,
@@ -88,6 +89,7 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     MatGridListModule,
     MatTableModule,
     MatDialogModule,
+    MatSlideToggleModule,
     MatSortModule,
     FormsModule,
     ReactiveFormsModule,
@@ -116,6 +118,7 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     MatPaginatorModule,
     MatTableModule,
     MatDialogModule,
+    MatSlideToggleModule,
     FormsModule,
     ReactiveFormsModule,
     AuthService,
@@ -153,6 +156,7 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     MatPaginatorModule,
     MatTableModule,
     MatDialogModule,
+    MatSlideToggleModule,
     FormsModule,
     ReactiveFormsModule,
     MatExpansionModule,

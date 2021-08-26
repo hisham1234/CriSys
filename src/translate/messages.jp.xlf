@@ -666,7 +666,7 @@
       </trans-unit>
       <trans-unit id="244aae9346da82b0922506c2d2581373a15641cc" datatype="html">
         <source>Email</source>
-        <target>メール</target>
+        <target>メールアドレス</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/user-list/user-list.component.html</context>
           <context context-type="linenumber">41</context>
@@ -792,46 +792,30 @@
           <context context-type="linenumber">340</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="3946275273583262759" datatype="html">
-        <source>no_status</source>
-        <target>状態なし</target>
+      <trans-unit id="cb90d802fa5eb207efb431e7de530b05718eb9bb" datatype="html">
+        <source>Auto-Refresh</source>
+        <target>オートリフレッシュ</target>
         <context-group purpose="location">
-          <context context-type="sourcefile">src/app/components/report-list/report-list.component.ts</context>
-          <context context-type="linenumber">326</context>
+          <context context-type="sourcefile">src/app/components/display-settings/display-settings.component.html</context>
+          <context context-type="linenumber">13</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="5252837360733823238" datatype="html">
-        <source>Created By</source>
-        <target>作成者</target>
+      <trans-unit id="132d8f58a8d51f8fd5efea53c0b96d8d8000da1d" datatype="html">
+        <source>min 10 ; max 3600</source>
+        <target>最小10 ; 最大3600</target>
         <context-group purpose="location">
-          <context context-type="sourcefile">src/app/components/report-view/report-view.component.ts</context>
-          <context context-type="linenumber">44</context>
+          <context context-type="sourcefile">src/app/components/display-settings/display-settings.component.html</context>
+          <context context-type="linenumber">25</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="c644c9aed036cdc5bf5df26d9a359a099cc727cc" datatype="html">
-        <source> Created By </source>
-        <target>作成者</target>
+      <trans-unit id="e564966c959d8d7e9a1190cd0cbd227e7c15e11f" datatype="html">
+        <source>If you want to use the auto-refresh, please fill out a value between 10 and 3600</source>
+        <target>オートフレッシュを使用の際は、10から3600の値を入力して下さい</target>
         <context-group purpose="location">
-          <context context-type="sourcefile">src/app/components/report-list/report-list.component.html</context>
-          <context context-type="linenumber">151</context>
+          <context context-type="sourcefile">src/app/components/display-settings/display-settings.component.html</context>
+          <context context-type="linenumber">31</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="4328738626502194147" datatype="html">
-        <source>Direction</source>
-        <target>方向</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/components/report-view/report-view.component.ts</context>
-          <context context-type="linenumber">45</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="9ea974f9524e80e20c10e87a14e407f27ad2d6ef" datatype="html">
-        <source> Map Of Report </source> 
-        <target>レポートの地図</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/components/report-view/report-view.component.html</context>
-          <context context-type="linenumber">13,14</context>
-        </context-group>
-      </trans-unit>
-    </body>
+         </body>
   </file>
 </xliff>
