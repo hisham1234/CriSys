@@ -65,7 +65,7 @@ export class AnomalyComponent implements OnInit, AfterViewInit, OnDestroy {
             console.log(user.refreshRate)
             if(user.refreshRate >= 10){
                 this.timerCallBack = interval(user.refreshRate * this.MILLI_IN_SEC).subscribe(res => {
-                    this.getAllAnomalys();
+                   // this.getAllAnomalys();
                 });
             } else {
                 this.timerCallBack = null;

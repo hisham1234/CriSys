@@ -66,7 +66,7 @@ export const childRoutes = [
     canActivate: [AuthGuard],
   },
   {
-    path: 'anomaly/:aid/:rid/report-view',
+    path: 'anomaly/report-view/:aid/:rid/:rlat/:rlon',
     component: ReportViewComponent,
     data: {
       showInSidebar: false,

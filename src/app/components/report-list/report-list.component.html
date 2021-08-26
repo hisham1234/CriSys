@@ -1,55 +1,45 @@
-<mat-grid-list cols="1" rowHeight="100px" class="row-one-list">        
-        <mat-grid-tile  [colspan]="1" [rowspan]="1" >  
+<div class="row-anomaly-details">
+    <mat-grid-list cols="1" rowHeight="100px" class="row-one-list">        
+            <mat-grid-tile  [colspan]="1" [rowspan]="1" >  
 
-            <span class="left-content-up">
-                <span class="anomaly-type">{{anomaly.anomalyType}}</span> 
-                <span class="anomaly-id"> #{{anomaly.id}} -</span> 
-                <span class="anomaly-title">{{anomaly.title}}</span>
-            </span>
-           
-
-            <span class="right-content-up">      
-                <button *ngIf="noAnomalyStatus"  disabled mat-button>{{anomalyStatus}}</button>          
-                <button *ngIf="!noAnomalyStatus" [ngStyle]="isOnGoingAnomaly==true?{'color':'red'}:{'color':'green'}" class="anomaly-status" disabled mat-button>{{anomalyStatus}}</button>
-                <button class="btn-arcgis" mat-raised-button class="ArcGisBtn" (click)="redirectToArcGis()">
-                    {{btnArcGis}}
-                </button>    
-                <span class="anomaly-edit"> 
-                    <mat-icon style="cursor:pointer; color: green"  (click)="editReport(anomalyId)"  color="primary">edit</mat-icon>
+                <span class="left-content-up">
+                    <span class="anomaly-type">{{anomaly.anomalyType}}</span> 
+                    <span class="anomaly-id"> #{{anomaly.id}} -</span> 
+                    <span class="anomaly-title">{{anomaly.title}}</span>
                 </span>
+            
+
+                <span class="right-content-up">      
+                    <button *ngIf="noAnomalyStatus" class="no-status anomaly-status"  disabled mat-button>{{anomalyStatus}}</button>           
+                    <button *ngIf="!noAnomalyStatus" [ngStyle]="isOnGoingAnomaly==true?{'color':'red'}:{'color':'green'}" class="anomaly-status" disabled mat-button>{{anomalyStatus}}</button>
+                    <button class="btn-arcgis" mat-raised-button class="ArcGisBtn" (click)="redirectToArcGis()">
+                        {{btnArcGis}}
+                    </button>    
+                    <span class="anomaly-edit"> 
+                        <mat-icon style="cursor:pointer; color: green"  (click)="editReport(anomalyId)"  color="primary">edit</mat-icon>
+                    </span>
+                </span>
+            </mat-grid-tile>
+    </mat-grid-list>
+        
+    <mat-grid-list cols="1" rowHeight="100px" class="row-two-list">        
+        <mat-grid-tile  [colspan]="1" [rowspan]="1" >
+            <span class="left-content-down">
+                <span class="anomaly-comment">               
+                        <span class="lbl-comment">{{lblComment}}:</span>
+                    {{anomaly.comment}}
+                </span> 
             </span>
+            <span class="right-content-down">
+                <p class="anomaly-times">
+                    <span ><span class="anomaly-created-at"> {{lblCreatedAt}}:</span>  {{anomaly.createdAt}}</span> <br>
+                    <span ><span class="anomaly-finished-at">{{lblFinishedAt}}:</span>  {{anomaly.finishedAt?anomaly.finishedAt:"---"}}</span> 
+                </p> 
+            </span>
+            
         </mat-grid-tile>
-</mat-grid-list>
-    
-<mat-grid-list cols="1" rowHeight="100px" class="row-two-list">        
-    <mat-grid-tile  [colspan]="1" [rowspan]="1" >
-        <span class="left-content-down">
-            <span class="anomaly-comment">               
-                    <span class="lbl-comment">{{lblComment}}:</span>
-                 {{anomaly.comment}}
-            </span> 
-        </span>
-        <span class="right-content-down">
-            <p class="anomaly-times">
-                <span ><span class="anomaly-created-at"> {{lblCreatedAt}}:</span>  {{anomaly.createdAt}}</span> <br>
-                <span ><span class="anomaly-finished-at">{{lblFinishedAt}}:</span>  {{anomaly.finishedAt}}</span> 
-            </p> 
-        </span>
-           
-    </mat-grid-tile>
-</mat-grid-list>
-
-<!-- <div class="row">      
-    <div class="col-md-2">
-    <h2>{{anomalyName}}*** </h2>  
-    </div>
-
-    <div class="col-md-2" (click)="redirectToArcGis()" >
-        <button mat-raised-button class="ArcGisBtn">
-            {{btnArcGis}}
-        </button>        
-    </div>
-</div> -->
+    </mat-grid-list>
+</div>
 
 
 <mat-accordion class="example-headers-align" multi>
@@ -131,10 +121,10 @@
                         </td>
                     </ng-container>
         
-                    <ng-container matColumnDef="road">
+                    <!-- <ng-container matColumnDef="road">
                         <th i18n mat-header-cell *matHeaderCellDef mat-sort-header> Road </th>
                         <td mat-cell *matCellDef="let row"> {{row.road}} </td>
-                    </ng-container>
+                    </ng-container> -->
         
                     <ng-container matColumnDef="title">
                         <th i18n mat-header-cell *matHeaderCellDef mat-sort-header>Name</th>
@@ -146,17 +136,22 @@
                         <td mat-cell *matCellDef="let row" class="row-comment"> {{row.comment}} </td>
                     </ng-container>
 
+                   
+                    <!-- [ngStyle]="isOnGoingAnomaly==true?{'color':'red'}:{'color':'green'}" -->
+                    <ng-container matColumnDef="kp">  
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header >KP </th>
+                        <td mat-cell *matCellDef="let row"> 
+                            {{row.road}} <span class="kp-divider">/</span> {{row.direction?row.direction:"--"}} <span class="kp-divider">/</span> {{row.kp}}  </td>
+                    </ng-container>
                     <ng-container matColumnDef="createdAt">
                         <th i18n mat-header-cell *matHeaderCellDef mat-sort-header> Created Time </th>
                         <td mat-cell *matCellDef="let row"> {{row.createdAt}} </td>
                     </ng-container>
-        
-                    <ng-container matColumnDef="kp">
-                        <th mat-header-cell *matHeaderCellDef mat-sort-header> KP </th>
-                        <td mat-cell *matCellDef="let row"> {{row.kp}} </td>
+                    <ng-container matColumnDef="createdBy">
+                        <th i18n mat-header-cell *matHeaderCellDef> Created By </th>
+                        <td mat-cell *matCellDef="let row"> {{row.createdBy?row.createdBy:"---"}} </td>
                     </ng-container>
-        
-                    <ng-container matColumnDef="latitude">
+                    <!-- <ng-container matColumnDef="latitude">
                         <th i18n mat-header-cell *matHeaderCellDef> Latitude </th>
                         <td mat-cell *matCellDef="let row"> {{row.latitude}} </td>
                     </ng-container>
@@ -164,9 +159,9 @@
                     <ng-container matColumnDef="longitude">
                         <th i18n mat-header-cell *matHeaderCellDef> Longtitude </th>
                         <td mat-cell *matCellDef="let row"> {{row.longitude}} </td>
-                    </ng-container>
+                    </ng-container> -->
         
-                    <ng-container matColumnDef="edit">
+                    <!-- <ng-container matColumnDef="edit">
                         <th i18n mat-header-cell *matHeaderCellDef> Edit </th>
                         <td mat-cell *matCellDef="let row" >
                                 <mat-icon style="cursor:pointer" (click)="editReport(row.id)" color="primary">edit</mat-icon>
@@ -177,7 +172,7 @@
                         <td mat-cell *matCellDef="let row" >
                                 <mat-icon style="cursor:pointer" color="warn" (click)="deleteReport(row)">delete</mat-icon>
                         </td>
-                    </ng-container>
+                    </ng-container> -->
                     <ng-container matColumnDef="gis">
                         <th mat-header-cell *matHeaderCellDef> GISに追加 </th>
                         <td mat-cell *matCellDef="let row" >

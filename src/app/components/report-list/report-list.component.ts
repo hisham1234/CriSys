@@ -55,7 +55,7 @@ export class ReportListComponent implements OnInit, AfterViewInit, OnDestroy {
   timerCallBack: Subscription;
 
 
-  displayedColumns = ['id', 'image', 'title', 'road', 'comment','createdAt', 'kp', 'latitude', 'longitude', 'edit', 'delete'];
+  displayedColumns = ['id', 'image', 'title', 'comment','kp','createdAt','createdBy'];
   dataSource = new MatTableDataSource<ReportModel>();
 
   searchText = ''
@@ -100,7 +100,7 @@ export class ReportListComponent implements OnInit, AfterViewInit, OnDestroy {
     private route: ActivatedRoute,
     private markerService: MarkerService,
     private eventEmitterService: EventEmitterService,
-    private authentication: AuthenticationService
+    private authentication: AuthenticationService,
   ) {
     this.offset = new Date().getTimezoneOffset();
     this.clickEventsubscription = this.eventEmitterService
@@ -133,7 +133,6 @@ export class ReportListComponent implements OnInit, AfterViewInit, OnDestroy {
   getAnomalyReportData() {
     this.sub = this.route.params.subscribe((params) => {
       this.anomalyId = +params['aid']; // (+) converts string 'id' to a number
-
       this.getAnomalyReport();
 
     });
@@ -267,8 +266,8 @@ export class ReportListComponent implements OnInit, AfterViewInit, OnDestroy {
     this.router.navigate([rowId], { relativeTo: this.route });
   }
 
-  goToReportView(row) {   
-    this.router.navigate([`anomaly/${this.anomalyId}/${row.id}/report-view`]);
+  goToReportView(row:any) {       
+    this.router.navigate([`anomaly/report-view/${this.anomalyId}/${row.id}/${row.latitude}/${row.longitude}`]);
   }
 
 
@@ -324,9 +323,10 @@ export class ReportListComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   updateAnomalyStatus(){    
+    
     if(!this.anomaly.status ){
       this.noAnomalyStatus= true;
-      this.anomalyStatus="--";      
+      this.anomalyStatus=$localize`no_status`;      
       return;
     }else{
       if(this.anomaly.status ==="On going"){
