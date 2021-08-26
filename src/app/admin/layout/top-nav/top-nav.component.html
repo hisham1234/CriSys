@@ -17,20 +17,30 @@
       </div>
     </span>
     
-    <div class="row">
-      <span class="col-md-3">
+    <!-- <div class="row nav-btns">
+      <span class="col-md-1">
         
       </span>
-      <div class="col-md-6">
+      <div class="col-md-1">
+    
+      </div>
+      <div class="col-md-3">
         <a class="topnav-icon" href="/anomaly" i18n>Anomalies</a>
       </div>
       <div class="col-md-3">
         <a class="topnav-icon" href="/gallery" i18n>Gallery Image</a>
       </div>
+      <div class="col-md-3">
+        <a class="topnav-icon" href="/gallery" i18n>Gallery Image</a>
+      </div>
      
-    </div>
+    </div> -->
     
-
+    <div class="col-md-6">
+      <a class="nav-btn-item " mat-button [routerLink]="'/anomaly'" i18n> Anomalies </a>
+      <a class="nav-btn-item " mat-button [routerLink]="'/gallery'" i18n> Gallery Image </a>
+      <a class="nav-btn-item " mat-button [routerLink]="'/settings/users'"> Users </a>  
+    </div>
     
     
 
