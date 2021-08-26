@@ -23,7 +23,9 @@ export const childRoutes = [
     path: 'settings/display',
     component: DisplaySettingsComponent,
     data: {
-      showInSidebar: false,
+      showInSidebar: true,
+      text:"Display Settings",
+      icon: 'dashboard',
     },
     canActivate: [AuthGuard],
   },
@@ -42,7 +44,7 @@ export const childRoutes = [
     data: {
       icon: 'dashboard',
       text: $localize`Anomaly`,
-      showInSidebar: true,
+      showInSidebar: false,
     },
     canActivate: [AuthGuard],
   },
@@ -88,7 +90,7 @@ export const childRoutes = [
     data: {
       icon: 'dashboard',
       text: $localize`Gallery Screen`,
-      showInSidebar: true,
+      showInSidebar: false,
     },
     canActivate: [AuthGuard],
   }
